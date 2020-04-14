@@ -1,13 +1,17 @@
 import React from 'react'
 import './Navbar.css'
+import home from '../home.png'
+import recipe from '../recipe.png'
+import beer from '../beer.png'
+import balance from '../balance.png'
 
 function Navbar(){
     return (
         <div class="navbar">
-  <a href="#home"><img src='../icons-navbar/home.png.' alt='home'/></a>
-  <a href="#recipes">Recipes</a>
-  <a href="#beer">Beer</a>
-  <a href="#calculator">Calculator</a>
+  <a href="#home"><img class="icons" src={home} alt='home'/></a>
+  <a href="#recipes"><img class="icons" src={recipe} alt='fork, knife and spoon'/></a>
+    <a href="#beer"><img class="icons" src={beer} alt='glass of beer'/></a>
+  <a href="#calculator"><img class="icons" src={balance} alt='weight balance'/></a>
         </div>
     )
 }
