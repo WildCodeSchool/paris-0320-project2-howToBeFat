@@ -23,8 +23,13 @@
         padding: 14px 16px;
         text-decoration: none;
         font-size: 17px;
+        padding: 5px 5px 5px 5px;
+        width: 80%;
     }
-    
+/* Size of Icons */
+    .icons{
+        width: 50px;
+    };
 /* Change the color of icon on hover */
     .navbar a:hover {
         background-color: #231f20;
@@ -35,10 +40,5 @@
     .navbar a.active {
         background-color: #231f20;
         color: #ffcb05;
-    }
-    
-/* Hide the link that should open and close the navbar on small screens */
-    .navbar .icon {
-        display: none;
     }
 }
