@@ -7,7 +7,7 @@ import balance from '../balance.png'
 
 function Navbar(){
     return (
-        <div class="navbar">
+        <div class="navbar-mobile">
   <a href="#home"><img class="icons" src={home} alt='home'/></a>
   <a href="#recipes"><img class="icons" src={recipe} alt='fork, knife and spoon'/></a>
     <a href="#beer"><img class="icons" src={beer} alt='glass of beer'/></a>
