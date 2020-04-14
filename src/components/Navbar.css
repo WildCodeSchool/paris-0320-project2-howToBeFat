@@ -32,14 +32,14 @@
     };
 /* Change the color of icon on hover */
     .navbar-mobile a:hover {
-        background-color: #231f20;
-        color: #ffcb05;
+        background-color: #ffcb05;
+        color: #231f20;
     }
     
 /* Add a background color to the active link */
-    .navbar-mobile a.active {
-        background-color: #231f20;
-        color: #ffcb05;
+    div .navbar-mobile a.active {
+        background-color: #ffcb05;
+        color: #231f20;
     }
 }
 
