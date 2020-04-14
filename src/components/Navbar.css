@@ -1,9 +1,9 @@
 
 /* Navbar for Mobile-first */
-@media screen and (max-width: 510px) {
+@media screen and (max-width: 1100px) {
 
 /* Place the navbar stick at the bottom of the page and Icons center */
-    .navbar {
+    .navbar-mobile {
         display: flex;
         justify-content: space-around;
         background-color: #00c2cb;
@@ -15,7 +15,7 @@
     }
     
 /* Style the icons */
-    .navbar a {
+    .navbar-mobile a {
         float: left;
         display: block;
         color: #231f20;
@@ -31,14 +31,21 @@
         width: 50px;
     };
 /* Change the color of icon on hover */
-    .navbar a:hover {
+    .navbar-mobile a:hover {
         background-color: #231f20;
         color: #ffcb05;
     }
     
 /* Add a background color to the active link */
-    .navbar a.active {
+    .navbar-mobile a.active {
         background-color: #231f20;
         color: #ffcb05;
+    }
+}
+
+/* Navbar for desktop */
+@media screen and (min-width: 1100px) {
+    .navbar-mobile{
+        display: none;
     }
 }
