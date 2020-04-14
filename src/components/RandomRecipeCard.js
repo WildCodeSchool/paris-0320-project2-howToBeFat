@@ -1,5 +1,7 @@
+
 import React from 'react'
 import axios from 'axios'
+import IngredientList from './IngredientList';
 
 class RandomRecipeCard extends React.Component {
     constructor(props) {
@@ -20,26 +22,34 @@ class RandomRecipeCard extends React.Component {
             })
     }
 
+    getPreparationTime(time) {
+        const hours = time > 60 ? Math.floor(time / 60) : 0
+        const unity = hours > 1 ? "hours" : "hour"
+        const minutes = time > 60 ? time % 60 : time
+        return time > 60 ? `${hours} ${unity} and ${minutes} minutes` : `${minutes} minutes`
+    }
+
     componentDidMount() {
         this.getRecipe()
     }
 
     render() {
+        const calories = Math.round(this.state.recipe.calories)
+
         return (
             <div className="RandomRecipeCard" >
                 <h1> Random recipe: </h1>
                 <article>
                     <p>{this.state.recipe.label}</p>
                     <img src={this.state.recipe.image} alt=""></img>
-                    <ul>
-                        {this.state.ingredients.map(ingredient => (
-                            <li key={ingredient}>{ingredient}</li>))}
-                    </ul>
+                    <IngredientList list={this.state.ingredients} />
+                    <p>Number of calories: {calories}</p>
+                    <p><a href={this.state.recipe.url}>Here is the recipe !</a></p>
+                    <p>Preparation time: {this.getPreparationTime(this.state.recipe.totalTime)}</p>
                 </article>
             </div>
         );
     }
 }
-
 
 export default RandomRecipeCard
