@@ -1,0 +1,44 @@
+
+/* Navbar for Mobile-first */
+@media screen and (max-width: 510px) {
+
+/* Place the navbar stick at the bottom of the page and Icons center */
+    .navbar {
+        display: flex;
+        justify-content: space-around;
+        background-color: #00c2cb;
+        overflow: hidden;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        
+    }
+    
+/* Style the icons */
+    .navbar a {
+        float: left;
+        display: block;
+        color: #231f20;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    
+/* Change the color of icon on hover */
+    .navbar a:hover {
+        background-color: #231f20;
+        color: #ffcb05;
+    }
+    
+/* Add a background color to the active link */
+    .navbar a.active {
+        background-color: #231f20;
+        color: #ffcb05;
+    }
+    
+/* Hide the link that should open and close the navbar on small screens */
+    .navbar .icon {
+        display: none;
+    }
+}
