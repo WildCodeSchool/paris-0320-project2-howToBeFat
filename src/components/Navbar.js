@@ -14,16 +14,6 @@ function Navbar(){
     <a href="#beer"><img class="icons" src={beer} alt='glass of beer'/></a>
   <a href="#calculator"><img class="icons" src={balance} alt='weight balance'/></a>
         </div>
-        // Navbar Mobile
-
-        // Navbar Desktop
-//         <div class="navbar-top">
-// <a class="active" href="#home">Home</a>
-// <a href="#news">Recipes</a>
-// <a href="#contact">Beers</a>
-// <a href="#about">Tips</a>
-//         </div>
-        // Navbar Desktop
     )
 }
 
