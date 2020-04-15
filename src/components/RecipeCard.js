@@ -16,13 +16,20 @@ class RandomRecipeCard extends React.Component {
   }
 
   getRecipe() {
-    let url = "https://api.edamam.com/search?q=chocolate&from=1&to=50&calories=5000&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58"
+    let selectedIngredients = "cheese"
+    const min = 0
+    const max = min + 50
+    const minCalories = 5000
+    const maxCalories = 10000
+    let url = `https://api.edamam.com/search?q=${selectedIngredients}&from=${min}&to=${max}&calories=${minCalories}-${maxCalories}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
     axios.get(url)
       .then((res) => {
+        const randomNum = this.randomNumber(max)
+        console.log(randomNum, "randomNum")
         // base of the calls
         const res1 = res.data.hits
         //sort by calories desc
-        const maxCalories = res1.map(x => x.recipe.calories).sort((a, b) => b - a)[0]
+        const maxCalories = res1.map(x => x.recipe.calories).sort((a, b) => b - a)[randomNum]
         // Search for the recipe whom match with the max of calories
         const objectUri = res1.filter(x => x.recipe.calories === maxCalories)[0]
         // Define the state with the research recipe and the ingredients which go with
@@ -32,6 +39,8 @@ class RandomRecipeCard extends React.Component {
         })
       })
   }
+
+  randomNumber = (max) => Math.floor(Math.random() * Math.floor(max))
 
   getPreparationTime(time) {
     const hours = time > 60 ? Math.floor(time / 60) : 0
