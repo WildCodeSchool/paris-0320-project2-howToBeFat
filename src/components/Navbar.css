@@ -18,13 +18,14 @@
     .navbar-mobile a {
         float: left;
         display: block;
-        color: #231f20;
+        color: #0c383a;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
-        font-size: 17px;
+        font-size: 30px;
         padding: 5px 5px 5px 5px;
         width: 80%;
+        text-shadow: 10px 6px 2px #1c72a3;
     }
 /* Size of Icons */
     .icons{
@@ -38,8 +39,8 @@
     
 /* Add a background color to the active link */
     div .navbar-mobile a.active {
-        background-color: #ffcb05;
-        color: #231f20;
+        background-color: #00c2cb;
+        color: #ffcb05;
     }
 }
 

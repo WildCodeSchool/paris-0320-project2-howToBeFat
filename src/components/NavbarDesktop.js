@@ -3,9 +3,9 @@ import './NavbarDesktop.css'
 
 function NavbarDesktop (){
     return (
-        <div class="topnav">
+        <div className ="topnav">
           <div>
-            <a class="active" href="#home">Home</a>
+            <a className ="active" href="#home">Home</a>
             <a href="#recipes">Recipes</a>
           </div>
           <div>

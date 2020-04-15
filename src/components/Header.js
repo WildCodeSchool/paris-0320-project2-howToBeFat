@@ -1,7 +1,8 @@
 import React from 'react'
+import logo2 from '../onlyCat.png'
 import NavbarDesktop from './NavbarDesktop'
 import './Header.css'
-import logo2 from '../onlyCat.png'
+
 
 class Header extends React.Component {
     render() {
