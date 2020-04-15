@@ -1,6 +1,6 @@
 import React from 'react'
+import NavbarDesktop from './NavbarDesktop'
 import './Header.css'
-import logo from '../special-confinement.png'
 import logo2 from '../onlyCat.png'
 
 class Header extends React.Component {
@@ -11,6 +11,7 @@ class Header extends React.Component {
                     <div className="siteName">HowToBeFat</div>
                     <div className="slogan">Eat, keep home and pet your cat !</div>
                 </a>
+                <NavbarDesktop />
                 <img className='logo' src={logo2} alt='Logo' />
             </header>
         )
