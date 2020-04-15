@@ -1,0 +1,51 @@
+
+/* Navbar for Mobile-first */
+@media screen and (max-width: 1100px) {
+
+/* Place the navbar stick at the bottom of the page and Icons center */
+    .navbar-mobile {
+        display: flex;
+        justify-content: space-around;
+        background-color: #00c2cb;
+        overflow: hidden;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        
+    }
+    
+/* Style the icons */
+    .navbar-mobile a {
+        float: left;
+        display: block;
+        color: #231f20;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        padding: 5px 5px 5px 5px;
+        width: 80%;
+    }
+/* Size of Icons */
+    .icons{
+        width: 50px;
+    };
+/* Change the color of icon on hover */
+    .navbar-mobile a:hover {
+        background-color: #ffcb05;
+        color: #231f20;
+    }
+    
+/* Add a background color to the active link */
+    div .navbar-mobile a.active {
+        background-color: #ffcb05;
+        color: #231f20;
+    }
+}
+
+/* Navbar for desktop */
+@media screen and (min-width: 1100px) {
+    .navbar-mobile{
+        display: none;
+    }
+}
