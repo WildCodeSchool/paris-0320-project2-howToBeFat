@@ -34,18 +34,20 @@ class RandomRecipeCard extends React.Component {
     }
 
     render() {
-        const calories = Math.round(this.state.recipe.calories)
+        const { label, image, calories, url, totalTime } = { ...this.state.recipe }
+        Math.round(calories)
+
 
         return (
             <div className="RandomRecipeCard" >
                 <h1> Random recipe: </h1>
                 <article>
-                    <p>{this.state.recipe.label}</p>
-                    <img src={this.state.recipe.image} alt=""></img>
+                    <p>{label}</p>
+                    <img src={image} alt=""></img>
                     <IngredientList list={this.state.ingredients} />
                     <p>Number of calories: {calories}</p>
-                    <p><a href={this.state.recipe.url}>Here is the recipe !</a></p>
-                    <p>Preparation time: {this.getPreparationTime(this.state.recipe.totalTime)}</p>
+                    <p><a href={url}>Here is the recipe !</a></p>
+                    <p>Preparation time: {this.getPreparationTime(totalTime)}</p>
                 </article>
             </div>
         );
