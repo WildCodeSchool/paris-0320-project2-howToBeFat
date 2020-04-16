@@ -1,17 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import IngredientList from './IngredientList'
+//import IngredientList from './IngredientList'
 
 import './DisplayRecipe.css'
 
-class RandomRecipe extends React.Component {
+class DisplayRecipe extends React.Component {
+  state = {
+    page: "displayRecipe",
+    reload: false
+  }
 
   render() {
-    const { label, image, url } = { ...this.props.recipe }
-    const totalTime = this.props.preparationTime
+    const { label, image } = { ...this.props.recipe }
+    //const totalTime = this.props.preparationTime
     const calories = this.props.calories
-    const ingredientsList = this.props.ingredientsList
+    //const ingredientsList = this.props.ingredientsList
 
     return (
       <div className="DisplayRecipe">
@@ -32,14 +36,12 @@ class RandomRecipe extends React.Component {
   }
 }
 
-RandomRecipe.propTypes = {
+DisplayRecipe.propTypes = {
   recipe: PropTypes.shape({
     image: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
-    totalTime: PropTypes.number.isRequired,
     calories: PropTypes.number.isRequired,
-    ingredientsList: PropTypes.arrayOf.isRequired,
   })
 }
 
-export default RandomRecipe
+export default DisplayRecipe
