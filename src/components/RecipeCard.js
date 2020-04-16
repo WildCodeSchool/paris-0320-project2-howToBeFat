@@ -80,7 +80,7 @@ class RecipeCard extends React.Component {
 
         <div className="button">
           <button onClick={this.getOtherRecipe}>Show another one! </button>
-          <button onClick={this.handleClickPage}>Learn more about it ...</button>
+          <button>To come Up Nearly...</button>
         </div>
       </div>
 
