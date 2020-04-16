@@ -5,15 +5,13 @@ import React from 'react'
 import DisplayRecipe from './DisplayRecipe'
 import FullRecipeCard from './FullRecipeCard'
 
-class RandomRecipeCard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      recipe: '',
-      ingredients: [],
-      UserChoice: false
-    }
-    this.getRecipe = this.getRecipe.bind(this)
+class RecipeCard extends React.Component {
+
+  state = {
+    recipe: '',
+    ingredients: [],
+    UserChoice: false,
+    page: ''
   }
 
   getRecipe() {
@@ -23,6 +21,7 @@ class RandomRecipeCard extends React.Component {
     const minCalories = 5000
     const maxCalories = 10000
     let url = `https://api.edamam.com/search?q=${selectedIngredients}&from=${min}&to=${max}&calories=${minCalories}-${maxCalories}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
+
     axios.get(url)
       .then((res) => {
         const randomNum = this.randomNumber(max)
@@ -51,6 +50,14 @@ class RandomRecipeCard extends React.Component {
     return time > 60 ? `${hours} ${unity} and ${minutes} minutes` : `${minutes} minutes`
   }
 
+  handleClickPage = () => {
+    this.setState({ page: "FullRecipe" })
+  }
+
+  getOtherRecipe = () => {
+    this.getRecipe()
+  }
+
   componentDidMount() {
     this.getRecipe()
   }
@@ -63,12 +70,21 @@ class RandomRecipeCard extends React.Component {
       <div className="RandomRecipeCard" >
         {// Await for the futur user choice possibilities // =>
         }{this.state.UserChoice}
+        {this.state.page !== "FullRecipe" ?
+          <DisplayRecipe ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
+          :
+          <FullRecipeCard ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
+        }
 
-        <DisplayRecipe ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
-        <FullRecipeCard ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
+        <div>
+          <button onClick={this.handleClickPage}>Full recipe</button>
+          <button onClick={this.getOtherRecipe}>Other recipe</button>
+        </div>
       </div>
+
+
     );
   }
 }
 
-export default RandomRecipeCard
+export default RecipeCard
