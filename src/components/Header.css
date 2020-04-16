@@ -4,7 +4,7 @@
 
 header {
     width: 100%;
-    height: 125px;
+    height: 10rem;
     background-color: #00c2cb;
     display: flex;
     justify-content: space-between;
@@ -18,11 +18,11 @@ header {
     text-align: start;
     flex-direction: column;
     text-decoration: none;
-    margin-right: 40px;
+    margin-right: 0.5rem;
 }
 
 .siteName {
-    font-size: 35px;
+    font-size: 2.2rem;
     font-weight: bold;
     color: #ffcb05;
     text-shadow: 5px 6px 2px #1c72a3;
@@ -30,7 +30,7 @@ header {
 }
 
 .slogan {
-    font-size: 17px;
+    font-size: 1.1rem;
     font-family: 'Gloria Hallelujah','Knewave', sans-serif ;
     color: #ffcb05;
     text-shadow: 3px 3px 2px #1c72a3;
@@ -45,20 +45,18 @@ header {
 
 @media (min-width: 1050px) {
     header {
-        height: 200px;
-        padding: 10px;
+        height: 10rem;
     }
     .textHead {
-        margin-left: 30px;
+        margin-right: 3rem;
     }
     .siteName {
-        font-size: 70px;
+        font-size: 4.5em;
         margin-bottom: -20px;
         margin-right: 10px;
     }
     .slogan {
-        font-size: 25px;
-        margin-right: 10px;
+        font-size: 1.4em;
     }
     .logo {
         height: 150%;
