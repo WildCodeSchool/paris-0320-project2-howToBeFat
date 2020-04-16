@@ -1,16 +1,39 @@
-@import url("https://fonts.google.com/specimen/Knewave");
+@import url("https://fonts.googleapis.com/css?family=Knewave&display=swap&subset=latin-ext%22");
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap%22");
+
+.recipe{
+    color:#00c2cb ;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+}
+
+.recipe:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.recipe:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+
 
 .card{
     border: solid 1px #00c2cb;
-    background: #99d7da;
     border-radius: 5%;
     margin:20px;
 
 }
 
 h2{
-    font-family:Knewave ;
-    color: #ffcb05;
+    text-shadow: 5px 6px 2px #1c72a3;
+    font-family: 'Gloria Hallelujah', sans-serif;
 }
 
 .ingredients{
