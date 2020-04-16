@@ -3,6 +3,8 @@ import React from 'react'
 import axios from 'axios'
 import IngredientList from './IngredientList';
 
+import './RandomRecipeCard.css'
+
 class RandomRecipeCard extends React.Component {
     constructor(props) {
         super(props);

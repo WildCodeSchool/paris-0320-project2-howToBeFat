@@ -1,0 +1,58 @@
+
+  .container {
+    padding: 2px 16px;
+  }
+  .card img{
+    width: 97%;
+}
+.DisplayRecipe .card h1 {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #00c2cb;
+}
+.DisplayRecipe button {
+    background-color: #00c2cb; 
+    color: black; 
+    border: 2px solid #ffcb05;
+    border-radius: 5px;
+    padding: 5px; 
+    margin-right: 15px; 
+}
+.DisplayRecipe button:hover {
+    background-color: #ffcb05;
+    color: white;
+  } 
+
+@media (min-width: 1050px) {
+    .DisplayRecipe .card img{
+        background-color: royalblue;
+        width: 99%;
+    }
+    .DisplayRecipe button{
+        border: none;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+    
+   .DisplayRecipe .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+    }
+    .DisplayRecipe .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+    }
+    .DisplayRecipe .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 20%;
+    }
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+}

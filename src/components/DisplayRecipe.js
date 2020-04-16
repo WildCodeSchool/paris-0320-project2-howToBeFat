@@ -15,17 +15,20 @@ class RandomRecipe extends React.Component {
 
 
     return (
-      < div >
-        <h1> Random recipe: </h1>
-        <article>
+      <div className="DisplayRecipe">
+        <div class="card">
+        <h1> Random recipe </h1>
+        <img src={image} alt=""></img>
+        <div class="container">
           <p>{label}</p>
-          <img src={image} alt=""></img>
-          <p>Number of calories: {calories}</p>
-          <p><a href={url}>Here is the recipe !</a></p>
-          <p>Preparation time: {totalTime}</p>
-        </article>
-        <IngredientList list={ingredientsList} />
-      </div >
+              <p>Number of calories: {calories}</p>
+              {/* <p><a href={url}>Here is the recipe !</a></p> */}
+              {/* <p>Preparation time: {totalTime}</p> */}
+              <button>Show more</button>
+              <button>Show more</button>
+        </div>
+      </div>
+      </div>
     )
   }
 }
