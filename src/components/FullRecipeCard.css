@@ -1,9 +1,16 @@
+@import url("https://fonts.google.com/specimen/Knewave");
+
 .card{
     border: solid 1px #00c2cb;
     background: #99d7da;
     border-radius: 5%;
     margin:20px;
 
+}
+
+h2{
+    font-family:Knewave ;
+    color: #ffcb05;
 }
 
 .ingredients{

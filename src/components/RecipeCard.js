@@ -63,7 +63,8 @@ class RandomRecipeCard extends React.Component {
         {// Await for the futur user choice possibilities // =>
         }{this.state.UserChoice}
         <FullRecipeCard ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories}/>
-        <DisplayRecipe ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
+        {//<DisplayRecipe ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
+  }
       </div>
     );
   }
