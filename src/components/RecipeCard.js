@@ -5,6 +5,8 @@ import React from 'react'
 import DisplayRecipe from './DisplayRecipe'
 import FullRecipeCard from './FullRecipeCard'
 
+import './RecipeCard.css'
+
 class RecipeCard extends React.Component {
 
   state = {
@@ -67,7 +69,7 @@ class RecipeCard extends React.Component {
     const calories = Math.round(this.state.recipe.calories)
 
     return (
-      <div className="RandomRecipeCard" >
+      <div className="RecipeCard" >
         {// Await for the futur user choice possibilities // =>
         }{this.state.UserChoice}
         {this.state.page !== "FullRecipe" ?
@@ -76,9 +78,9 @@ class RecipeCard extends React.Component {
           <FullRecipeCard ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
         }
 
-        <div>
-          <button onClick={this.handleClickPage}>Full recipe</button>
-          <button onClick={this.getOtherRecipe}>Other recipe</button>
+        <div className="button">
+          <button onClick={this.handleClickPage}>Show another one! </button>
+          <button onClick={this.getOtherRecipe}>Learn more about it ...</button>
         </div>
       </div>
 
