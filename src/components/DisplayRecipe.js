@@ -13,7 +13,6 @@ class RandomRecipe extends React.Component {
     const calories = this.props.calories
     const ingredientsList = this.props.ingredientsList
 
-
     return (
       < div >
         <h1> Random recipe: </h1>

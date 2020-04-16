@@ -3,6 +3,7 @@ import axios from 'axios'
 import React from 'react'
 
 import DisplayRecipe from './DisplayRecipe'
+import FullRecipeCard from './FullRecipeCard'
 
 class RandomRecipeCard extends React.Component {
   constructor(props) {
@@ -29,9 +30,10 @@ class RandomRecipeCard extends React.Component {
         // base of the calls
         const res1 = res.data.hits
         //sort by calories desc
-        const maxCalories = res1.map(x => x.recipe.calories).sort((a, b) => b - a)[randomNum]
+        const thisCalories = res1.map(x => x.recipe.calories).sort((a, b) => b - a)[randomNum]
         // Search for the recipe whom match with the max of calories
-        const objectUri = res1.filter(x => x.recipe.calories === maxCalories)[0]
+        const objectUri = res1.filter(x => x.recipe.calories === thisCalories)[0]
+        console.log(objectUri, "objectUri")
         // Define the state with the research recipe and the ingredients which go with
         this.setState({
           recipe: objectUri.recipe,
@@ -63,6 +65,7 @@ class RandomRecipeCard extends React.Component {
         }{this.state.UserChoice}
 
         <DisplayRecipe ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
+        <FullRecipeCard ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
       </div>
     );
   }
