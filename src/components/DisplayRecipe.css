@@ -9,14 +9,18 @@
 .DisplayRecipe .card h1 {
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	background-color: #00c2cb;
+	font-size: 1.3em;
+	padding: 10px;
+	color: rgb(219, 216, 216);
+	box-shadow: white;
 }
 
 .bolder {
-	font-weight: bold;
+	font-weight: 400;
 }
 
 p.bolder {
-	font-size: 1.2rem;
+	font-size: 1rem;
 }
 
 @media (min-width: 1050px) {
@@ -41,7 +45,7 @@ p.bolder {
 	.DisplayRecipe .card {
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 		transition: 0.3s;
-		width: 20%;
+		width: 30%;
 	}
 	.card:hover {
 		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
