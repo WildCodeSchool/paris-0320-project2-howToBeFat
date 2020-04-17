@@ -1,7 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-//import IngredientList from './IngredientList'
+import PropTypes from 'prop-types'
 
 import './DisplayRecipe.css'
 
