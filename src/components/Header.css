@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css?family=Knewave&display=swap&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap");
+
+
+header {
+    width: 100%;
+    height: 10rem;
+    background-color: #00c2cb;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+
+}
+
+.textHead {
+    display: flex;
+    justify-content: center;
+    text-align: start;
+    flex-direction: column;
+    text-decoration: none;
+    margin-right: 0.5rem;
+}
+
+.siteName {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #ffcb05;
+    text-shadow: 5px 6px 2px #1c72a3;
+    font-family: 'Gloria Hallelujah', sans-serif;
+}
+
+.slogan {
+    font-size: 1.1rem;
+    font-family: 'Gloria Hallelujah','Knewave', sans-serif ;
+    color: #ffcb05;
+    text-shadow: 3px 3px 2px #1c72a3;
+    margin-bottom: 14px;
+}
+
+.logo {
+    height: 100%;
+    align-self: flex-end;
+    margin-left: 5px;
+}
+
+@media (min-width: 1050px) {
+    header {
+        height: 10rem;
+    }
+    .textHead {
+        margin-right: 3rem;
+    }
+    .siteName {
+        font-size: 4.5em;
+        margin-bottom: -20px;
+        margin-right: 10px;
+    }
+    .slogan {
+        font-size: 1.4em;
+    }
+    .logo {
+        height: 150%;
+        margin-bottom: -100px;
+    }
+}
+
