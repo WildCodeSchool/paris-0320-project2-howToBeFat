@@ -5,7 +5,8 @@ const IngredientList = ({ list }) => (
 
   <ul>
     {list.map(ingredient => (
-      <li key={ingredient}>{ingredient}</li>))}
+      <li key={ingredient}><hr></hr>{ingredient}</li>
+      ))}
   </ul>
 )
 

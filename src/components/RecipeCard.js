@@ -26,7 +26,6 @@ class RandomRecipeCard extends React.Component {
     axios.get(url)
       .then((res) => {
         const randomNum = this.randomNumber(max)
-        console.log(randomNum, "randomNum")
         // base of the calls
         const res1 = res.data.hits
         //sort by calories desc
@@ -62,7 +61,7 @@ class RandomRecipeCard extends React.Component {
       <div className="RandomRecipeCard" >
         {// Await for the futur user choice possibilities // =>
         }{this.state.UserChoice}
-        <FullRecipeCard ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories}/>
+        <FullRecipeCard ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} allergen={this.props.cautions} calories={calories}/>
         {//<DisplayRecipe ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
   }
       </div>
