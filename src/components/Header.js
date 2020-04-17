@@ -1,5 +1,5 @@
 import React from 'react'
-import logo2 from '../onlyCat.png'
+import logo2 from './images/onlyCat.png'
 import NavbarDesktop from './NavbarDesktop'
 import './Header.css'
 
