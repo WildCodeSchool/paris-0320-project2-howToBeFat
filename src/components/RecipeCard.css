@@ -1,2 +1,30 @@
-.RandomRecipeCard p {
+.RecipeCard button {
+  background-color: #00c2cb;
+  color: black;
+  border: 2px solid #ffcb05;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0 .5em .5em;
+  font-size: 1em;
+}
+
+.RecipeCard button:hover {
+  background-color: #ffcb05;
+  color: white;
+}
+
+@media (min-width: 1050px) {
+  .RecipeCard button {
+    border: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  .RecipeCard {
+    margin: auto;
+    margin-bottom: .5em;
+  }
 }
