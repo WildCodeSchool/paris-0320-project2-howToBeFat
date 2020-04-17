@@ -11,7 +11,6 @@ class FullRecipeCard extends React.Component {
     }
 
     render() {
-        console.log(this.props.recipe)
         return (
             <div className="card">
                 <h2 className="recipe-name">{this.props.recipe.label}</h2>
