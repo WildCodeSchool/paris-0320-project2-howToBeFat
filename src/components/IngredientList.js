@@ -3,10 +3,10 @@ import './IngredientList.css'
 
 const IngredientList = ({ list }) => (
 
-  <ul>
+  <ul className="listIngredients">
     {list.map(ingredient => (
       <li key={ingredient}><hr></hr>{ingredient}</li>
-      ))}
+    ))}
   </ul>
 )
 

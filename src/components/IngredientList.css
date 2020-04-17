@@ -1,4 +1,10 @@
-hr{
+hr {
     color: rgb(175, 173, 173);
     border-top: 0;
+}
+
+.listIngredients ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 10px;
 }
