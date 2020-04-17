@@ -1,15 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Knewave&display=swap&subset=latin-ext%22");
 @import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap%22");
 @import url("https://fonts.google.com/specimen/Gloria+Hallelujah?selection.family=Gloria+Hallelujah&sidebar.open&preview.text=Salut+je+sais+pas+quoi+%C3%A9crire+howToBeFat.com+keep+calm+and+pet+your+cat&preview.text_type=custom");
-
-a{
+.fullCard a {
     text-decoration: none;
-    font-family:'Knewave';
-    color:#ffcb05;
+    font-family: 'Knewave';
+    color: #ffcb05;
     font-size: 1.5em;
 }
 
-button{
+.goRecipe button {
     border: 0;
     line-height: 2.5;
     padding: 0 20px;
@@ -21,50 +20,43 @@ button{
     margin-top: 20px;
 }
 
-button:hover {
+.goRecipe:hover {
     background-color: rgba(255, 0, 0, 1);
 }
 
-button:active {
-    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
-                inset 2px 2px 3px rgba(0, 0, 0, .6);
+.goRecipe:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6), inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
-.card{
+.fullCard {
     border: solid 1px #00c2cb;
     border-radius: 1em;
-    margin:1.2em;
+    margin: 1.2em;
 }
 
-h2{
-    color:  #00c2cb;
+.recipe-name h2 {
+    color: #00c2cb;
     text-shadow: 1px 1px 1px #035a5f;
     font-family: 'Knewave', sans-serif;
 }
 
-h4{
+.calorie {
     border: solid 1px #00c2cb;
     width: 8em;
     margin: 1em auto;
     white-space: nowrap;
 }
 
-h4 span{
+.colorie span {
     color: #00c2cb;
 }
 
-.ingredients{
+.ingredients {
     text-align: left;
 }
 
-img{
+.photoFood {
     height: 150px;
     border: solid 1px #00c2cb;
     padding: 0.3em;
-}
-
-ul{
-    list-style-type: none;
-    padding: 0;
-    margin: 0 10px;
 }
