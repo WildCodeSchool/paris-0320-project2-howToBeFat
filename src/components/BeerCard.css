@@ -1,0 +1,13 @@
+.cardBeer img{
+	height: 15%;
+	padding: 0;
+}
+
+.cardBeer img{
+    box-shadow: 0 8px 16px 0 rgba(248, 248, 248, 0.2);
+    color: #ffcb05;
+    height: 350px;
+	padding: .5em;
+}
+
+
