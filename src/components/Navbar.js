@@ -7,18 +7,20 @@ import {
   faBalanceScaleRight,
 } from '@fortawesome/free-solid-svg-icons'
 import './Navbar.css'
-
+import {browserRouter as Router,Link,Route} from 'react-router-dom'
 
 
 function Navbar(){
     return (
+      <Router>
         <div className ="navbar-mobile">
-          <a className="active" href="#home"><FontAwesomeIcon icon={faHome} /></a>
-          <a href="#recipes"><FontAwesomeIcon icon={faHamburger} /></a>
-          <a href="#beer"><FontAwesomeIcon icon={faBeer} /></a>
-          <a href="#calculator"><FontAwesomeIcon icon={faBalanceScaleRight} /></a>
+          <Link to="#home"className="active"><FontAwesomeIcon icon={faHome} /></Link>
+          <Link to="#recipes"><FontAwesomeIcon icon={faHamburger} /></Link>
+          <Link to="#beer"><FontAwesomeIcon icon={faBeer} /></Link>
+          <Link to="#calculator"><FontAwesomeIcon icon={faBalanceScaleRight} /></Link>
         </div>
-           )
+      </Router>   
+    )
 }
 
 export default Navbar
