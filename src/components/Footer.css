@@ -3,11 +3,10 @@
     /* Il faudra peut-etre mettre le body en position : relative */
     position: absolute; 
     bottom: 0;
-    background-color:rgb(231, 229, 229);
-    color: #ffcb05;
-    font-size: 12px;
+    background-color: rgb(228, 228, 228);
+    color: #231f20;
+    font-size: 0.8em;
     white-space: nowrap;
-    padding: 1px 0;
 }
 
 .logosLink ul{
@@ -18,18 +17,23 @@
 }
 
 .logosLink img{
-    width: 30px;
-    height: 30px;
+    width: 3em;
+    height: 3em;
     border-radius: 20%;
 }
 
 @media screen and (min-width: 590px){    
-    .logosLink img{
-        width: 50px;
-        height: 50px;
-    }
 
     .footer{
-        font-size: 24px;
+        font-size: 1.5em;
+    }
+
+    .logosLink img{
+        width: 3em;
+        height: 3em;
+    }
+
+    .logosLink ul{
+        justify-content: space-evenly
     }
 }
