@@ -3,7 +3,7 @@
     /* Il faudra peut-etre mettre le body en position : relative */
     position: absolute; 
     bottom: 0;
-    background-color:black;
+    background-color:rgb(231, 229, 229);
     color: #ffcb05;
     font-size: 12px;
     white-space: nowrap;
