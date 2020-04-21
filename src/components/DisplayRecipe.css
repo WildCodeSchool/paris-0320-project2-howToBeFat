@@ -35,16 +35,11 @@
 	;
 }
 
-<<<<<<< HEAD
-p.bolder {
-	font-size: 1rem;
-=======
 .recipeName.nbCal {
 	padding: 1px;
 	border-radius: 30%;
 	color: rgb(20, 49, 92);
 	font-weight: 1200;
->>>>>>> 500f4da393fdb4113b7a830f0a171c9a69204d74
 }
 
 @media (min-width: 1050px) {
