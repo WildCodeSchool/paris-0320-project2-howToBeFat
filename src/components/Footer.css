@@ -1,4 +1,8 @@
 .footer{
+    width: 100%;
+    /* Il faudra peut-etre mettre le body en position : relative */
+    position: absolute; 
+    bottom: 0;
     background-color:black;
     color: #ffcb05;
     font-size: 12px;
