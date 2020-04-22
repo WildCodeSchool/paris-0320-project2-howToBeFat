@@ -1,7 +1,7 @@
 .footer{
     width: 100%;
     /* Il faudra peut-etre mettre le body en position : relative */
-    background-color: rgb(228, 228, 228);
+    background-color: #00c2cb21;
     color: #231f20;
     font-size: 0.8em;
     padding-top: 1.5em;
