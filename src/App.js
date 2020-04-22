@@ -2,20 +2,24 @@ import React from 'react';
 
 import Header from './components/Header'
 import Navbar from './components/Navbar'
-import RecipeCard from './components/RecipeCard'
 
+import Acceuil from './components/Acceuil'
+import FullRecipeCard from './components/FullRecipeCard'
 import './App.css';
+import { Route, Switch } from 'react-router-dom'
 
 const App = () => {
   return (
     <div className="App">
-      <div className="">
+
+      <div className="header">
         <Header />
         <Navbar />
       </div>
-      <body className="body">
-        <RecipeCard />
-      </body>
+      <Switch>
+        <Route exact path="/" component={Acceuil}></Route>
+        <Route path="/FullRecipeCard" component={FullRecipeCard} />
+      </Switch>
     </div>
   );
 }
