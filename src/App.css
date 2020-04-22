@@ -3,6 +3,10 @@
   margin-bottom: 80px;
 }
 
+body {
+  margin-bottom: 3em;
+}
+
 @media screen and (min-width: 1050px) {
   .body {
     margin: 0 10%;
