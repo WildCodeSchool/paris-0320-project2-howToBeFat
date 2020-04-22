@@ -14,10 +14,10 @@ const App = () => {
         <Header />
         <Navbar />
       </div>
-      <body className="body">
+      <div className="">
         <RecipeCard />
         <Footer />
-      </body>
+      </div>
     </div>
   );
 }

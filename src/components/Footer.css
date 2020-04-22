@@ -1,12 +1,12 @@
 .footer{
     width: 100%;
     /* Il faudra peut-etre mettre le body en position : relative */
-    position: absolute; 
-    bottom: 0;
     background-color: rgb(228, 228, 228);
     color: #231f20;
     font-size: 0.8em;
-    white-space: nowrap;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    /* white-space: nowrap; */
 }
 
 .logosLink ul{
@@ -22,7 +22,17 @@
     border-radius: 20%;
 }
 
-@media screen and (min-width: 590px){    
+/* @media screen and (min-width: 590px){    
+
+} */
+
+
+
+/* @media (max-width: 590px){
+ 
+} */
+
+@media screen and (max-width: 1050px) and (min-width: 590px) {
 
     .footer{
         font-size: 1.5em;
@@ -36,4 +46,11 @@
     .logosLink ul{
         justify-content: space-evenly
     }
-}
+  }
+
+
+  @media (min-width: 1050px) {
+      .footer{
+       
+      }
+  }
