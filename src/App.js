@@ -1,11 +1,23 @@
 import React from 'react';
-import './App.css';
+
+import Header from './components/Header'
+import Navbar from './components/Navbar'
+import RecipeCard from './components/RecipeCard'
 import Footer from './components/Footer'
 
-function App() {
+import './App.css';
+
+const App = () => {
   return (
     <div className="App">
-      <Footer />
+      <div className="">
+        <Header />
+        <Navbar />
+      </div>
+      <body className="body">
+        <RecipeCard />
+        <Footer />
+      </body>
     </div>
   );
 }

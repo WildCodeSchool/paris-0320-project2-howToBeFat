@@ -1,0 +1,53 @@
+/* Police */
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Indie+Flower&display=swap");
+
+/* For desktop NavBar */
+@media screen and (min-width: 1050px) {
+
+/* Add background color to the top navigation */
+.topnav {
+  justify-content: center;
+  display: flex;
+  background-color: #00c2cb;
+  overflow: hidden;
+  align-items: center;
+
+}
+  
+/* Style the links inside the navigation bar */
+  .topnav a {
+    display: flex;
+    align-items: center;
+    float: left;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: 1000;
+    font-family: 'Indie Flower', cursive;
+    text-shadow: 4px 3px 2px #115d61;
+  }
+
+/* Change the color of links on hover */
+  .topnav a:hover {
+    color: #ffcb05;
+  }
+}
+
+/* A media query to get a responsive navbar for the desktop version */
+@media screen and (max-width: 1190px) and (min-width: 1050px) {
+  .topnav {
+    display: flex;
+    background-color: #00c2cb;
+    overflow: hidden;
+    align-items: center;
+  }
+}
+
+/* For Mobile and Tablet, this topnav is hidden */
+@media screen and (max-width: 1050px) {
+    .topnav{
+        display: none;
+    }
+}
