@@ -13,11 +13,11 @@ class DisplayRecipe extends React.Component {
     return (
       <div className="DisplayRecipe">
         <div className="card">
-          <h2> Recipe of the day </h2>
+          <h2> RECIPE OF THE DAY </h2>
           <img src={image} alt=""></img>
           <div className="container">
-            <p className="bolder">{label}</p>
-            <p>Number of calories: <span className="bolder">{calories}</span></p>
+            <p className="recipeName">{label}</p>
+            <p>Number of calories:<br /> <span className="recipeName nbCal">{calories}</span> Kcal</p>
           </div>
         </div>
       </div>

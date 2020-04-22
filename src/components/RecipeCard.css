@@ -1,7 +1,9 @@
 .RecipeCard button {
-  background-color: #00c2cb;
-  color: black;
-  border: 2px solid #ffcb05;
+  font-family: 'Sniglet', cursive;
+  background-color: #ffcb05;
+  color: #1c72a3;
+  border: 1px solid #1c72a3;
+  ;
   border-radius: 5px;
   padding: 5px;
   margin: 0 .5em .5em;
@@ -9,13 +11,12 @@
 }
 
 .RecipeCard button:hover {
-  background-color: #ffcb05;
-  color: white;
+  background-color: #1c72a3;
+  color: #ffcb05;
 }
 
 @media (min-width: 1050px) {
   .RecipeCard button {
-    border: none;
     padding: 10px;
     text-align: center;
     text-decoration: none;
@@ -23,8 +24,18 @@
     transition-duration: 0.4s;
     cursor: pointer;
   }
+  /* .RecipeCard {
+    margin-top: 0;
+  } */
+  .RecipeCard button {
+    font-size: 0.7em;
+  }
   .RecipeCard {
     margin: auto;
-    margin-bottom: .5em;
+
+    margin-left: 0px;
+    margin-right: 150px;
+    margin-top: 40px;
+    margin-bottom: 0px;
   }
 }
