@@ -11,7 +11,6 @@ import { Route, Switch } from 'react-router-dom'
 const App = () => {
   return (
     <div className="App">
-
       <div className="header">
         <Header />
         <Navbar />
