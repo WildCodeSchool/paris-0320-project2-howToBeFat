@@ -3,7 +3,7 @@ import RecipeCard from './RecipeCard'
 
 const Acceuil=()=>{
     return(
-        <div className="acceuil">
+        <div className="accueil">
             <RecipeCard/>
             {/* ajouter card biere */}
             {/* ajouter card citation */}

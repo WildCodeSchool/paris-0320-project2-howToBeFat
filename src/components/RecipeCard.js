@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 
 import DisplayRecipe from './DisplayRecipe'
-import FullRecipeCard from './FullRecipeCard'
 
 import './RecipeCard.css'
 
@@ -67,13 +66,8 @@ class RecipeCard extends React.Component {
 
     return (
       <div className="RecipeCard" >
-        {// Await for the futur user choice possibilities // =>
-        }{this.state.UserChoice}
-
         <DisplayRecipe getOtherRecipe={this.getOtherRecipe} ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
       </div>
-
-
     );
   }
 }

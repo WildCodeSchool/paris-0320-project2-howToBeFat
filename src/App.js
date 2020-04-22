@@ -3,7 +3,7 @@ import React from 'react';
 import Header from './components/Header'
 import Navbar from './components/Navbar'
 
-import Acceuil from './components/Acceuil'
+import Accueil from './components/Accueil'
 import FullRecipeCard from './components/FullRecipeCard'
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
@@ -17,7 +17,7 @@ const App = () => {
         <Navbar />
       </div>
       <Switch>
-        <Route exact path="/" component={Acceuil}></Route>
+        <Route exact path="/" component={Accueil}></Route>
         <Route path="/FullRecipeCard" component={FullRecipeCard} />
       </Switch>
     </div>
