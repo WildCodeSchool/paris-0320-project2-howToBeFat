@@ -1,12 +1,10 @@
 .footer{
     width: 100%;
-    /* Il faudra peut-etre mettre le body en position : relative */
     background-color: #00c2cb21;
     color: #231f20;
     font-size: 0.8em;
     padding-top: 1.5em;
     padding-bottom: 1.5em;
-    /* white-space: nowrap; */
 }
 
 .logosLink ul{
@@ -21,16 +19,6 @@
     height: 3em;
     border-radius: 20%;
 }
-
-/* @media screen and (min-width: 590px){    
-
-} */
-
-
-
-/* @media (max-width: 590px){
- 
-} */
 
 @media screen and (max-width: 1050px) and (min-width: 590px) {
 
