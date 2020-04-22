@@ -13,9 +13,9 @@ const App = () => {
       <div className="">
         <Header />
         <Navbar />
+        <RandomQuotes />
       </div>
       <body className="body">
-        <RandomQuotes />
         <RecipeCard />
       </body>
     </div>

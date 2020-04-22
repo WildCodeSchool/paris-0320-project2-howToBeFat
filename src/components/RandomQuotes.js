@@ -1,4 +1,5 @@
 import React from 'react'
+import './RandomQuotes.css'
 
 const Quotes = [
      "Always have a whipped cream bomb at home",
@@ -33,9 +34,9 @@ class RandomQuotes extends React.Component {
 
     render() {
         return (
-            <div>
-            <h2 className="quote">Quote of the day:
-            <br/>{this.state.quote}</h2>
+            <div className='quoteOfTheDay'>
+                <h2 className="quote">Quote of the day :</h2>
+                <p className="randomQuote">{this.state.quote}</p>
             </div>
         )
     }
