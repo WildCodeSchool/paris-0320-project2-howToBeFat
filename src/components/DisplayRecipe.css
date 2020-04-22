@@ -32,14 +32,12 @@
 	width: 70%;
 	margin: auto;
 	line-height: 1.4em;
-	;
 }
 
 .recipeName.nbCal {
 	padding: 1px;
 	border-radius: 30%;
 	color: rgb(20, 49, 92);
-	font-weight: 1200;
 }
 
 @media (min-width: 1050px) {
