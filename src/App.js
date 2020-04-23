@@ -4,6 +4,8 @@ import Header from './components/Header'
 import Navbar from './components/Navbar'
 import RecipeCard from './components/RecipeCard'
 import BeerCard from './components/BeerCard'
+import RandomQuotes from './components/RandomQuotes'
+import Footer from './components/Footer'
 
 import './App.css';
 
@@ -13,11 +15,15 @@ const App = () => {
       <div>
         <Header />
         <Navbar />
+        <RandomQuotes />
       </div>
-      <body className="body">
-        <RecipeCard />
-        <BeerCard />
-      </body>
+      <div className="">
+        <body>
+          <RecipeCard />
+          <BeerCard />
+        </body>
+        <Footer />
+      </div>
     </div>
   );
 }
