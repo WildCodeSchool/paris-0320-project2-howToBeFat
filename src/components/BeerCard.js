@@ -19,7 +19,6 @@ class BeerCard extends React.Component {
             .then(res => this.setState({ beers: res.data[0] })
 
             )
-
     }
 
     render() {
