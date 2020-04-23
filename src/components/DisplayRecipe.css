@@ -58,4 +58,7 @@
 	.recipeName {
 		width: 85%;
 	}
+	.container, .recipeName {
+		font-size: 1em;
+	}
 }
