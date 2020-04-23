@@ -1,7 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Sniglet:regular,800);
 .card img {
-	width: 95%;
-	height: 60%;
+	width: 320px;
 	padding: 0;
 }
 
@@ -43,9 +42,10 @@
 @media (min-width: 1050px) {
 	.DisplayRecipe {
 		margin: auto;
+		width: 400px;
 	}
 	.DisplayRecipe .card img {
-		width: 85%;
+		width: 280px;
 	}
 	.DisplayRecipe .card {
 		transition: .9s;
@@ -57,5 +57,12 @@
 	}
 	.recipeName {
 		width: 85%;
+	}
+	.RecipeCard {
+		margin: auto;
+		margin-left: 0px;
+		margin-right: 150px;
+		margin-top: 40px;
+		margin-bottom: 0px;
 	}
 }

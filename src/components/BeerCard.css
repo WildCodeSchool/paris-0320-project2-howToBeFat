@@ -19,6 +19,7 @@
     color: #ffcb05;
     height: 350px;
 	padding: .5em;
+	margin-top:.5em;
 }
 
 .beerName {
@@ -39,23 +40,22 @@
 	font-family: 'Indie Flower', cursive, sans-serif;
 	font-size: 1.2rem;
 	font-weight: bold;
+	padding:.5em;
 }
 
 @media (min-width: 1050px) {
 	.card {
 		margin: auto;
 	}
+
 	.cardBeer {
 		margin-bottom: 1em;
         margin: auto;
-
-	}
-	.cardBeer {
 		transition: .9s;
-        width: 30%;
+        width: 400px;
         margin-left: 0;
         margin-right: 0;
-        margin-top: 55px;
+        margin-top: 59px;
 	}
     .cardBeer h2 {
     	margin-top: 0px;

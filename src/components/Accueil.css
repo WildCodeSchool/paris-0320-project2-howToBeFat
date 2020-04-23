@@ -1,0 +1,7 @@
+@media screen and (min-width: 1050px) {
+    .accueil{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+}

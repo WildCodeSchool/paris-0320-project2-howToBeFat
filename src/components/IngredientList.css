@@ -3,7 +3,7 @@ hr {
     border-top: 0;
 }
 
-.listIngredients ul {
+.listIngredients {
     list-style-type: none;
     padding: 0;
     margin: 0 10px;

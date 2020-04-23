@@ -1,26 +1,22 @@
 import React from 'react'
 import IngredientList from './IngredientList';
 import './FullRecipeCard.css'
-import AllergenList from './AllergenList'
+
 
 class FullRecipeCard extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        }
-    }
 
     render() {
+        const {recipe, calories, ingredients, preparationTime} = this.props.location.data
         return (
-            <div className="fullCard">
-                <h2 className="recipe-name">{this.props.recipe.label}</h2>
-                <div className="photoFood"><img src={this.props.recipe.image} alt={this.props.recipe.label} /></div>
-                <div><h4 className="calorie">Calories: <span>{this.props.calories}</span></h4></div>
-                <div className="ingredients"><IngredientList list={this.props.ingredientsList} /></div>
-                <button className="goRecipe"><a href={this.props.recipe.url} target="_blanck">Voir la recette</a></button>
-
+            <div className="containRecipe">
+                <div className="fullCard">
+                    <h2 className="recipe-name">{recipe.label}</h2>
+                    <div className="photoFood"><img src={recipe.image} alt={recipe.label} /></div>
+                    <div><p className="calorie">Calories: <span className="kcal">{calories}</span></p></div>
+                    <div className="ingredients"><IngredientList list={ingredients} /></div>
+                    <button className="button-recipe"><a href={recipe.url} target="blank">Voir la recette</a></button>
+                </div>
             </div>
-
         )
     }
 }
