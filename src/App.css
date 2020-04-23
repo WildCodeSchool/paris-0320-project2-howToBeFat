@@ -3,11 +3,13 @@
 }
 
 body {
-  margin-bottom: 3em;
+  /* Mobile first = let the space for navbar mobile at the bottom*/
+  margin-bottom: 2.75em;
 }
 
 @media screen and (min-width: 1050px) {
-  .body {
-    margin: 0 20% 0;
+  body {
+    /* No navbar at the bottom = footer at the bottom */
+    margin-bottom: 0;
   }
 }

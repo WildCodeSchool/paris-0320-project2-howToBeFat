@@ -60,3 +60,19 @@ header {
         margin-bottom: -100px;
     }
 }
+
+@media (max-width: 375px) {
+    .siteName {
+        font-size: 2em;
+        margin-right: 5px;
+    }
+    .textHead {
+        margin: auto;
+    }
+    .slogan {
+            font-size: 0.9em;
+        }
+    .logo {
+            height: 80%;
+        }
+}
