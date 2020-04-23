@@ -19,19 +19,18 @@ class BeerCard extends React.Component {
             .then(res => this.setState({ beers: res.data[0] })
 
             )
-
     }
 
     render() {
         const { name, image_url, abv, food_pairing } = this.state.beers
         return (
             <div className="cardBeer">
-                <h2> Beer of day :</h2>
-                <img src={image_url} alt={name}/>
-                <p>Name :  {name}</p>
-                <p>Alcool by volume : {abv} %</p>
-                <p>Food pairing : {food_pairing}</p>
-
+                <h2> BEER OF THE DAY</h2>
+                <img src={image_url} alt={name} />
+                <p className="beerName"> {name} </p>
+                <p className="beerName">{abv} % vol</p>
+                <p className="titlePairing">Food pairing :</p>
+                <span className="pairingBeer ">{food_pairing}</span>
             </div>
         )
     }

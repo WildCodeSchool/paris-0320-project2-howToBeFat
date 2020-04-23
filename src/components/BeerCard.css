@@ -2,12 +2,16 @@
 	height: 15%;
 	padding: 0;
 }
+
 .cardBeer h2{
-    box-shadow: 0 8px 16px 0 rgba(248, 248, 248, 0.2);
+	box-shadow: 0 8px 16px 0 rgba(248, 248, 248, 0.2);
 	background-color: #00c2cb;
 	color: #ffcb05;
-	font-size: 1.2em;
-	padding: .5em;
+	padding: .2em;
+	font-size: 1.4rem;
+	font-family: 'Gloria Hallelujah', sans-serif;
+	border-bottom: 1px inset #1c72a3;
+	text-shadow: 2px 1px #1c72a3;
 }
 
 .cardBeer img{
@@ -15,6 +19,26 @@
     color: #ffcb05;
     height: 350px;
 	padding: .5em;
+}
+
+.beerName {
+	font-weight: 1000;
+	font-family: 'Indie Flower', cursive, sans-serif;
+	font-size: 1.8rem;
+	width: 70%;
+	margin: auto;
+	line-height: 1.4em;
+}
+
+.titlePairing {
+	font-family: 'Sniglet', cursive, sans-serif;
+	font-weight: 500;
+}
+
+.pairingBeer {
+	font-family: 'Indie Flower', cursive, sans-serif;
+	font-size: 1.2rem;
+	font-weight: bold;
 }
 
 @media (min-width: 1050px) {
@@ -26,26 +50,16 @@
         margin: auto;
 
 	}
-	.cardBeer img {
-		/* width: 95%; */
-	}
 	.cardBeer {
-		/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
 		transition: .9s;
         width: 30%;
-        /* height: 3%; */
-		/* margin: auto; */
-        /* margin-bottom: 1em; */
-
-        
         margin-left: 0;
         margin-right: 0;
         margin-top: 55px;
-    }
+	}
     .cardBeer h2 {
-
-    margin-top: 0px;
-    margin-bottom: 0px;
+    	margin-top: 0px;
+    	margin-bottom: 0px;
 
     }
 	.cardBeer:hover {

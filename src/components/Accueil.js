@@ -1,11 +1,12 @@
 import React from 'react'
 import RecipeCard from './RecipeCard'
+import BeerCard from './BeerCard'
 
-const Acceuil=()=>{
-    return(
+const Acceuil = () => {
+    return (
         <div className="accueil">
-            <RecipeCard/>
-            {/* ajouter card biere */}
+            <RecipeCard />
+            <BeerCard />
             {/* ajouter card citation */}
         </div>
     )
