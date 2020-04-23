@@ -3,7 +3,6 @@
   background-color: #ffcb05;
   color: #1c72a3;
   border: 1px solid #1c72a3;
-  ;
   border-radius: 5px;
   padding: 5px;
   margin: 0 .5em .5em;
@@ -24,9 +23,7 @@
     transition-duration: 0.4s;
     cursor: pointer;
   }
-  /* .RecipeCard {
-    margin-top: 0;
-  } */
+
   .RecipeCard button {
     font-size: 0.7em;
   }
