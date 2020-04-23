@@ -11,9 +11,7 @@ body {
   .body {
     margin: 0 10%;
   }
-
   body {
-    /* margin: 10%; */
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;

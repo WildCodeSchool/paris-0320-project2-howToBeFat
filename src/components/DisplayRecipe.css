@@ -70,20 +70,14 @@ a:hover {
 }
 
 @media (min-width: 1050px) {
-	/* .card {
-		margin: auto;
-	} */
 	.DisplayRecipe {
-		/* margin-bottom: 1em; */
 		margin: auto;
 	}
 	.DisplayRecipe .card img {
 		width: 85%;
 	}
 	.DisplayRecipe .card {
-		/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
 		transition: .9s;
-		/* width: 90%; */
 		margin: auto;
 		margin-bottom: 1em;
 	}
@@ -101,9 +95,6 @@ a:hover {
 		transition-duration: 0.4s;
 		cursor: pointer;
 	}
-	/* .RecipeCard {
-    margin-top: 0;
-  } */
 	.RecipeCard button {
 		font-size: 1em;
 	}
