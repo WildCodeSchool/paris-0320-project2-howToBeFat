@@ -4,7 +4,7 @@ import './RandomQuotes.css'
 const Quotes = [
      "Always have a whipped cream bomb at home",
      "If you are hungry, favor the cakes",
-     "  Learn to become lazy",
+     "Learn to become lazy",
      "Never lose sight of the remote control",
      "Always have something to snack on hand",
      "Avoid unnecessary trips",
