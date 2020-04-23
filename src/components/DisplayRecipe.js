@@ -19,8 +19,8 @@ class DisplayRecipe extends React.Component {
             <p className="recipeName">{label}</p>
             <p>Number of calories:<br /> <span className="recipeName nbCal">{calories}</span> Kcal</p>
             <div className="button">
-              <button onClick={this.props.getOtherRecipe}>Show another one! </button>
-              <button><Link to={{
+              <button onClick={this.props.getOtherRecipe} className="button-recipe">Show another one! </button>
+              <button className="button-recipe" value="See more infos..."><Link to={{
                 pathname: "/FullRecipeCard",
                 data: {
                   recipe: this.props.recipe,
@@ -28,7 +28,7 @@ class DisplayRecipe extends React.Component {
                   ingredients: this.props.ingredientsList,
                   preparationTime: this.props.preparationTime
                 }
-              }} >To come Up Nearly...</Link></button>
+              }} >See more details ...</Link></button>
             </div>
           </div>
         </div>

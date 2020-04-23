@@ -33,55 +33,10 @@
 	line-height: 1.4em;
 }
 
-.RecipeCard button {
-	font-family: 'Sniglet', cursive;
-	background-color: #ffcb05;
-	color: #1c72a3;
-	border: 1px solid #1c72a3;
-	;
-	border-radius: 5px;
-	padding: 5px;
-	margin: 0 .5em .5em;
-	font-size: 1em;
-  }
-
-  .RecipeCard button:hover {
-	background-color: #1c72a3;
-	color: #ffcb05;
-  }
-
-
 .recipeName.nbCal {
 	padding: 1px;
 	border-radius: 30%;
 	color: rgb(20, 49, 92);
-}
-
-.RecipeCard button {
-	font-family: 'Sniglet', cursive;
-	background-color: #ffcb05;
-	color: #1c72a3;
-	border: 1px solid #1c72a3;
-	;
-	border-radius: 5px;
-	padding: 5px;
-	margin: 0 .5em .5em;
-	font-size: 1em;
-}
-
-.RecipeCard button:hover {
-	background-color: #1c72a3;
-	color: #ffcb05;
-}
-
-button a, button a:visited {
-	text-decoration: none;
-	color:#1c72a3;
-	;
-}
-
-button a:hover {
-	color: #ffcb05;
 }
 
 @media (min-width: 1050px) {
@@ -102,17 +57,6 @@ button a:hover {
 	}
 	.recipeName {
 		width: 85%;
-	}
-	.RecipeCard button {
-		padding: 10px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		transition-duration: 0.4s;
-		cursor: pointer;
-	}
-	.RecipeCard button {
-		font-size: 1em;
 	}
 	.RecipeCard {
 		margin: auto;
