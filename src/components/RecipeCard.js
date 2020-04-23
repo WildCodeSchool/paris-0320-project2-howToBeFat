@@ -3,8 +3,6 @@ import axios from 'axios'
 
 import DisplayRecipe from './DisplayRecipe'
 
-import './RecipeCard.css'
-
 class RecipeCard extends React.Component {
 
   state = {

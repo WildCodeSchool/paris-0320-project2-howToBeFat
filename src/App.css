@@ -7,16 +7,16 @@ body {
 }
 
 @media screen and (min-width: 1050px) {
-  .body {
-    margin: 0 10%;
-  }
-  body {
+  .container-body {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: baseline;
     align-content: center;
+    margin: 0;
+  }
+  body {
     margin-bottom: 0;
   }
 }

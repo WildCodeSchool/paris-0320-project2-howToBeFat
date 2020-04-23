@@ -2,7 +2,6 @@ import React from 'react';
 
 import Header from './components/Header'
 import Navbar from './components/Navbar'
-import RandomQuotes from './components/RandomQuotes'
 import Footer from './components/Footer'
 
 import Accueil from './components/Accueil'
@@ -16,17 +15,12 @@ const App = () => {
       <div className="header">
         <Header />
         <Navbar />
-        <RandomQuotes />
       </div>
-      <div className="">
-        <body>
-          <Switch>
-            <Route exact path="/" component={Accueil}></Route>
-            <Route path="/FullRecipeCard" component={FullRecipeCard} />
-          </Switch>
-        </body>
-        <Footer />
-      </div>
+      <Switch>
+        <Route exact path="/" component={Accueil}></Route>
+        <Route path="/FullRecipeCard" component={FullRecipeCard} />
+      </Switch>
+      <Footer />
     </div>
   );
 }

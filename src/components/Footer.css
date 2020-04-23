@@ -3,8 +3,9 @@
     background-color: #00c2cb21;
     color: #231f20;
     font-size: 0.8em;
-    padding-top: 1.5em;
-    padding-bottom: 1.5em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    margin-top: 1em;
 }
 
 .logosLink ul{
@@ -23,12 +24,12 @@
 @media screen and (max-width: 1050px) and (min-width: 590px) {
 
     .footer{
-        font-size: 1.5em;
+        font-size: 1em;
     }
 
     .logosLink img{
-        width: 3em;
-        height: 3em;
+        width: 2.5em;
+        height: 2.5em;
     }
 
     .logosLink ul{
@@ -39,6 +40,6 @@
 
   @media (min-width: 1050px) {
       .footer{
-       
+       margin-bottom: 0;
       }
   }

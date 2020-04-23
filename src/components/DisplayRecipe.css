@@ -1,7 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Sniglet:regular,800);
 .card img {
-	width: 95%;
-	height: 60%;
+	width: 320px;
 	padding: 0;
 }
 
@@ -45,12 +44,12 @@
 	margin: 0 .5em .5em;
 	font-size: 1em;
   }
-  
+
   .RecipeCard button:hover {
 	background-color: #1c72a3;
 	color: #ffcb05;
   }
-  
+
 
 .recipeName.nbCal {
 	padding: 1px;
@@ -75,22 +74,23 @@
 	color: #ffcb05;
 }
 
-a, a:visited {
+button a, button a:visited {
 	text-decoration: none;
-	color: #1c72a3;
+	color:#1c72a3;
 	;
 }
 
-a:hover {
+button a:hover {
 	color: #ffcb05;
 }
 
 @media (min-width: 1050px) {
 	.DisplayRecipe {
 		margin: auto;
+		width: 400px;
 	}
 	.DisplayRecipe .card img {
-		width: 85%;
+		width: 280px;
 	}
 	.DisplayRecipe .card {
 		transition: .9s;
@@ -103,10 +103,6 @@ a:hover {
 	.recipeName {
 		width: 85%;
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> b312aab3350a9d16c6ee72f169c0c2f92c71f85d
 	.RecipeCard button {
 		padding: 10px;
 		text-align: center;
@@ -114,15 +110,6 @@ a:hover {
 		display: inline-block;
 		transition-duration: 0.4s;
 		cursor: pointer;
-<<<<<<< HEAD
-	  }
-	  /* .RecipeCard {
-		margin-top: 0;
-	  } */
-	  .RecipeCard button {
-		font-size: 0.7em;
-	  }
-=======
 	}
 	.RecipeCard button {
 		font-size: 1em;
@@ -134,5 +121,4 @@ a:hover {
 		margin-top: 40px;
 		margin-bottom: 0px;
 	}
->>>>>>> b312aab3350a9d16c6ee72f169c0c2f92c71f85d
 }

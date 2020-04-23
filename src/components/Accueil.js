@@ -1,15 +1,21 @@
 import React from 'react'
+
+import RandomQuotes from './RandomQuotes'
 import RecipeCard from './RecipeCard'
 import BeerCard from './BeerCard'
 
-const Acceuil = () => {
+import './Accueil.css'
+
+const Accueil = () => {
     return (
-        <div className="accueil">
-            <RecipeCard />
-            <BeerCard />
-            {/* ajouter card citation */}
+        <div>
+            <RandomQuotes />
+            <div className="accueil">
+                <RecipeCard />
+                <BeerCard />
+            </div>
         </div>
     )
 }
 
-export default Acceuil
+export default Accueil

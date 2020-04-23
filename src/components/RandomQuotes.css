@@ -5,8 +5,9 @@
     font-size: 0.9rem;
     font-weight: bold;
     color: white;   
+    text-shadow: 3px 3px 0px #2972a3;
     background-image: url('./images/donuts.png');
-    height: 21.9em;
+    height: 18.9em;
     background-position-x: 55%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -25,7 +26,9 @@
     .quote {
         font-size: 2.2em;
     }
-
+    .quoteOfTheDay {
+        background-position-y: 40%;
+    }
     .randomQuote {
         font-size: 1.8em;
     }
@@ -34,6 +37,8 @@
 @media (min-width: 900px) {
     .quoteOfTheDay{
         font-size: 1.5rem;
-        background-position-y: 40%;
+        background-position-y: 44%;
+        height: 340px;
+        text-shadow: 3px 3px 0px #2972a3;
     }
 }
