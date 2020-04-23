@@ -3,6 +3,7 @@ import React from 'react';
 import Header from './components/Header'
 import Navbar from './components/Navbar'
 import RecipeCard from './components/RecipeCard'
+import Footer from './components/Footer'
 
 import './App.css';
 
@@ -13,9 +14,10 @@ const App = () => {
         <Header />
         <Navbar />
       </div>
-      <body className="body">
+      <div className="">
         <RecipeCard />
-      </body>
+        <Footer />
+      </div>
     </div>
   );
 }
