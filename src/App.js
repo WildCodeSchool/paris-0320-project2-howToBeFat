@@ -5,9 +5,9 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Accueil from './components/Accueil'
 import FullRecipeCard from './components/FullRecipeCard'
-import Recipes from './components/Recipes'
-import Beers from './components/Beers'
-import Calculator from './components/Calculator'
+// import Recipes from './components/Recipes'
+// import Beers from './components/Beers'
+// import Calculator from './components/Calculator'
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
 
