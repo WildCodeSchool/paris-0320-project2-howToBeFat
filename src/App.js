@@ -8,6 +8,7 @@ import Accueil from './components/Accueil'
 import FullRecipeCard from './components/FullRecipeCard'
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
+import Calculator from './components/Calculator';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route exact path="/" component={Accueil}></Route>
         <Route path="/FullRecipeCard" component={FullRecipeCard} />
       </Switch>
+      <Calculator />
       <Footer />
     </div>
   );
