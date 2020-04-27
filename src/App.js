@@ -5,7 +5,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Accueil from './components/Accueil'
 import FullRecipeCard from './components/FullRecipeCard'
-// import Recipes from './components/Recipes'
+import RecipeSearch from './components/RecipeSearch'
 // import Beers from './components/Beers'
 // import Calculator from './components/Calculator'
 import './App.css';
@@ -21,8 +21,8 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Accueil}></Route>
         <Route path="/FullRecipeCard" component={FullRecipeCard} />
-        {/* <Route path="/Recipes" component={/Recipes} />
-        <Route path="/Beers" component={/Beers} />
+        <Route path="/RecipeSearch" component={RecipeSearch} />
+        {/*<Route path="/Beers" component={/Beers} />
         <Route path="Calculator" component={/Calculator} /> */}
       </Switch>
       <Footer />
