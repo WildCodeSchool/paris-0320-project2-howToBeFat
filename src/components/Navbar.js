@@ -18,7 +18,7 @@ function Navbar(){
           <a href="#beer"><FontAwesomeIcon icon={faBeer} /></a>
           <a href="#calculator"><FontAwesomeIcon icon={faBalanceScaleRight} /></a>
         </div>
-           )
+          )
 }
 
 export default Navbar

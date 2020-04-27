@@ -19,6 +19,7 @@ const App = () => {
         <Navbar />
       </div>
       <Switch>
+        {/* <RecipeSearch/> */}
         <Route exact path="/" component={Accueil}></Route>
         <Route path="/FullRecipeCard" component={FullRecipeCard} />
         <Route path="/RecipeSearch" component={RecipeSearch} />
