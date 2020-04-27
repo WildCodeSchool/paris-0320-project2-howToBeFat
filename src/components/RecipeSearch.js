@@ -3,8 +3,6 @@ import './RecipeSearch.css'
 
 class RecipeSearch extends React.Component {
 
-
-
     render() {
         return (
             <div className='recipeSearch'>
@@ -20,7 +18,7 @@ class RecipeSearch extends React.Component {
 
                         <label htmlFor='thirdIngredient'></label>
                         <input onChange={this.props.handleChange} id='thirdIngredient' type='text' placeholder='third ingredient'></input>
-
+                        <div>{this.props.errorIngredient}</div>
                         <div><input className="submit" type="submit" value="Get recipe"></input></div>
                     </form>
                 </div>
