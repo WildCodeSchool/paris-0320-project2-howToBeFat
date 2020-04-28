@@ -6,12 +6,12 @@ function NavbarDesktop (){
     return (
         <div className ="topnav">
           <div>
-            <Link className ="active" path="./components/Accueil">Home</Link>
-            <Link path="./components/RecipeSearch">Recipes</Link>
+            <Link className ="active" to="/">Home</Link>
+            <Link to="./RecipeSearch">Recipes</Link>
           </div>
           <div>
-            <Link path="#beers">Beers</Link>
-            <Link path="#calculator">Tips</Link>
+            <Link to="#beers">Beers</Link>
+            <Link to="#calculator">Tips</Link>
           </div>
       </div>
     )

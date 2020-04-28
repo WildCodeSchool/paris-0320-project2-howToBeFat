@@ -12,10 +12,10 @@ import './Navbar.css'
 function Navbar(){
     return (
         <div className ="navbar-mobile">
-          <Link className="active" path="./components/Accueil"><FontAwesomeIcon icon={faHome} /></Link>
-          <Link path="./components/RecipeSearch"><FontAwesomeIcon icon={faHamburger} /></Link>
-          <Link path="#beer"><FontAwesomeIcon icon={faBeer} /></Link>
-          <Link path="#calculator"><FontAwesomeIcon icon={faBalanceScaleRight} /></Link>
+          <Link className="active" to="./components/Accueil"><FontAwesomeIcon icon={faHome} /></Link>
+          <Link to="./components/RecipeSearch"><FontAwesomeIcon icon={faHamburger} /></Link>
+          <Link to="#beer"><FontAwesomeIcon icon={faBeer} /></Link>
+          <Link to="#calculator"><FontAwesomeIcon icon={faBalanceScaleRight} /></Link>
         </div>
           )
 }

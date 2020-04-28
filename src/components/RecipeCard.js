@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-
+import RecipeSearch from './RecipeSearch'
 import DisplayRecipe from './DisplayRecipe'
 
 class RecipeCard extends React.Component {
@@ -9,16 +9,23 @@ class RecipeCard extends React.Component {
     recipe: '',
     ingredients: [],
     UserChoice: false,
-    page: ''
+    page: '',
+    ingredient1: "",
+    ingredient2: "",
+    ingredient3: "",
+    errorIngredient: ""
   }
 
-  getRecipe() {
+  getRecipe(ingredient1, ingredient2, ingredient3) {
+
     let selectedIngredients = "cheese"
+    const allIngredient = ingredient1 && `${ingredient1},${ingredient2}`
     const min = 0
     const max = min + 50
     const minCalories = 5000
     const maxCalories = 10000
-    let url = `https://api.edamam.com/search?q=${selectedIngredients}&from=${min}&to=${max}&calories=${minCalories}-${maxCalories}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
+    const customIngredient = allIngredient ? allIngredient : selectedIngredients
+    let url = `https://api.edamam.com/search?q=${customIngredient}&from=${min}&to=${max}&calories=${minCalories}-${maxCalories}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
 
     axios.get(url)
       .then((res) => {
@@ -32,9 +39,14 @@ class RecipeCard extends React.Component {
         // Define the state with the research recipe and the ingredients which go with
         this.setState({
           recipe: objectUri.recipe,
-          ingredients: objectUri.recipe.ingredientLines
-        })
-      })
+          ingredients: objectUri.recipe.ingredientLines,
+          ingredient1: '',
+          ingredient2: '',
+          ingredient3: '',
+          errorIngredient:""
+        })})
+      .catch(error => this.setState({ errorIngredient: "Erreur dans la saie des ingrédients"}))
+
   }
 
   randomNumber = (max) => Math.floor(Math.random() * Math.floor(max))
@@ -46,12 +58,28 @@ class RecipeCard extends React.Component {
     return time > 60 ? `${hours} ${unity} and ${minutes} minutes` : `${minutes} minutes`
   }
 
-  handleClickPage = () => {
-    this.setState({ page: "FullRecipe" })
+  submitForm = (e) => {
+    e.preventDefault()
+    this.getRecipe(this.state.ingredient1, this.state.ingredient2, this.state.ingredient3)
+    console.log(this.state.ingredient1, "ingredient1")
+    console.log(this.state.ingredient2, "ingredient2")
+    console.log(this.state.ingredient3, "ingredient3")
   }
-
   getOtherRecipe = () => {
     this.getRecipe()
+  }
+
+  handleChange = (e) => {
+    let userIngredient1 = e.target.id === "firstIngredient" ? e.target.value : this.state.ingredient1
+    let userIngredient2 = e.target.id === "secondIngredient" ? e.target.value : this.state.ingredient2
+    let userIngredient3 = e.target.id === "thirdIngredient" ? e.target.value : this.state.ingredient3
+
+    this.setState({
+      ingredient1: userIngredient1,
+      ingredient2: userIngredient2,
+      ingredient3: userIngredient3
+    })
+    // console.log(this.state.ingredient3)
   }
 
   componentDidMount() {
@@ -64,6 +92,7 @@ class RecipeCard extends React.Component {
 
     return (
       <div className="RecipeCard" >
+        <RecipeSearch handleChange={this.handleChange} submitForm={this.submitForm} errorIngredient={this.state.errorIngredient}/>
         <DisplayRecipe getOtherRecipe={this.getOtherRecipe} ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
       </div>
     );
