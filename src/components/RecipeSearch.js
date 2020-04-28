@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const intolerable = ["gluten-free", "wheat-free", "egg-free", "peanut-free", "tree-nut-free",
   "soy-free", "fish-free", "shellfish-free", "pork-free", "sesame-free", "alcohol-free", "sulphite-free", "dairy-free"]
-const specialDiet = ["vegetarian", "pescatarian", "kosher", "vegan"]
+const specialDiet = ["vegetarian", "kosher", "vegan",]
 
 const RecipeSearch = () => {
 
@@ -36,7 +36,8 @@ const RecipeSearch = () => {
     const ingredients = userIngredient1 && `${userIngredient1},${userIngredient2},${userIngredient3}`
     const diet = userDiets && `&health=${userDiets}`
     console.log(diet, "diet")
-    const rangeRequest = nbResults ? defineRangeNumber(nbResults) : ''
+    numOfResult > 100 && setNumOfResult(100)
+    const rangeRequest = numOfResult ? defineRangeNumber(numOfResult) : nbResults ? defineRangeNumber(nbResults) : ''
     // url which will be send to the API request
     return `https://api.edamam.com/search?q=${ingredients}${calories}${rangeRequest}${diet}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
 
@@ -49,10 +50,12 @@ const RecipeSearch = () => {
     axios.get(url)
       .then((res) => {
         console.log(res.data.count, "first")
+        setNumOfResult(0)
         setNumOfResult(res.data.count)
         getApiDatas(defineRequestUrl(res.data.count))
       })
       .catch(e => setErrorRequest("Error, please check your ingredients"))
+
   }
   // Else we fetch the datas
   const getApiDatas = (url) => {
@@ -61,6 +64,7 @@ const RecipeSearch = () => {
         console.log(res.data.hits, "hits")
         SetRecipes(res.data.hits)
       })
+      .catch(e => setErrorRequest("Error, please check your ingredients"))
   }
 
   const submitForm = (e) => {
@@ -84,7 +88,7 @@ const RecipeSearch = () => {
         setUserCalories(e.target.value)
         break
       case "specialDiets":
-        setUserDiets(e.target.value)
+        e.target.value !== "Specify a special diet" ? setUserDiets(e.target.value) : setUserDiets('')
         break
       default:
     }
@@ -97,13 +101,13 @@ const RecipeSearch = () => {
       <div className='ingredientSearch'>
         <form onSubmit={submitForm} class="form-example">
           <label htmlFor='userIngredient1'></label>
-          <input onChange={handleChange} id='userIngredient1' type='text' placeholder='first ingredient' required pattern="[A-Za-z]+"></input>
+          <input onChange={handleChange} id='userIngredient1' type='text' required pattern="[A-Za-z]+"></input>
 
           <label htmlFor='userIngredient2'></label>
-          <input onChange={handleChange} id='userIngredient2' type='text' placeholder='second ingredient' />
+          <input onChange={handleChange} id='userIngredient2' type='text' />
 
           <label htmlFor='userIngredient3'></label>
-          <input onChange={handleChange} id='userIngredient3' type='text' placeholder='third ingredient' />
+          <input onChange={handleChange} id='userIngredient3' type='text' />
           <div>{errorRequest}</div>
           <div>
             <select id="specialDiets" name="specialDiets" onChange={handleChange}>
