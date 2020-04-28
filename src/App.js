@@ -11,6 +11,7 @@ import RecipeSearch from './components/RecipeSearch'
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
 
+
 const App = () => {
   return (
     <div className="App">
@@ -19,12 +20,11 @@ const App = () => {
         <Navbar />
       </div>
       <Switch>
-        {/* <RecipeSearch/> */}
         <Route exact path="/" component={Accueil}></Route>
         <Route path="/FullRecipeCard" component={FullRecipeCard} />
         <Route path="/RecipeSearch" component={RecipeSearch} />
-        {/*<Route path="/Beers" component={/Beers} />
-        <Route path="Calculator" component={/Calculator} /> */}
+        {/* <Route path="/Beers" component={/Beers} />
+         <Route path="Calculator" component={/Calculator} /> */}
       </Switch>
       <Footer />
     </div>
