@@ -28,8 +28,8 @@ class Calculator extends React.Component {
     }
 
     getMotivation = (event) => {
-        this.setState({ motivation: event.target.value })
-        this.getWeightToReach(this.state.userWeight)
+        this.setState({ motivation: event.target.value }, 
+            () => this.getWeightToReach(this.state.userWeight))
     }
 
     motivationLevel = () => {
@@ -46,6 +46,7 @@ class Calculator extends React.Component {
 
 
     render() {
+        console.log("result", this.state.weightToReach)
         return (
             <div>
                 <form>
@@ -59,15 +60,6 @@ class Calculator extends React.Component {
                         </input>
                     </label>
                     <p>Poids actuel: {this.state.userWeight} kg</p>
-                    {/* <div className= 'container-motivation'>
-                        <label>Motivation Bar</label>
-                        <select id="motivationBar" onChange={this.getMotivation}>
-                            <option value="">--Please choose an option--</option>
-                            <option value='easy'>Easy</option>
-                            <option value='medium'>Medium</option>
-                            <option value='hardcore'>Hardcore</option>
-                        </select>
-                    </div> */}
                     <div>
                         <label>Motivation level</label>
                         <input
@@ -78,10 +70,8 @@ class Calculator extends React.Component {
                             min="0"
                             step="50"
                             max="100"
-                            // value="0"
                         />
                     </div>
-                    {/* <input type="button" value='push' onClick={() => this.getWeightToReach(this.state.userWeight)}></input> */}
                     <p>Your result : {this.state.weightToReach}</p>
                 </form>
             </div>
