@@ -85,8 +85,6 @@ class RecipeCard extends React.Component {
   //   // console.log(this.state.ingredient3)
   // }
 
-
-
   componentDidMount() {
     this.getRecipe()
   }
