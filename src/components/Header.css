@@ -38,6 +38,7 @@ header {
     height: 100%;
     align-self: flex-end;
     margin-left: 5px;
+    z-index: 1;
 }
 
 @media (min-width: 1050px) {

@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Knewave&display=swap&subset=latin-ext%22");
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap%22");
+@import url("https://fonts.google.com/specimen/Gloria+Hallelujah?selection.family=Gloria+Hallelujah&sidebar.open&preview.text=Salut+je+sais+pas+quoi+%C3%A9crire+howToBeFat.com+keep+calm+and+pet+your+cat&preview.text_type=custom");
 .App {
   text-align: center;
 }
@@ -6,18 +9,54 @@ body {
   margin-bottom: 2.75em;
 }
 
-@media screen and (min-width: 1050px) {
-  .body {
-    margin: 0 10%;
-  }
+.button-recipe {
+  font-family: 'Sniglet', cursive;
+  background-color: #ffcb05;
+  color: #1c72a3;
+  border: 1px solid #1c72a3;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0 .5em .5em;
+  font-size: 1em;
+}
 
-  body {
+.button-recipe:hover {
+  background-color: #1c72a3;
+  color: #ffcb05;
+}
+
+.button-recipe a, .button-recipe a:visited {
+  text-decoration: none;
+  color: #1c72a3;
+  ;
+}
+
+.button-recipe a:hover {
+  color: #ffcb05;
+}
+
+@media screen and (min-width: 1050px) {
+  .container-body {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: baseline;
     align-content: center;
+    margin: 0;
+  }
+  body {
     margin-bottom: 0;
+  }
+  .button-recipe button {
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  .button-recipe button {
+    font-size: 1em;
   }
 }
