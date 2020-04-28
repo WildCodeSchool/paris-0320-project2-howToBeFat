@@ -2,7 +2,7 @@
     border-bottom: solid 1px #1c72a3;
     height: 2.3em;
     margin: 0;
-    width: 100%;
+    width: 99%;
     height: 100%;
 	background-color: #00c2cb;
     color: #ffcb05;
@@ -56,6 +56,10 @@
 
 button.button-recipe{
     margin: 1.5em;
+}
+
+.retour{
+    width: 110px;
 }
 
 @media screen and (min-width: 1050px) {

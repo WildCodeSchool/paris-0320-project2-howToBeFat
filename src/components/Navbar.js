@@ -12,9 +12,9 @@ import './Navbar.css'
 function Navbar(){
     return (
         <div className ="navbar-mobile">
-          <Link className="active" to="./components/Accueil"><FontAwesomeIcon icon={faHome} /></Link>
-          <Link to="./components/RecipeSearch"><FontAwesomeIcon icon={faHamburger} /></Link>
-          <Link to="#beer"><FontAwesomeIcon icon={faBeer} /></Link>
+          <Link className="active" to="/"><FontAwesomeIcon icon={faHome} /></Link>
+          <Link to="/RecipeSearch"><FontAwesomeIcon icon={faHamburger} /></Link>
+          <Link to="/BeerCard"><FontAwesomeIcon icon={faBeer} /></Link>
           <Link to="#calculator"><FontAwesomeIcon icon={faBalanceScaleRight} /></Link>
         </div>
           )

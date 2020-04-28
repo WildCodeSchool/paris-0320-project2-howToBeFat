@@ -1,6 +1,7 @@
 import React from 'react'
 import IngredientList from './IngredientList';
 import './FullRecipeCard.css'
+import {Link} from 'react-router-dom'
 
 
 class FullRecipeCard extends React.Component {
@@ -18,7 +19,10 @@ class FullRecipeCard extends React.Component {
                         </div>
                         <div className="ingredients"><IngredientList list={ingredients} /></div>
                     </div>
-                    <button className="button-recipe"><a href={recipe.url} target="blank">Voir la recette</a></button>
+                    <div>
+                        <button className="button-recipe"><a href={recipe.url} target="blank">Voir la recette</a></button>
+                        <button className="button-recipe retour"><Link to="/">Retour</Link></button>
+                    </div>
                 </div>
             </div>
         )
