@@ -13,28 +13,35 @@ class Calculator extends React.Component {
         this.setState({ userWeight: event.target.value })
     }
 
+
+
     getWeightToReach = (userWeight) => {
-        // console.log(typeof this.state.userWeight)
-        const motiv = this.state.motivation
+
         if (userWeight < 0) {
             return this.setState({ weightToReach: 'Enter a positive number' })
         } else if (userWeight < 35 && userWeight > 0) {
             return this.setState({ weightToReach: ' Children are not allowed to play this game !' })
         }
-        else {
-            if (motiv === "0") {
-                this.setState({ weightToReach: parseInt(this.state.userWeight) + parseInt(this.state.userWeight) * 0.1 + ' kg' })
-            } else if (motiv === "50") {
-                this.setState({ weightToReach: parseInt(this.state.userWeight) + parseInt(this.state.userWeight) * 0.2 + ' kg' })
-            } else {
-                this.setState({ weightToReach: parseInt(this.state.userWeight) + parseInt(this.state.userWeight) * 0.3 + ' kg' })
+            else {
+            return this.motivationLevel()
             }
-        }
     }
 
     getMotivation = (event) => {
         this.setState({ motivation: event.target.value })
         this.getWeightToReach(this.state.userWeight)
+    }
+
+    motivationLevel = () => {
+        const motiv = this.state.motivation
+        const strToNum = parseInt(this.state.userWeight)
+        if (motiv === "0") {
+            this.setState({ weightToReach: strToNum + strToNum * 0.1 + ' kg' })
+        } else if (motiv === "50") {
+            this.setState({ weightToReach: strToNum + strToNum * 0.2 + ' kg' })
+        } else {
+            this.setState({ weightToReach: strToNum + strToNum * 0.3 + ' kg' })
+        }
     }
 
 
