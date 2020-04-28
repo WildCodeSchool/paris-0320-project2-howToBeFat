@@ -61,7 +61,6 @@ class RecipeCard extends React.Component {
     return (
       <div className="RecipeCard" >
         <DisplayRecipe getOtherRecipe={this.getOtherRecipe} ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
-        <RecipeSearch />
       </div>
     );
   }

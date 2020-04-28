@@ -6,10 +6,11 @@ import Footer from './components/Footer'
 import Accueil from './components/Accueil'
 import FullRecipeCard from './components/FullRecipeCard'
 import RecipeSearch from './components/RecipeSearch'
-// import Beers from './components/Beers'
+import BeerCard from './components/BeerCard'
 // import Calculator from './components/Calculator'
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
+
 
 const App = () => {
   return (
@@ -19,12 +20,11 @@ const App = () => {
         <Navbar />
       </div>
       <Switch>
-        {/* <RecipeSearch/> */}
         <Route exact path="/" component={Accueil}></Route>
         <Route path="/FullRecipeCard" component={FullRecipeCard} />
         <Route path="/RecipeSearch" component={RecipeSearch} />
-        {/*<Route path="/Beers" component={/Beers} />
-        <Route path="Calculator" component={/Calculator} /> */}
+        <Route path="/BeerCard" component={BeerCard} />
+        {/* <Route path="Calculator" component={/Calculator} /> */}
       </Switch>
       <Footer />
     </div>
