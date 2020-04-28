@@ -1,6 +1,6 @@
 import React from 'react'
 import './NavbarDesktop.css'
-import Link from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 function NavbarDesktop() {
   return (

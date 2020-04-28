@@ -4,11 +4,10 @@ import home from '../home.png'
 import recipe from '../recipe.png'
 import beer from '../beer.png'
 import balance from '../balance.png'
-import Link from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 function Navbar() {
   return (
-    // Navbar Mobile
     <div class="navbar-mobile">
       <Link to='/'><img class="icons" src={home} alt='home' /></Link>
       <Link to='/Recipes'><img class="icons" src={recipe} alt='fork, knife and spoon' /></Link>
