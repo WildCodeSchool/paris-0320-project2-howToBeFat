@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const intolerable = ["gluten-free", "wheat-free", "egg-free", "peanut-free", "tree-nut-free",
   "soy-free", "fish-free", "shellfish-free", "pork-free", "sesame-free", "alcohol-free", "sulphite-free", "dairy-free"]
-const specialDiet = ["vegetarian", "kosher", "vegan",]
+const specialDiet = ["vegetarian", "vegan",]
 
 const RecipeSearch = () => {
 
