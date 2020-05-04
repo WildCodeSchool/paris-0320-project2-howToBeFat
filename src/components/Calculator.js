@@ -49,7 +49,7 @@ class Calculator extends React.Component {
     render() {
         return (
             <div>
-                <form>
+                <form className="balance">
                     <label>Please enter your weight : 
                     <input
                             type='number'
