@@ -1,12 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+
 .motivationBar {
-    background-color: brown;
+    width: 40%;
+}
+
+.motiv {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .balance {
+    margin-top: 30px;
+    position: absolute;
+    width: 350px;
+    height: 420px;
+    /* z-index: 2; */
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-image: url("../images/balance.png");
-    position: relative;
-    background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    height: 28em;
+    margin-top: 60%;
+}
+
+.calculator-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 500px;
+    width: 200px;
+    font-family: 'Righteous', arial, sans-serif;
+    line-height: 45px;
+    margin-top: -61%;
+}
+
+.userWeight {
+    margin-bottom: 22px;
 }
