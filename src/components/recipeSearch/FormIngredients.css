@@ -1,0 +1,32 @@
+.ingredientSearch label {
+  text-align: center;
+  display: block;
+  margin-bottom: .5em;
+}
+
+.ingredientSearch legend {
+  text-align: left;
+  /* margin: auto; */
+}
+
+.ingredientSearch input {
+  margin: auto;
+  position: relative;
+}
+
+fieldset {
+  width: 20%;
+  margin: auto;
+  padding: 1em;
+  text-align: center;
+}
+
+.ingredientSearch .hideButton {
+  border-radius: 25%;
+  position: relative;
+  left: -5px;
+  font-weight: bold;
+  font-size: 1.2em;
+  border: 2px ridge #000;
+  padding: 0 .2em;
+}

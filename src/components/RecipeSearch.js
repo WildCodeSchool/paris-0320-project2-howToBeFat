@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
+import Form from './recipeSearch/Form'
+
 const intolerables = ["peanut-free", "tree-nut-free", "alcohol-free", "sugar-conscious"]
 const specialDiet = ["vegetarian", "vegan"]
 
@@ -15,6 +17,7 @@ const RecipeSearch = () => {
   const [userExcludeIngredient2, setUserExcludeIngredient2] = useState('')
   const [userExcludeIngredient3, setUserExcludeIngredient3] = useState('')
   const [userCalories, setUserCalories] = useState(0)
+  const [userPreparationTime, setUserPreparationTime] = useState(0)
   const [userDiets, setUserDiets] = useState('')
   const [userIntolerables, setUserIntolerables] = useState([])
   const [errorRequest, setErrorRequest] = useState(false)
@@ -27,9 +30,7 @@ const RecipeSearch = () => {
     console.log(nbResults, "firstresult")
     const rangewidth = 10
     const numberToRandom = getRandomNumber(Math.ceil(nbResults / rangewidth))
-    console.log(numberToRandom, "numberRandom")
     const max = (numberToRandom * rangewidth) + rangewidth > nbResults ? nbResults - 1 : (numberToRandom * rangewidth) + rangewidth
-    console.log(max, "max")
     const min = max - rangewidth < 0 ? 0 : max - rangewidth
     return `&from=${min}&to=${max}`
   }
@@ -38,6 +39,7 @@ const RecipeSearch = () => {
   const defineRequestUrl = (nbResults) => {
     nbResults = nbResults > 100 ? 100 : nbResults
     const calories = userCalories && `&calories=${userCalories}%2B`
+    const preparationTime = userPreparationTime && `&time=${userPreparationTime}`
     const ingredients = userIngredient1 && `${userIngredient1},${userIngredient2},${userIngredient3}`
     const excludes = `&excluded=${userExcludeIngredient1}&excluded=${userExcludeIngredient2}&excluded=${userExcludeIngredient3}`
     const diet = userDiets && `&health=${userDiets}`
@@ -47,7 +49,7 @@ const RecipeSearch = () => {
     }
     const rangeRequest = numOfResult ? defineRangeNumber(numOfResult) : nbResults ? defineRangeNumber(nbResults) : ''
     // url which will be send to the API request
-    return `https://api.edamam.com/search?q=${ingredients}${calories}${rangeRequest}${diet}${intolerables}${excludes}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
+    return `https://api.edamam.com/search?q=${ingredients}${calories}${rangeRequest}${diet}${intolerables}${excludes}${preparationTime}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
   }
 
   // We verify if the number of results are define
@@ -56,8 +58,8 @@ const RecipeSearch = () => {
   const getNumRecipes = (url) => {
     axios.get(url)
       .then((res) => {
-        console.log(res.data.count, "first")
         setNumOfResult(0)
+        console.log(numOfResult)
         setNumOfResult(res.data.count)
         getApiDatas(defineRequestUrl(res.data.count))
       })
@@ -81,7 +83,33 @@ const RecipeSearch = () => {
   }
 
   const handleChange = (e) => {
+    const value = e.target.value.toLowerCase()
     switch (e.target.id) {
+      case "ingredient1":
+        console.log(value, 'ingredient1')
+        setUserIngredient1(value)
+        break
+      case "ingredient2":
+        setUserIngredient2(value)
+        break
+      case "ingredient3":
+        setUserIngredient3(value)
+        break
+      case "excludedIngredient1":
+        setUserExcludeIngredient1(value)
+        break
+      case "excludedIngredient2":
+        setUserExcludeIngredient2(value)
+        break
+      case "excludedIngredient3":
+        setUserExcludeIngredient3(value)
+        break
+      case "calories":
+        setUserCalories(e.target.value)
+        break
+      case "time":
+        setUserPreparationTime(e.target.value)
+        break
       case "specialDiets":
         e.target.value !== "Specify a special diet" ? setUserDiets(e.target.value) : setUserDiets('')
         break
@@ -96,31 +124,29 @@ const RecipeSearch = () => {
     }
   }
 
+  const getPreparationTime = (time) => {
+    const hours = time > 60 ? Math.floor(time / 60) : 0
+    const unity = hours > 1 ? "hours" : "hour"
+    const minutes = time > 60 ? time % 60 : time
+    return time > 60 ? `${hours} ${unity} and ${minutes} minutes` : `${minutes} minutes`
+  }
+
   return (
     <div className='recipeSearch'>
       <h2>Recipe by ingredient</h2>
       <h3>What do you have in your fridge?</h3>
       <div className='ingredientSearch'>
         <form onSubmit={submitForm} class="form-example">
-
-          <fieldset class="ingredientSearch">
-            <legend>Search by ingredients</legend>
-            <label htmlFor='ingredient1'>Ingredient 1 </label>
-            <input onChange={(event) => setUserIngredient1((event.target.value).toLowerCase())} id='ingredient1' type='text' pattern="[A-Za-z]+" />
-            <label htmlFor='ingredient2'>Ingredient 2 </label>
-            <input onChange={(event) => setUserIngredient2((event.target.value).toLowerCase())} id='ingredient2' type='text' pattern="[A-Za-z]+" />
-            <label htmlFor='ingredient3'>Ingredient 3 </label>
-            <input onChange={(event) => setUserIngredient3((event.target.value).toLowerCase())} id='ingredient3' type='text' pattern="[A-Za-z]+" />
-          </fieldset>
+          <Form handleChange={handleChange} submitForm={submitForm} />
 
           <fieldset className="ingredientsExcluded">
             <legend>Exclude some ingredients</legend>
             <label htmlFor='excludedIngredient1'>Ingredient 1 </label>
-            <input onChange={(event) => setUserExcludeIngredient1((event.target.value).toLowerCase())} id='excludedIngredient1' type='text' pattern="[A-Za-z]+" />
+            <input onChange={handleChange} id='excludedIngredient1' type='text' pattern="[A-Za-z]+" />
             <label htmlFor='excludedIngredient2'>Ingredient 2 </label>
-            <input onChange={(event) => setUserExcludeIngredient2((event.target.value).toLowerCase())} id='excludedIngredient2' type='text' pattern="[A-Za-z]+" />
+            <input onChange={handleChange} id='excludedIngredient2' type='text' pattern="[A-Za-z]+" />
             <label htmlFor='excludedIngredient3'>Ingredient 3 </label>
-            <input onChange={(event) => setUserExcludeIngredient3((event.target.value).toLowerCase())} id='excludedIngredient3' type='text' pattern="[A-Za-z]+" />
+            <input onChange={handleChange} id='excludedIngredient3' type='text' pattern="[A-Za-z]+" />
           </fieldset>
 
           <div style={{ padding: "1em", color: "red", "font-weight": "bold" }}>{errorRequest}</div>
@@ -130,13 +156,17 @@ const RecipeSearch = () => {
               <option selected>Specify a special diet</option>
               {specialDiet.map(diet => <option key={diet} value={diet}>{diet}</option>)}
             </select><br />
-            <label htmlFor="intolerables">Select intolerable</label><br />
+            <label htmlFor="intolerables">Select intolerable</label>
+            <br />
             <select id="intolerables" name="intolerables" multiple size="5" onChange={handleChange} style={{ margin: "1em" }}>
               {intolerables.map(intolerable => <option key={intolerable} value={intolerable}>{intolerable}</option>)}
             </select>
           </div>
           <label htmlFor="calories">Number of minimum calories:</label>
-          <input onChange={(event) => setUserCalories(event.target.value)} type="range" id="calories" min="0" max="100000" step="1" />{userCalories}
+          <input onChange={handleChange} type="range" id="calories" min="0" max="100000" step="1" />{userCalories}
+          <br />
+          <label htmlFor="time">Maximum of preparation time :</label>
+          <input onChange={handleChange} value={userPreparationTime} type="range" id="time" start="0" min="0" max="240" step="1" />{getPreparationTime(userPreparationTime)}
 
           <p>{numOfResult} recettes trouvées !</p>
           <div><input className="submit" type="submit" value="Get recipe"></input></div>
@@ -151,6 +181,7 @@ const RecipeSearch = () => {
             <h3>{recipe[0].recipe.label}</h3>
             <p><img src={recipe[0].recipe.image} alt={recipe[0].recipe.label} /></p>
             <p>{recipe[0].recipe.calories}</p>
+            <p>{recipe[0].recipe.totalTime}</p>
           </>
         }
 
