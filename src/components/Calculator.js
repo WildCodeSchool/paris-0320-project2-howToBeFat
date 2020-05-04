@@ -13,7 +13,9 @@ class Calculator extends React.Component {
         this.setState({ userWeight: event.target.value })
     }
 
-
+    weightChange = () => {
+        this.setState({ weightToReach: parseInt(this.state.userWeight) + this.state.userWeight * 0.2 + ' kg' })
+    }
 
     getWeightToReach = (userWeight) => {
 
@@ -44,22 +46,23 @@ class Calculator extends React.Component {
         }
     }
 
-
     render() {
-        console.log("result", this.state.weightToReach)
         return (
             <div>
                 <form>
-                    <label>Enter your Weight
+                    <label>Please enter your weight : 
                     <input
                             type='number'
                             className="userWeight"
                             value={this.state.userWeight}
                             onChange={this.handleChange}
-                            placeholder="Enter your weight in kg">
+                            placeholder="In Kg">
                         </input>
                     </label>
-                    <p>Poids actuel: {this.state.userWeight} kg</p>
+
+                    <input type="button" value="Calculate" className="buttonCalculator" onClick={this.weightChange}/>
+                    
+                    <p>Current weight: {this.state.userWeight} kg</p>
                     <div>
                         <label>Motivation level</label>
                         <input
@@ -72,7 +75,7 @@ class Calculator extends React.Component {
                             max="100"
                         />
                     </div>
-                    <p>Your result : {this.state.weightToReach}</p>
+                    <p value={this.state.weightToReach} onChange={this.weightChange}>Your goal : {this.state.weightToReach}</p>
                 </form>
             </div>
         )
