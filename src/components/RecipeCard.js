@@ -34,7 +34,6 @@ class RecipeCard extends React.Component {
           ingredients: objectUri.recipe.ingredientLines
         })
       })
-
   }
 
   randomNumber = (max) => Math.floor(Math.random() * Math.floor(max))
