@@ -50,7 +50,6 @@ class Calculator extends React.Component {
     render() {
         return (
             <div className="calculator">
-                {/* <img className="balance" src={balance} alt="image de balance"></img> */}
                 <form className='calculator-form'>
                     <label>Please enter your weight :</label>
                     <input
@@ -65,7 +64,7 @@ class Calculator extends React.Component {
                     <div className="motiv">
                         <label>Motivation level</label>
                         <input
-                            className="motivationBar"
+                            className="slider"
                             onChange={this.getMotivation}
                             id="motivationBar"
                             type="range"
@@ -73,7 +72,7 @@ class Calculator extends React.Component {
                             step="50"
                             max="100"
                         />
-                    <p value={this.state.weightToReach} onChange={this.weightChange}>Your goal : {this.state.weightToReach}</p>
+                    <p className="goal" value={this.state.weightToReach} onChange={this.weightChange} className="goal">Your goal : {this.state.weightToReach}</p>
                     </div>
                 </form>
             </div>
