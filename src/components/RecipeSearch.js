@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const intolerables = ["peanut-free", "tree-nut-free", "alcohol-free", "gluten-free"]
+const intolerables = ["peanut-free", "tree-nut-free", "alcohol-free", "sugar-conscious"]
 const specialDiet = ["vegetarian", "vegan"]
 
 const RecipeSearch = () => {
 
+  // Define the states variables with useState hooks
   const [numOfResult, setNumOfResult] = useState(0)
   const [userIngredient1, setUserIngredient1] = useState('')
   const [userIngredient2, setUserIngredient2] = useState('')
   const [userIngredient3, setUserIngredient3] = useState('')
+  const [userExcludeIngredient1, setUserExcludeIngredient1] = useState('')
+  const [userExcludeIngredient2, setUserExcludeIngredient2] = useState('')
+  const [userExcludeIngredient3, setUserExcludeIngredient3] = useState('')
   const [userCalories, setUserCalories] = useState(0)
   const [userDiets, setUserDiets] = useState('')
   const [userIntolerables, setUserIntolerables] = useState([])
@@ -30,25 +34,22 @@ const RecipeSearch = () => {
     return `&from=${min}&to=${max}`
   }
 
+  // Add the optionnal searches to the url request in depend of the users selected options
   const defineRequestUrl = (nbResults) => {
     nbResults = nbResults > 100 ? 100 : nbResults
     const calories = userCalories && `&calories=${userCalories}%2B`
     const ingredients = userIngredient1 && `${userIngredient1},${userIngredient2},${userIngredient3}`
+    const excludes = `&excluded=${userExcludeIngredient1}&excluded=${userExcludeIngredient2}&excluded=${userExcludeIngredient3}`
     const diet = userDiets && `&health=${userDiets}`
-    const intolerables = userIntolerables && defineIntolerables()
-    console.log(diet, "diet")
-    numOfResult > 100 && setNumOfResult(100)
+    let intolerables = ""
+    if (userIntolerables) {
+      userIntolerables.filter(x => x !== "").map(intolerable => intolerables += `&health=${intolerable}`)
+    }
     const rangeRequest = numOfResult ? defineRangeNumber(numOfResult) : nbResults ? defineRangeNumber(nbResults) : ''
     // url which will be send to the API request
-    return `https://api.edamam.com/search?q=${ingredients}${calories}${rangeRequest}${diet}${intolerables}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
+    return `https://api.edamam.com/search?q=${ingredients}${calories}${rangeRequest}${diet}${intolerables}${excludes}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
   }
-  // Define the format for the list of intolerables in view of the api call
-  const defineIntolerables = () => {
-    let tempString = ""
-    userIntolerables.map(intolerable => tempString += `&health=${intolerable}`)
-    return tempString
-    // console.log(tempString, "intolBeforeCall")
-  }
+
   // We verify if the number of results are define
   const callApi = (url) => numOfResult === 0 ? getNumRecipes(url) : getApiDatas(url)
   // If the number of result is unknown, we go fetch it
@@ -69,8 +70,9 @@ const RecipeSearch = () => {
       .then(res => {
         console.log(res.data.hits, "hits")
         SetRecipes(res.data.hits)
+        setErrorRequest(false)
       })
-      .catch(e => setErrorRequest("Error, please check your ingredients"))
+      .catch(e => setErrorRequest("Error, please contact administrator"))
   }
 
   const submitForm = (e) => {
@@ -79,20 +81,7 @@ const RecipeSearch = () => {
   }
 
   const handleChange = (e) => {
-    const value = (e.target.value).toLowerCase()
     switch (e.target.id) {
-      case "userIngredient1":
-        setUserIngredient1(value)
-        break
-      case "userIngredient2":
-        setUserIngredient2(value)
-        break
-      case "userIngredient3":
-        setUserIngredient3(value)
-        break
-      case "userCalories":
-        setUserCalories(e.target.value)
-        break
       case "specialDiets":
         e.target.value !== "Specify a special diet" ? setUserDiets(e.target.value) : setUserDiets('')
         break
@@ -113,30 +102,46 @@ const RecipeSearch = () => {
       <h3>What do you have in your fridge?</h3>
       <div className='ingredientSearch'>
         <form onSubmit={submitForm} class="form-example">
-          <label htmlFor='userIngredient1'></label>
-          <input onChange={handleChange} id='userIngredient1' type='text' required pattern="[A-Za-z]+"></input>
 
-          <label htmlFor='userIngredient2'></label>
-          <input onChange={handleChange} id='userIngredient2' type='text' />
+          <fieldset class="ingredientSearch">
+            <legend>Search by ingredients</legend>
+            <label htmlFor='ingredient1'>Ingredient 1 </label>
+            <input onChange={(event) => setUserIngredient1((event.target.value).toLowerCase())} id='ingredient1' type='text' pattern="[A-Za-z]+" />
+            <label htmlFor='ingredient2'>Ingredient 2 </label>
+            <input onChange={(event) => setUserIngredient2((event.target.value).toLowerCase())} id='ingredient2' type='text' pattern="[A-Za-z]+" />
+            <label htmlFor='ingredient3'>Ingredient 3 </label>
+            <input onChange={(event) => setUserIngredient3((event.target.value).toLowerCase())} id='ingredient3' type='text' pattern="[A-Za-z]+" />
+          </fieldset>
 
-          <label htmlFor='userIngredient3'></label>
-          <input onChange={handleChange} id='userIngredient3' type='text' />
-          <div>{errorRequest}</div>
+          <fieldset className="ingredientsExcluded">
+            <legend>Exclude some ingredients</legend>
+            <label htmlFor='excludedIngredient1'>Ingredient 1 </label>
+            <input onChange={(event) => setUserExcludeIngredient1((event.target.value).toLowerCase())} id='excludedIngredient1' type='text' pattern="[A-Za-z]+" />
+            <label htmlFor='excludedIngredient2'>Ingredient 2 </label>
+            <input onChange={(event) => setUserExcludeIngredient2((event.target.value).toLowerCase())} id='excludedIngredient2' type='text' pattern="[A-Za-z]+" />
+            <label htmlFor='excludedIngredient3'>Ingredient 3 </label>
+            <input onChange={(event) => setUserExcludeIngredient3((event.target.value).toLowerCase())} id='excludedIngredient3' type='text' pattern="[A-Za-z]+" />
+          </fieldset>
+
+          <div style={{ padding: "1em", color: "red", "font-weight": "bold" }}>{errorRequest}</div>
+
           <div>
-            <select id="specialDiets" name="specialDiets" onChange={handleChange}>
+            <select id="specialDiets" name="specialDiets" onChange={handleChange} style={{ margin: "1em" }}>
               <option selected>Specify a special diet</option>
               {specialDiet.map(diet => <option key={diet} value={diet}>{diet}</option>)}
             </select><br />
-            <select id="intolerables" name="intolerables" multiple size="3" onChange={handleChange}>
-              <option selected>If intolerable</option>
+            <label htmlFor="intolerables">Select intolerable</label><br />
+            <select id="intolerables" name="intolerables" multiple size="5" onChange={handleChange} style={{ margin: "1em" }}>
               {intolerables.map(intolerable => <option key={intolerable} value={intolerable}>{intolerable}</option>)}
             </select>
           </div>
-          <label htmlFor="userCalories">Number of minimum calories:</label>
-          <input onChange={handleChange} type="range" id="userCalories" name="userCalories" min="0" max="25000" step="1" />{userCalories}
+          <label htmlFor="calories">Number of minimum calories:</label>
+          <input onChange={(event) => setUserCalories(event.target.value)} type="range" id="calories" min="0" max="100000" step="1" />{userCalories}
+
           <p>{numOfResult} recettes trouvées !</p>
           <div><input className="submit" type="submit" value="Get recipe"></input></div>
         </form>
+
         {recipe[0] &&
           <>
             <fieldset>
