@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-const intolerables = ["gluten-free", "wheat-free", "egg-free", "peanut-free", "tree-nut-free",
-  "soy-free", "fish-free", "shellfish-free", "pork-free", "sesame-free", "alcohol-free", "sulphite-free", "dairy-free"]
-const specialDiet = ["vegetarian", "vegan",]
+const intolerables = ["peanut-free", "tree-nut-free", "alcohol-free", "gluten-free"]
+const specialDiet = ["vegetarian", "vegan"]
 
 const RecipeSearch = () => {
 
@@ -33,21 +32,22 @@ const RecipeSearch = () => {
 
   const defineRequestUrl = (nbResults) => {
     nbResults = nbResults > 100 ? 100 : nbResults
-    const calories = userCalories && `&calories=${userCalories}`
+    const calories = userCalories && `&calories=${userCalories}%2B`
     const ingredients = userIngredient1 && `${userIngredient1},${userIngredient2},${userIngredient3}`
     const diet = userDiets && `&health=${userDiets}`
-    userIntolerables && defineIntolerables()
+    const intolerables = userIntolerables && defineIntolerables()
     console.log(diet, "diet")
     numOfResult > 100 && setNumOfResult(100)
     const rangeRequest = numOfResult ? defineRangeNumber(numOfResult) : nbResults ? defineRangeNumber(nbResults) : ''
     // url which will be send to the API request
-    return `https://api.edamam.com/search?q=${ingredients}${calories}${rangeRequest}${diet}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
+    return `https://api.edamam.com/search?q=${ingredients}${calories}${rangeRequest}${diet}${intolerables}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
   }
   // Define the format for the list of intolerables in view of the api call
   const defineIntolerables = () => {
     let tempString = ""
     userIntolerables.map(intolerable => tempString += `&health=${intolerable}`)
-    console.log(tempString, "intolBeforeCall")
+    return tempString
+    // console.log(tempString, "intolBeforeCall")
   }
   // We verify if the number of results are define
   const callApi = (url) => numOfResult === 0 ? getNumRecipes(url) : getApiDatas(url)
@@ -98,7 +98,7 @@ const RecipeSearch = () => {
         break
       case "intolerables":
         const selectedValues = [...e.target.options]
-          .filter((x) => x.selected)
+          .filter((x) => x.selected && x.value !== "If intolerable")
           .map((x) => x.value);
         console.log(selectedValues, "intolerables")
         setUserIntolerables(selectedValues)
@@ -133,7 +133,7 @@ const RecipeSearch = () => {
             </select>
           </div>
           <label htmlFor="userCalories">Number of minimum calories:</label>
-          <input onChange={handleChange} type="range" id="userCalories" name="userCalories" min="0" max="10000" step="1" />{userCalories}
+          <input onChange={handleChange} type="range" id="userCalories" name="userCalories" min="0" max="25000" step="1" />{userCalories}
           <p>{numOfResult} recettes trouvées !</p>
           <div><input className="submit" type="submit" value="Get recipe"></input></div>
         </form>
@@ -145,6 +145,7 @@ const RecipeSearch = () => {
             </fieldset>
             <h3>{recipe[0].recipe.label}</h3>
             <p><img src={recipe[0].recipe.image} alt={recipe[0].recipe.label} /></p>
+            <p>{recipe[0].recipe.calories}</p>
           </>
         }
 
