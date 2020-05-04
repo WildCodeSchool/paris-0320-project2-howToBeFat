@@ -1,0 +1,41 @@
+#img{
+    width: 250px;
+}
+
+.eyesLeft{
+    border-radius: 50%;
+    background-color: white;
+    margin-right: -82px;
+    z-index: 20;
+    margin-bottom: 61px;
+    width: 36px;
+    height: 36px;
+    
+}
+
+.eyesRight{
+    border-radius: 50%;
+    background-color:white;
+    margin-right: -97px;
+    z-index: 20;
+    margin-bottom: 54px;
+    width: 36px;
+    height: 36px;
+}
+
+.pupille{
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgb(26, 197, 240);
+    margin-top: 10px;
+    margin-left: 4px;
+    transition: rotate 90deg
+}
+
+.wait{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 116px
+}

@@ -11,7 +11,7 @@ function NavbarDesktop (){
           </div>
           <div>
             <Link to="/BeerCard">Beers</Link>
-            <Link to="#calculator">Tips</Link>
+            <Link to="/calculator">Tips</Link>
           </div>
       </div>
     )

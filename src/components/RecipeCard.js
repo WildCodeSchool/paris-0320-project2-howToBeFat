@@ -2,17 +2,20 @@ import React from 'react'
 import axios from 'axios'
 import RecipeSearch from './RecipeSearch'
 import DisplayRecipe from './DisplayRecipe'
+import Waiting from './Waiting'
 
 class RecipeCard extends React.Component {
 
   state = {
     recipe: '',
-    ingredients: []
+    ingredients: [],
+    bool:false
     // ingredient1: "",
     // ingredient2: "",
     // ingredient3: "",
     // errorIngredient: "",
     // userCalories: 0
+    
   }
 
   getRecipe(ingredient1, ingredient2, ingredient3, userCalories) {
@@ -39,6 +42,7 @@ class RecipeCard extends React.Component {
         this.setState({
           recipe: objectUri.recipe,
           ingredients: objectUri.recipe.ingredientLines,
+          bool:true
           // ingredient1: '',
           // ingredient2: '',
           // ingredient3: '',
@@ -95,7 +99,10 @@ class RecipeCard extends React.Component {
 
     return (
       <div className="RecipeCard" >
-        <DisplayRecipe getOtherRecipe={this.getOtherRecipe} ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
+        
+       { this.state.recipe ?
+        (<DisplayRecipe getOtherRecipe={this.getOtherRecipe} ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} /> )
+        :(<Waiting  /> )}        
       </div>
     );
   }
