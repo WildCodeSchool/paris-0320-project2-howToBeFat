@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import './FormIngredients.css'
 
-const FormIngredients = (props) => {
+const FormExcludes = (props) => {
 
   const handleChange = props.handleChange
 
@@ -50,15 +50,15 @@ const FormIngredients = (props) => {
   return (
     <>
       <fieldset className="ingredientSearch">
-        <legend>Search by ingredients</legend>
+        <legend> Exclude some ingredients </legend>
         {
           ingredientShow.ingredient1 &&
           <>
             <label htmlFor='ingredient1' id="labelIngredient1">Ingredient 1 <br />
               {!ingredientShow.ingredient2 &&
-                <input type="button" className="hideButton" onClick={handleHideInput} id="IngredientHideInput1" value="-" required />
+                <input type="button" className="hideButton" onClick={handleHideInput} id="IngredientHideInput1" value="-" />
               }
-              <input onChange={handleChange} id='ingredient1' type='text' pattern="[A-Za-z]+" />
+              <input onChange={handleChange} id='excludedIngredient1' type='text' pattern="[A-Za-z]+" />
             </label>
           </>
         }
@@ -68,14 +68,14 @@ const FormIngredients = (props) => {
             {!ingredientShow.ingredient3 &&
               <input type="button" className="hideButton" onClick={handleHideInput} id="IngredientHideInput2" value="-" />
             }
-            <input onChange={handleChange} id='ingredient2' type='text' pattern="[A-Za-z]+" />
+            <input onChange={handleChange} id='excludedIngredient2' type='text' pattern="[A-Za-z]+" />
           </label>
         }
         {
           ingredientShow.ingredient3 &&
           <label htmlFor='ingredient3' id="labelIngredient3">Ingredient 3 <br />
             <input type="button" className="hideButton" onClick={handleHideInput} id="IngredientHideInput3" value="-" />
-            <input onChange={handleChange} id='ingredient3' type='text' pattern="[A-Za-z]+" />
+            <input onChange={handleChange} id='excludedIngredient3' type='text' pattern="[A-Za-z]+" />
           </label>
         }
         {
@@ -87,4 +87,4 @@ const FormIngredients = (props) => {
   )
 }
 
-export default FormIngredients
+export default FormExcludes

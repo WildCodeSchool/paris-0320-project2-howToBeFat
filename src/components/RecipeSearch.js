@@ -39,7 +39,7 @@ const RecipeSearch = () => {
   const defineRequestUrl = (nbResults) => {
     nbResults = nbResults > 100 ? 100 : nbResults
     const calories = userCalories && `&calories=${userCalories}%2B`
-    const preparationTime = userPreparationTime && `&time=${userPreparationTime}`
+    const preparationTime = userPreparationTime && `&time=1-${userPreparationTime}`
     const ingredients = userIngredient1 && `${userIngredient1},${userIngredient2},${userIngredient3}`
     const excludes = `&excluded=${userExcludeIngredient1}&excluded=${userExcludeIngredient2}&excluded=${userExcludeIngredient3}`
     const diet = userDiets && `&health=${userDiets}`
@@ -70,7 +70,6 @@ const RecipeSearch = () => {
   const getApiDatas = (url) => {
     axios.get(url)
       .then(res => {
-        console.log(res.data.hits, "hits")
         SetRecipes(res.data.hits)
         setErrorRequest(false)
       })
@@ -138,16 +137,6 @@ const RecipeSearch = () => {
       <div className='ingredientSearch'>
         <form onSubmit={submitForm} class="form-example">
           <Form handleChange={handleChange} submitForm={submitForm} />
-
-          <fieldset className="ingredientsExcluded">
-            <legend>Exclude some ingredients</legend>
-            <label htmlFor='excludedIngredient1'>Ingredient 1 </label>
-            <input onChange={handleChange} id='excludedIngredient1' type='text' pattern="[A-Za-z]+" />
-            <label htmlFor='excludedIngredient2'>Ingredient 2 </label>
-            <input onChange={handleChange} id='excludedIngredient2' type='text' pattern="[A-Za-z]+" />
-            <label htmlFor='excludedIngredient3'>Ingredient 3 </label>
-            <input onChange={handleChange} id='excludedIngredient3' type='text' pattern="[A-Za-z]+" />
-          </fieldset>
 
           <div style={{ padding: "1em", color: "red", "font-weight": "bold" }}>{errorRequest}</div>
 
