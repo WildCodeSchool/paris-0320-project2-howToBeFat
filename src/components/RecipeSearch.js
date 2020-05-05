@@ -110,7 +110,7 @@ const RecipeSearch = () => {
         setUserPreparationTime(e.target.value)
         break
       case "specialDiets":
-        e.target.value !== "Specify a special diet" ? setUserDiets(e.target.value) : setUserDiets('')
+        setUserDiets(e.target.value)
         break
       case "intolerables":
         const selectedValues = [...e.target.options]
@@ -137,14 +137,10 @@ const RecipeSearch = () => {
       <div className='ingredientSearch'>
         <form onSubmit={submitForm} class="form-example">
           <Form handleChange={handleChange} submitForm={submitForm} />
-
-          <div style={{ padding: "1em", color: "red", "font-weight": "bold" }}>{errorRequest}</div>
-
+          <div style={{ padding: "1em", color: "red", "font-weight": "bold" }}>
+            {errorRequest}
+          </div>
           <div>
-            <select id="specialDiets" name="specialDiets" onChange={handleChange} style={{ margin: "1em" }}>
-              <option selected>Specify a special diet</option>
-              {specialDiet.map(diet => <option key={diet} value={diet}>{diet}</option>)}
-            </select><br />
             <label htmlFor="intolerables">Select intolerable</label>
             <br />
             <select id="intolerables" name="intolerables" multiple size="5" onChange={handleChange} style={{ margin: "1em" }}>

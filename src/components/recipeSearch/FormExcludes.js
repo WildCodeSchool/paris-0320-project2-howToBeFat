@@ -80,7 +80,7 @@ const FormExcludes = (props) => {
         }
         {
           addButton &&
-          <input type="button" onClick={handleShowInput} value="Add an ingredient..." />
+          <input type="button" onClick={handleShowInput} value="Add an ingredient..." className="button-recipe" />
         }
       </fieldset>
     </>
