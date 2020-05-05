@@ -85,3 +85,21 @@
 @media screen and (min-width: 750px) {
 
 }
+
+@media screen and (min-width: 1050px) {
+    .calculator {
+        display: flex;
+        height: 100%;
+        align-items: center;
+    }
+
+    .calculator-form {
+        margin: 20px;
+        padding: 15px 30px;
+        border-radius: 10px;
+        border-top: 5px solid #45D3D3;
+        box-shadow: 0 8px 17px -8px #A3A5AE;
+        background-color: #FFF;
+        width: 400px;
+    }
+}

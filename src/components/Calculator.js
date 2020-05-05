@@ -1,6 +1,6 @@
 import React from 'react'
 import './Calculator.css'
-// import balance from '../images/balance.png'
+import balance from '../images/balance.png'
 
 class Calculator extends React.Component {
     state = {
@@ -73,6 +73,7 @@ class Calculator extends React.Component {
                             max="100"
                         />
                     <p className="goal" value={this.state.weightToReach} onChange={this.weightChange} className="goal">Your goal : {this.state.weightToReach}</p>
+                    <img src={balance} alt='balance'/>
                     </div>
                 </form>
             </div>
