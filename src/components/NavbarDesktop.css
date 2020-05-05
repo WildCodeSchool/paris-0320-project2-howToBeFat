@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Indie+Flower&display=swap");
 
 /* For desktop NavBar */
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 1049px) {
 
 /* Add background color to the top navigation */
 .topnav {
@@ -36,7 +36,7 @@
 }
 
 /* A media query to get a responsive navbar for the desktop version */
-@media screen and (max-width: 1190px) and (min-width: 1050px) {
+@media screen and (max-width: 1190px) and (min-width: 1049px) {
   .topnav {
     display: flex;
     background-color: #00c2cb;
@@ -46,7 +46,7 @@
 }
 
 /* For Mobile and Tablet, this topnav is hidden */
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1049px) {
     .topnav{
         display: none;
     }

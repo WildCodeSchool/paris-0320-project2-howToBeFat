@@ -1,6 +1,6 @@
 import React from 'react'
 import './Calculator.css'
-import balance from '../images/balance.png'
+import balance2 from '../images/balance2.png'
 
 class Calculator extends React.Component {
     state = {
@@ -51,15 +51,17 @@ class Calculator extends React.Component {
         return (
             <div className="calculator">
                 <form className='calculator-form'>
-                    <label>Please enter your weight :</label>
+                    <label>Please enter your weight:</label>
                     <input
                             type='number'
                             className="userWeight"
                             value={this.state.userWeight}
                             onChange={this.handleChange}
-                            placeholder="In Kg">
+                            placeholder="   In Kg">
                     </input>
                     <input type="button" value="Calculate" className="buttonCalculator" onClick={this.weightChange} />
+                        <p className="balance-image">Press the cat to calculate your goal</p>
+                        <img className="balance-image" src={balance2} alt='balance' onClick={this.weightChange}/>
                     <p>Current weight: {this.state.userWeight} kg</p>
                     <div className="motiv">
                         <label>Motivation level</label>
@@ -73,7 +75,6 @@ class Calculator extends React.Component {
                             max="100"
                         />
                     <p className="goal" value={this.state.weightToReach} onChange={this.weightChange} className="goal">Your goal : {this.state.weightToReach}</p>
-                    <img src={balance} alt='balance'/>
                     </div>
                 </form>
             </div>
