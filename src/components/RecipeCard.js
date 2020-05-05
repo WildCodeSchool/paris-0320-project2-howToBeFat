@@ -17,10 +17,13 @@ class RecipeCard extends React.Component {
     // userCalories: 0
     
   }
-
+  listIngredient = () => 
+    ['beef','pork','salmon','shrimp','lamb','sheep','chicken','ham', 'ground-meat', 'pasta', 'tomato', 'spinach', 'zucchini', 'carrot', 'pea', 'green-bean', 'chocolate', 'vanilla', 'turkey', 'rabbit', 'truffle', 'eggplant',' endive', 'cheese', 'bacon', 'cherry', 'banana', 'apple', 'pear', 'orange', 'kiwi', 'flour', 'sugar', 'pepper', 'cucumber', 'milk', 'bread', 'butter', 'rum', 'peanut', 'pistachio', 'salad', 'wine', 'onion', 'garlic', 'coriander', 'parsley', 'thyme', 'potato', 'turnip', 'asparagus', 'cauliflower', 'broccoli', 'mushroom', 'rice', 'egg', 'fish','sausage, celery, thom']
+  
+  
   getRecipe(ingredient1, ingredient2, ingredient3, userCalories) {
 
-    let selectedIngredients = "cheese"
+    let selectedIngredients = `${this.listIngredient()[Math.floor(Math.random() * 60)]}`
     const allIngredient = ingredient1 && `${ingredient1},${ingredient2},${ingredient3}`
     const min = 0
     const max = min + 100
@@ -28,7 +31,7 @@ class RecipeCard extends React.Component {
     const maxCalories = minCalories + 5000
     const customIngredient = allIngredient ? allIngredient : selectedIngredients
     let url = `https://api.edamam.com/search?q=${customIngredient}&from=${min}&to=${max}&calories=${minCalories}-${maxCalories}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
-
+    
     axios.get(url)
       .then((res) => {
         const randomNum = this.randomNumber(max)
@@ -96,8 +99,9 @@ class RecipeCard extends React.Component {
   render() {
     const totalTime = this.state.recipe.totalTime
     const calories = Math.round(this.state.recipe.calories)
-
+    
     return (
+      
       <div className="RecipeCard" >
         
        { this.state.recipe ?
