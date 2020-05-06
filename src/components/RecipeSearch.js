@@ -20,12 +20,9 @@ const RecipeSearch = () => {
   const getRandomNumber = (max) => Math.floor(Math.random() * Math.floor(max))
   //Define the range of search for the api request
   const defineRangeNumber = (nbResults) => {
-    console.log(nbResults, "firstresult")
     const rangewidth = 10
     const numberToRandom = getRandomNumber(Math.ceil(nbResults / rangewidth))
-    console.log(numberToRandom, "numberRandom")
     const max = (numberToRandom * rangewidth) + rangewidth > nbResults ? nbResults - 1 : (numberToRandom * rangewidth) + rangewidth
-    console.log(max, "max")
     const min = max - rangewidth < 0 ? 0 : max - rangewidth
     return `&from=${min}&to=${max}`
   }
@@ -35,7 +32,6 @@ const RecipeSearch = () => {
     const calories = userCalories && `&calories=${userCalories}`
     const ingredients = userIngredient1 && `${userIngredient1},${userIngredient2},${userIngredient3}`
     const diet = userDiets && `&health=${userDiets}`
-    console.log(diet, "diet")
     const rangeRequest = nbResults ? defineRangeNumber(nbResults) : ''
     // url which will be send to the API request
     return `https://api.edamam.com/search?q=${ingredients}${calories}${rangeRequest}${diet}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
@@ -48,7 +44,6 @@ const RecipeSearch = () => {
   const getNumRecipes = (url) => {
     axios.get(url)
       .then((res) => {
-        console.log(res.data.count, "first")
         setNumOfResult(res.data.count)
         getApiDatas(defineRequestUrl(res.data.count))
       })
@@ -58,7 +53,6 @@ const RecipeSearch = () => {
   const getApiDatas = (url) => {
     axios.get(url)
       .then(res => {
-        console.log(res.data.hits, "hits")
         SetRecipes(res.data.hits)
       })
   }
@@ -130,7 +124,6 @@ const RecipeSearch = () => {
             <p><img src={recipe[0].recipe.image} alt={recipe[0].recipe.label} /></p>
           </>
         }
-
       </div>
     </div>
   )

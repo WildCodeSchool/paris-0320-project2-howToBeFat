@@ -10,8 +10,8 @@ class RecipeCard extends React.Component {
   state = {
     recipe: '',
     ingredients: [],
-    bool:false
   }
+  
   getRecipe(ingredient1, ingredient2, ingredient3, userCalories) {
 
     let selectedIngredients = `${ingredientsArray[Math.floor(Math.random() * ingredientsArray.length)]}`
@@ -21,7 +21,6 @@ class RecipeCard extends React.Component {
     const minCalories = userCalories ? parseInt(userCalories) : 5000
     const maxCalories = minCalories + 5000
     const customIngredient = allIngredient ? allIngredient : selectedIngredients
-    console.log(selectedIngredients)
     let url = `https://api.edamam.com/search?q=${customIngredient}&from=${min}&to=${max}&calories=${minCalories}-${maxCalories}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
     
     axios.get(url)
@@ -37,7 +36,6 @@ class RecipeCard extends React.Component {
         this.setState({
           recipe: objectUri.recipe,
           ingredients: objectUri.recipe.ingredientLines,
-          bool:true
         })
       })
   }
