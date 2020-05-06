@@ -1,6 +1,7 @@
 import React from 'react'
-import './Calculator.css'
 import balance2 from '../images/balance2.png'
+
+import './Calculator.css'
 
 class Calculator extends React.Component {
     state = {
