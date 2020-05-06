@@ -1,6 +1,6 @@
 
 /* Navbar for Mobile-first */
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1049px) {
 
 /* Place the navbar stick at the bottom of the page and Icons center */
     .navbar-mobile {
@@ -11,7 +11,7 @@
         position: fixed;
         bottom: 0;
         width: 100%;
-        z-index: 1;
+        z-index: 21;
     }
     
 /* Style the icons */
@@ -45,7 +45,7 @@
 }
 
 /* Navbar for desktop */
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 1049px) {
     .navbar-mobile{
         display: none;
     }

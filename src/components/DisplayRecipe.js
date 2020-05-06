@@ -16,18 +16,20 @@ class DisplayRecipe extends React.Component {
           <img src={image} alt=""></img>
           <div className="container">
             <p className="recipeName">{label}</p>
-            <p>Number of calories:<br /> <span className="recipeName nbCal">{calories}</span> Kcal</p>
+            <p>Number of calories:<br /> <span className="recipeName nbCal">{calories}</span> Cal</p>
             <div className="button">
               <button onClick={this.props.getOtherRecipe} className="button-recipe">Show another one! </button>
-              <button className="button-recipe" value="See more infos..." ><Link to={{
-                pathname: "/FullRecipeCard",
-                data: {
-                  recipe: this.props.recipe,
-                  calories: this.props.calories,
-                  ingredients: this.props.ingredientsList,
-                  preparationTime: this.props.preparationTime
-                }
-              }} >See more details ...</Link></button>
+              <button className="button-recipe" value="See more infos..." >
+                <Link to={{
+                  pathname: "/FullRecipeCard",
+                  data: {
+                    recipe: this.props.recipe,
+                    calories: this.props.calories,
+                    ingredients: this.props.ingredientsList,
+                    preparationTime: this.props.preparationTime
+                  }
+                }} >See more details ...</Link>
+              </button>
             </div>
           </div>
         </div>
