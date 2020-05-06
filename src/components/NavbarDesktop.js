@@ -1,16 +1,17 @@
 import React from 'react'
 import './NavbarDesktop.css'
+import {Link} from 'react-router-dom'
 
 function NavbarDesktop (){
     return (
         <div className ="topnav">
           <div>
-            <a className ="active" href="#home">Home</a>
-            <a href="#recipes">Recipes</a>
+            <Link className ="active" to="/">Home</Link>
+            <Link to="/RecipeSearch">Recipes</Link>
           </div>
           <div>
-            <a href="#beers">Beers</a>
-            <a href="#calculator">Tips</a>
+            <Link to="/BeerCard">Beers</Link>
+            <Link to="/calculator">Tips</Link>
           </div>
       </div>
     )

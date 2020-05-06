@@ -1,25 +1,28 @@
 import React from 'react'
 import axios from 'axios'
-
 import DisplayRecipe from './DisplayRecipe'
+import Waiting from './Waiting'
+
+const ingredientsArray = ['beef','pork','salmon','shrimp','lamb','sheep','chicken','ham', 'pasta', 'tomato', 'spinach', 'zucchini', 'carrot', 'pea', 'bean', 'chocolate', 'vanilla', 'turkey', 'rabbit', 'truffle', 'eggplant',' endive', 'cheese', 'bacon', 'cherry', 'banana', 'apple', 'pear', 'orange', 'kiwi', 'flour', 'sugar', 'pepper', 'cucumber', 'milk', 'bread', 'butter', 'rum', 'peanut', 'pistachio', 'salad', 'wine', 'onion', 'garlic', 'coriander', 'parsley', 'thyme', 'potato', 'turnip', 'asparagus', 'cauliflower', 'broccoli', 'mushroom', 'rice', 'egg', 'fish','sausage', 'celery', 'thom']
 
 class RecipeCard extends React.Component {
 
   state = {
     recipe: '',
     ingredients: [],
-    UserChoice: false,
-    page: ''
   }
+  
+  getRecipe(ingredient1, ingredient2, ingredient3, userCalories) {
 
-  getRecipe() {
-    let selectedIngredients = "cheese"
+    let selectedIngredients = `${ingredientsArray[Math.floor(Math.random() * ingredientsArray.length)]}`
+    const allIngredient = ingredient1 && `${ingredient1},${ingredient2},${ingredient3}`
     const min = 0
-    const max = min + 50
-    const minCalories = 5000
-    const maxCalories = 10000
-    let url = `https://api.edamam.com/search?q=${selectedIngredients}&from=${min}&to=${max}&calories=${minCalories}-${maxCalories}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
-
+    const max = min + 100
+    const minCalories = userCalories ? parseInt(userCalories) : 5000
+    const maxCalories = minCalories + 5000
+    const customIngredient = allIngredient ? allIngredient : selectedIngredients
+    let url = `https://api.edamam.com/search?q=${customIngredient}&from=${min}&to=${max}&calories=${minCalories}-${maxCalories}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
+    
     axios.get(url)
       .then((res) => {
         const randomNum = this.randomNumber(max)
@@ -32,7 +35,7 @@ class RecipeCard extends React.Component {
         // Define the state with the research recipe and the ingredients which go with
         this.setState({
           recipe: objectUri.recipe,
-          ingredients: objectUri.recipe.ingredientLines
+          ingredients: objectUri.recipe.ingredientLines,
         })
       })
   }
@@ -46,10 +49,6 @@ class RecipeCard extends React.Component {
     return time > 60 ? `${hours} ${unity} and ${minutes} minutes` : `${minutes} minutes`
   }
 
-  handleClickPage = () => {
-    this.setState({ page: "FullRecipe" })
-  }
-
   getOtherRecipe = () => {
     this.getRecipe()
   }
@@ -61,10 +60,12 @@ class RecipeCard extends React.Component {
   render() {
     const totalTime = this.state.recipe.totalTime
     const calories = Math.round(this.state.recipe.calories)
-
-    return (
-      <div className="RecipeCard" >
-        <DisplayRecipe getOtherRecipe={this.getOtherRecipe} ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
+    
+    return (      
+      <div className="RecipeCard" >        
+        {this.state.recipe ?
+        (<DisplayRecipe getOtherRecipe={this.getOtherRecipe} ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} /> )
+        :(<Waiting  /> )}        
       </div>
     );
   }

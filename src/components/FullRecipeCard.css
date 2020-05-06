@@ -1,12 +1,8 @@
-.fullCard {
-    margin: 1.2em;
-}
-
 .recipe-name {
     border-bottom: solid 1px #1c72a3;
     height: 2.3em;
     margin: 0;
-    width: 100%;
+    width: 99%;
     height: 100%;
 	background-color: #00c2cb;
     color: #ffcb05;
@@ -31,6 +27,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 1.2em;
 }
 
 .kcal {
@@ -39,6 +36,12 @@
 
 .ingredients {
     text-align: left;
+}
+
+.photo{
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
 }
 
 .photoFood {
@@ -55,13 +58,30 @@ button.button-recipe{
     margin: 1.5em;
 }
 
+.retour{
+    width: 110px;
+}
+
 @media screen and (min-width: 1050px) {
     .fullCard {
-        width: 65%;
+        width: 78%;
     }
     .fullCard:hover {
 		transition: 2.5s;
 		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .photo{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .photoFood{
+        width: 450px;
+    }
+
+    .photoFood img{
+        width: 450px;
     }
     .containRecipe {
         display: flex;
