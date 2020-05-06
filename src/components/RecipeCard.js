@@ -3,7 +3,7 @@ import axios from 'axios'
 import DisplayRecipe from './DisplayRecipe'
 import Waiting from './Waiting'
 
-const ingredientsArray = ['beef', 'pork', 'salmon', 'shrimp', 'lamb', 'sheep', 'chicken', 'ham', 'pasta', 'tomato', 'zucchini', 'carrot', 'pea', 'bean', 'chocolate', 'vanilla', 'turkey', 'rabbit',  'eggplant', 'avocado', 'cheese', 'bacon', 'cherry', 'banana', 'apple', 'pear', 'orange', 'kiwi', 'flour', 'sugar', 'pepper', 'cucumber', 'milk', 'bread', 'butter', 'rum', 'peanut', 'pistachio', 'wine', 'onion', 'garlic', 'coriander', 'parsley', 'thyme', 'potato', 'turnip', 'asparagus', 'rice', 'egg', 'fish', 'sausage', 'celery']
+const ingredientsArray = ['beef', 'pork', 'salmon', 'shrimp', 'lamb', 'sheep', 'chicken', 'ham', 'pasta', 'tomato', 'zucchini', 'carrot', 'pea', 'bean', 'chocolate', 'vanilla', 'turkey', 'rabbit', 'eggplant', 'avocado', 'cheese', 'bacon', 'cherry', 'banana', 'apple', 'pear', 'orange', 'kiwi', 'flour', 'sugar', 'pepper', 'cucumber', 'milk', 'bread', 'butter', 'rum', 'peanut', 'pistachio', 'wine', 'onion', 'garlic', 'coriander', 'parsley', 'thyme', 'potato', 'turnip', 'asparagus', 'rice', 'egg', 'fish', 'sausage', 'celery']
 
 class RecipeCard extends React.Component {
 
@@ -21,23 +21,24 @@ class RecipeCard extends React.Component {
     let url = `https://api.edamam.com/search?q=${selectedIngredients}&from=${min}&to=${max}&calories=${minCalories}-${maxCalories}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
 
     axios.get(url)
-      .then((res) => { 
+      .then((res) => {
         // base of the calls
         const res1 = res.data.hits
-        const randomNum = this.randomNumber(res1.length) 
+        const randomNum = this.randomNumber(res1.length)
         //sort by calories desc
         const thisCalories = res1.map(x => x.recipe.calories)
         const sort = thisCalories.sort((a, b) => b - a)[randomNum]
         // Search for the recipe whom match with the max of calories
         const objectUri = res1.filter(x => x.recipe.calories === sort)[0]
         // Define the state with the research recipe and the ingredients which go with
-        
+
         res1.length === 0 ? this.getRecipe() :
-        this.setState({
-          recipe: objectUri.recipe,
-          ingredients: objectUri.recipe.ingredientLines
-        })
+          this.setState({
+            recipe: objectUri.recipe,
+            ingredients: objectUri.recipe.ingredientLines
+          })
       })
+      .catch((e) => console.log(e))
   }
 
   randomNumber = (max) => Math.floor(Math.random() * Math.floor(max))

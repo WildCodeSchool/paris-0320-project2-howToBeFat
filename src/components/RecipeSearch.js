@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 import Form from './recipeSearch/Form'
-
-const intolerables = ["peanut-free", "tree-nut-free", "alcohol-free", "sugar-conscious"]
-const specialDiet = ["vegetarian", "vegan"]
 
 const RecipeSearch = () => {
 
@@ -19,7 +16,11 @@ const RecipeSearch = () => {
   const [userCalories, setUserCalories] = useState(0)
   const [userPreparationTime, setUserPreparationTime] = useState(0)
   const [userDiets, setUserDiets] = useState('')
-  const [userIntolerables, setUserIntolerables] = useState([])
+  const [userIntolerables, setUserIntolerables] = useState({
+    "peanut-free": false,
+    "tree-nut-free": false,
+    "alcohol-free": false
+  })
   const [errorRequest, setErrorRequest] = useState(false)
   const [recipe, SetRecipes] = useState([])
 
@@ -81,7 +82,7 @@ const RecipeSearch = () => {
 
   const handleChange = (e) => {
     const value = e.target.value.toLowerCase()
-    switch (e.target.id) {
+    switch (e.target.name) {
       case "ingredient1":
         setUserIngredient1(value)
         break
@@ -110,10 +111,7 @@ const RecipeSearch = () => {
         setUserDiets(e.target.value)
         break
       case "intolerables":
-        const selectedValues = [...e.target.options]
-          .filter((x) => x.selected && x.value !== "If intolerable")
-          .map((x) => x.value);
-        setUserIntolerables(selectedValues)
+        setUserIntolerables({ ...userIntolerables, [value]: e.target.checked })
         break
       default:
     }
@@ -131,23 +129,16 @@ const RecipeSearch = () => {
       <h2>Recipe by ingredient</h2>
       <h3>What do you have in your fridge?</h3>
       <div className='ingredientSearch'>
-        <form onSubmit={submitForm} class="form-example">
+        <form onSubmit={submitForm} className="form-example">
           <Form handleChange={handleChange} submitForm={submitForm} />
-          <div style={{ padding: "1em", color: "red", "font-weight": "bold" }}>
+          <div style={{ padding: "1em", color: "red", "fontWeight": "bold" }}>
             {errorRequest}
           </div>
-          <div>
-            <label htmlFor="intolerables">Select intolerable</label>
-            <br />
-            <select id="intolerables" name="intolerables" multiple size="5" onChange={handleChange} style={{ margin: "1em" }}>
-              {intolerables.map(intolerable => <option key={intolerable} value={intolerable}>{intolerable}</option>)}
-            </select>
-          </div>
           <label htmlFor="calories">Number of minimum calories:</label>
-          <input onChange={handleChange} type="range" id="calories" min="0" max="100000" step="1" />{userCalories}
+          <input onChange={handleChange} type="range" id="calories" name="calories" min="0" max="100000" step="1" />{userCalories}
           <br />
           <label htmlFor="time">Maximum of preparation time :</label>
-          <input onChange={handleChange} value={userPreparationTime} type="range" id="time" start="0" min="0" max="240" step="1" />{getPreparationTime(userPreparationTime)}
+          <input onChange={handleChange} value={userPreparationTime} type="range" id="time" name="time" start="0" min="0" max="240" step="1" />{getPreparationTime(userPreparationTime)}
 
           <p>{numOfResult} recettes trouvées !</p>
           <div><input className="submit" type="submit" value="Get recipe"></input></div>

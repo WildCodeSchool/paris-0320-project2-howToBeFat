@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
 import './FormIngredients.css'
 
@@ -55,7 +56,7 @@ const FormIngredients = (props) => {
               {!ingredientShow.ingredient2 &&
                 <input type="button" className="hideButton" onClick={handleHideInput} id="IngredientHideInput1" value="-" required />
               }
-              <input onChange={handleChange} id='ingredient1' type='text' pattern="[A-Za-z]+" />
+              <input onChange={handleChange} id='ingredient1' name='ingredient1' type='text' pattern="[A-Za-z]+" />
             </label>
           </>
         }
@@ -65,14 +66,14 @@ const FormIngredients = (props) => {
             {!ingredientShow.ingredient3 &&
               <input type="button" className="hideButton" onClick={handleHideInput} id="IngredientHideInput2" value="-" />
             }
-            <input onChange={handleChange} id='ingredient2' type='text' pattern="[A-Za-z]+" />
+            <input onChange={handleChange} id='ingredient2' name="ingredient2" type='text' pattern="[A-Za-z]+" />
           </label>
         }
         {
           ingredientShow.ingredient3 &&
           <label htmlFor='ingredient3' id="labelIngredient3">Ingredient 3 <br />
             <input type="button" className="hideButton" onClick={handleHideInput} id="IngredientHideInput3" value="-" />
-            <input onChange={handleChange} id='ingredient3' type='text' pattern="[A-Za-z]+" />
+            <input onChange={handleChange} id='ingredient3' name="ingredient3" type='text' pattern="[A-Za-z]+" />
           </label>
         }
         {
@@ -82,6 +83,10 @@ const FormIngredients = (props) => {
       </fieldset>
     </>
   )
+}
+
+FormIngredients.propTypes = {
+  handleChange: PropTypes.func.isRequired
 }
 
 export default FormIngredients
