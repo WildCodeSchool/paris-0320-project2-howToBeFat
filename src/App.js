@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 
 import Accueil from './components/Accueil'
 import FullRecipeCard from './components/FullRecipeCard'
+import SearchBeer from './components/SearchBeer'
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
 
@@ -19,6 +20,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Accueil}></Route>
         <Route path="/FullRecipeCard" component={FullRecipeCard} />
+        <Route path="/SearchBeer" component ={SearchBeer} />
       </Switch>
       <Footer />
     </div>

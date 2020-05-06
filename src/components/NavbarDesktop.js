@@ -1,5 +1,6 @@
 import React from 'react'
 import './NavbarDesktop.css'
+import { Link } from 'react-router-dom'
 
 function NavbarDesktop (){
     return (
@@ -9,7 +10,8 @@ function NavbarDesktop (){
             <a href="#recipes">Recipes</a>
           </div>
           <div>
-            <a href="#beers">Beers</a>
+            <Link to="/SearchBeer">Beers</Link>
+            {/* <a href="#beers">Beers</a> */}
             <a href="#calculator">Tips</a>
           </div>
       </div>

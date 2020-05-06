@@ -6,6 +6,7 @@ import './FullRecipeCard.css'
 class FullRecipeCard extends React.Component {
 
     render() {
+        //console.log('This', this.props.location.data)
         const {recipe, calories, ingredients, preparationTime} = this.props.location.data
         return (
             <div className="containRecipe">
