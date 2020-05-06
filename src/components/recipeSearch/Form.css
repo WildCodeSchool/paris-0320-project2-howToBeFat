@@ -1,0 +1,11 @@
+.ingredientsSearch fieldset {
+  width: 85%;
+  margin: 1em auto;
+  padding: 1em;
+  text-align: center;
+  border: 1pt #1c72a3 solid;
+}
+
+.ingredientsSearch legend {
+  color: #1c72a3;
+}

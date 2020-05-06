@@ -4,21 +4,9 @@
   margin-bottom: .5em;
 }
 
-.ingredientSearch legend {
-  text-align: left;
-}
-
 .ingredientSearch input {
   margin: auto;
   position: relative;
-}
-
-.ingredientSearch fieldset {
-  width: 80%;
-  margin: 1em auto;
-  padding: 1em;
-  text-align: center;
-  border: 1pt rgb(19, 126, 112) solid;
 }
 
 .ingredientSearch .hideButton {

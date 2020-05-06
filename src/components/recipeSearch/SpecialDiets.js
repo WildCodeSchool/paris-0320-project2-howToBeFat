@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import './SpecialDiets.css'
+import './Health.css'
 
 const SpecialDiets = (props) => {
 
@@ -16,15 +16,18 @@ const SpecialDiets = (props) => {
     <fieldset>
       <legend>Select a special diet</legend>
       <div className="specialDiets">
-        <label htmlFor="all">
+        <div>
           <input type="radio" name="specialDiets" id="all" value="" onChange={props.handleChange} onClick={handleClick} checked={checked && true} />
-      All</label>
-        <label htmlFor="vegetarian">
+          <label htmlFor="all">All</label>
+        </div>
+        <div>
           <input type="radio" name="specialDiets" id="vegetarian" value="vegetarian" onChange={props.handleChange} onClick={handleClick} />
-      Vegetarian</label>
-        <label htmlFor="vegan">
+          <label htmlFor="vegetarian">Vegetarian</label>
+        </div>
+        <div>
           <input type="radio" name="specialDiets" id="vegan" value="vegan" onChange={props.handleChange} onClick={handleClick} />
-      Vegan</label>
+          <label htmlFor="vegan">Vegan</label>
+        </div>
       </div>
     </fieldset>
   )

@@ -1,0 +1,35 @@
+.rangeCalories .caloriesSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2em;
+  border-radius: 5px;
+  background-color: #ffcb05;
+  border: 2px inset #1c72a3;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  width: 75%;
+  cursor: url(http://www.rw-designer.com/cursor-extern.php?id=94158), pointer
+}
+
+.rangeCalories .caloriesSlider:hover {
+  opacity: 0.7;
+}
+
+.caloriesSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.8em;
+  height: 3em;
+  border-radius: 25%;
+  background: #00c2cb;
+  cursor: url(http://www.rw-designer.com/cursor-extern.php?id=93244), grab
+}
+
+.caloriesSlider::-moz-range-thumb {
+  width: 1.8em;
+  height: 3em;
+  border-radius: 25%;
+  background: #00c2cb;
+  cursor: url(http://www.rw-designer.com/cursor-extern.php?id=93244), grab
+}

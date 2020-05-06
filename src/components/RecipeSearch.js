@@ -130,19 +130,16 @@ const RecipeSearch = () => {
       <h2>Recipe by ingredient</h2>
       <h3>What do you have in your fridge?</h3>
       <div className='ingredientSearch'>
-        <form onSubmit={submitForm} className="form-example">
-          <Form handleChange={handleChange} submitForm={submitForm} />
+        <form onSubmit={submitForm} className="ingredientsSearch">
+          <Form handleChange={handleChange} submitForm={submitForm} userCalories={userCalories} />
           <div style={{ padding: "1em", color: "red", "fontWeight": "bold" }}>
             {errorRequest}
           </div>
-          <label htmlFor="calories">Number of minimum calories:</label>
-          <input onChange={handleChange} type="range" id="calories" name="calories" min="0" max="100000" step="1" />{userCalories}
-          <br />
           <label htmlFor="time">Maximum of preparation time :</label>
           <input onChange={handleChange} value={userPreparationTime} type="range" id="time" name="time" start="0" min="0" max="240" step="1" />{getPreparationTime(userPreparationTime)}
 
           <p>{numOfResult} recettes trouvées !</p>
-          <div><input className="submit" type="submit" value="Get recipe"></input></div>
+          <div><input type="submit" value="Get recipe" className="button-recipe"></input></div>
         </form>
 
         {recipe[0] &&

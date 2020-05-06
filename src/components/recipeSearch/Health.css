@@ -4,10 +4,8 @@
   margin: auto;
 }
 
-.specialDiets label {
+.specialDiets {
+  display: flex;
+  justify-content: space-around;
   margin: auto;
-}
-
-.specialDiets input {
-  margin-right:.5em;
 }

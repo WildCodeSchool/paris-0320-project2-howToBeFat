@@ -1,26 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import './Intolerables.css'
+import './Health.css'
 
 const Intolerables = (props) => {
 
   return (
     <fieldset>
       <legend>Specials intolerable</legend>
-      <div className="intolerables">
-        <label htmlFor="peanut-free">
+      <div className="specialDiets">
+        <div>
           <input type="checkbox" id="peanut-free" name="intolerables" value="peanut-free" onChange={props.handleChange} />
-          Peanut-free
-        </label>
-        <label htmlFor="alcohol-free">
+          <label htmlFor="peanut-free">Peanut-free</label>
+        </div><div>
           <input type="checkbox" id="alcohol-free" name="intolerables" value="alcohol-free" onChange={props.handleChange} />
-          alcohol-free
-        </label>
-        <label htmlFor="tree-nut-free">
+          <label htmlFor="alcohol-free">alcohol-free</label>
+        </div><div>
           <input type="checkbox" id="tree-nut-free" name="intolerables" value="tree-nut-free" onChange={props.handleChange} />
-          tree-nut-free
-        </label>
+          <label htmlFor="tree-nut-free">tree-nut-free</label>
+        </div>
       </div>
     </fieldset>
   )
