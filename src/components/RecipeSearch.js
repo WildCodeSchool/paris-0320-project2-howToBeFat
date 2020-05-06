@@ -16,11 +16,12 @@ const RecipeSearch = () => {
   const [userCalories, setUserCalories] = useState(0)
   const [userPreparationTime, setUserPreparationTime] = useState(0)
   const [userDiets, setUserDiets] = useState('')
-  const [userIntolerables, setUserIntolerables] = useState({
-    "peanut-free": false,
-    "tree-nut-free": false,
-    "alcohol-free": false
-  })
+  const [userIntolerables, setUserIntolerables] =
+    useState({
+      "peanut-free": false,
+      "tree-nut-free": false,
+      "alcohol-free": false
+    })
   const [errorRequest, setErrorRequest] = useState(false)
   const [recipe, SetRecipes] = useState([])
 
@@ -39,17 +40,17 @@ const RecipeSearch = () => {
   const defineRequestUrl = (nbResults) => {
     nbResults = nbResults > 100 ? 100 : nbResults
     const calories = userCalories && `&calories=${userCalories}%2B`
-    const preparationTime = userPreparationTime && `&time=1-${userPreparationTime}`
+    const preparationTime = userPreparationTime && `&time=15-${userPreparationTime}`
     const ingredients = userIngredient1 && `${userIngredient1},${userIngredient2},${userIngredient3}`
     const excludes = `&excluded=${userExcludeIngredient1}&excluded=${userExcludeIngredient2}&excluded=${userExcludeIngredient3}`
-    const diet = userDiets && `&health=${userDiets}`
-    let intolerables = ""
-    if (userIntolerables) {
-      userIntolerables.filter(x => x !== "").map(intolerable => intolerables += `&health=${intolerable}`)
-    }
+
+    const intolerables = Object.entries(userIntolerables)
+      .filter(intolerable => intolerable[1])
+      .reduce((a, b) => a + `&health=${b[0]}`, '')
+
     const rangeRequest = numOfResult ? defineRangeNumber(numOfResult) : nbResults ? defineRangeNumber(nbResults) : ''
     // url which will be send to the API request
-    return `https://api.edamam.com/search?q=${ingredients}${calories}${rangeRequest}${diet}${intolerables}${excludes}${preparationTime}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
+    return `https://api.edamam.com/search?q=${ingredients}${calories}${rangeRequest}${userDiets}${intolerables}${excludes}${preparationTime}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
   }
 
   // We verify if the number of results are define
@@ -108,7 +109,7 @@ const RecipeSearch = () => {
         setUserPreparationTime(e.target.value)
         break
       case "specialDiets":
-        setUserDiets(e.target.value)
+        setUserDiets(`&health=${e.target.value}`)
         break
       case "intolerables":
         setUserIntolerables({ ...userIntolerables, [value]: e.target.checked })
