@@ -27,7 +27,6 @@ const RecipeSearch = () => {
   const getRandomNumber = (max) => Math.floor(Math.random() * Math.floor(max))
   //Define the range of search for the api request
   const defineRangeNumber = (nbResults) => {
-    console.log(nbResults, "firstresult")
     const rangewidth = 10
     const numberToRandom = getRandomNumber(Math.ceil(nbResults / rangewidth))
     const max = (numberToRandom * rangewidth) + rangewidth > nbResults ? nbResults - 1 : (numberToRandom * rangewidth) + rangewidth
@@ -59,7 +58,6 @@ const RecipeSearch = () => {
     axios.get(url)
       .then((res) => {
         setNumOfResult(0)
-        console.log(numOfResult)
         setNumOfResult(res.data.count)
         getApiDatas(defineRequestUrl(res.data.count))
       })
@@ -169,7 +167,6 @@ const RecipeSearch = () => {
             <p>{recipe[0].recipe.totalTime}</p>
           </>
         }
-
       </div>
     </div>
   )

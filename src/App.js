@@ -24,7 +24,6 @@ const App = () => {
         <Route path="/FullRecipeCard" component={FullRecipeCard} />
         <Route path="/RecipeSearch" component={RecipeSearch} />
         <Route path="/BeerCard" component={BeerCard} />
-        {/* <Route path="Calculator" component={/Calculator} /> */}
       </Switch>
       <Footer />
     </div>

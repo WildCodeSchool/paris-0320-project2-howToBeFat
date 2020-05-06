@@ -1,8 +1,9 @@
 import React from 'react'
 import axios from 'axios'
-import RecipeSearch from './RecipeSearch'
 import DisplayRecipe from './DisplayRecipe'
 import Waiting from './Waiting'
+
+const ingredientsArray = ['beef', 'pork', 'salmon', 'shrimp', 'lamb', 'sheep', 'chicken', 'ham', 'pasta', 'tomato', 'spinach', 'zucchini', 'carrot', 'pea', 'bean', 'chocolate', 'vanilla', 'turkey', 'rabbit', 'truffle', 'eggplant', ' endive', 'cheese', 'bacon', 'cherry', 'banana', 'apple', 'pear', 'orange', 'kiwi', 'flour', 'sugar', 'pepper', 'cucumber', 'milk', 'bread', 'butter', 'rum', 'peanut', 'pistachio', 'salad', 'wine', 'onion', 'garlic', 'coriander', 'parsley', 'thyme', 'potato', 'turnip', 'asparagus', 'cauliflower', 'broccoli', 'mushroom', 'rice', 'egg', 'fish', 'sausage', 'celery', 'thom']
 
 class RecipeCard extends React.Component {
 
@@ -13,7 +14,7 @@ class RecipeCard extends React.Component {
 
   getRecipe() {
 
-    let selectedIngredients = "cheese"
+    let selectedIngredients = `${ingredientsArray[Math.floor(Math.random() * ingredientsArray.length)]}`
     const min = 0
     const max = min + 100
     const minCalories = 5000
@@ -60,7 +61,6 @@ class RecipeCard extends React.Component {
 
     return (
       <div className="RecipeCard" >
-
         {this.state.recipe ?
           (<DisplayRecipe getOtherRecipe={this.getOtherRecipe} ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />)
           : (<Waiting />)}
