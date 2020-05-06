@@ -5,11 +5,12 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Accueil from './components/Accueil'
 import FullRecipeCard from './components/FullRecipeCard'
-// import RecipeSearch from './components/RecipeSearch'
-// import Beers from './components/Beers'
-import './App.css';
+import RecipeSearch from './components/RecipeSearch'
+import BeerCard from './components/BeerCard'
 import { Route, Switch } from 'react-router-dom'
 import Calculator from './components/Calculator';
+import './App.css';
+
 
 const App = () => {
   return (
@@ -21,9 +22,9 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Accueil}></Route>
         <Route path="/FullRecipeCard" component={FullRecipeCard} />
-        {/* <Route path="/RecipeSearch" component={RecipeSearch} /> */}
-         {/* <Route path="/Beers" component={/Beers} /> */}
-         <Route path="/Calculator" component={Calculator} />
+        <Route path="/Calculator" component={Calculator} />
+        <Route path="/RecipeSearch" component={RecipeSearch} />
+        <Route path="/BeerCard" component={BeerCard} />
       </Switch>
       <Footer />
     </div>

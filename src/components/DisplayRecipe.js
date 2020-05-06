@@ -7,7 +7,6 @@ import './DisplayRecipe.css'
 class DisplayRecipe extends React.Component {
 
   render() {
-    console.log(this.props.recipe)
     const { label, image } = { ...this.props.recipe }
     const calories = this.props.calories
     return (
@@ -20,7 +19,7 @@ class DisplayRecipe extends React.Component {
             <p>Number of calories:<br /> <span className="recipeName nbCal">{calories}</span> Kcal</p>
             <div className="button">
               <button onClick={this.props.getOtherRecipe} className="button-recipe">Show another one! </button>
-              <button className="button-recipe" value="See more infos..."><Link to={{
+              <button className="button-recipe" value="See more infos..." ><Link to={{
                 pathname: "/FullRecipeCard",
                 data: {
                   recipe: this.props.recipe,
