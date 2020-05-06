@@ -25,9 +25,10 @@ class RecipeCard extends React.Component {
     
     axios.get(url)
       .then((res) => {
-        const randomNum = this.randomNumber(max)
+        
         // base of the calls
         const res1 = res.data.hits
+        const randomNum = this.randomNumber(res1.length)
         //sort by calories desc
         const thisCalories = res1.map(x => x.recipe.calories).sort((a, b) => b - a)[randomNum]
         // Search for the recipe whom match with the max of calories
