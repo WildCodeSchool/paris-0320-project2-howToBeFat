@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import RecipeSearch from './RecipeSearch'
 import DisplayRecipe from './DisplayRecipe'
+import Waiting from './Waiting'
 
 class RecipeCard extends React.Component {
 
@@ -59,7 +60,10 @@ class RecipeCard extends React.Component {
 
     return (
       <div className="RecipeCard" >
-        <DisplayRecipe getOtherRecipe={this.getOtherRecipe} ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
+
+        {this.state.recipe ?
+          (<DisplayRecipe getOtherRecipe={this.getOtherRecipe} ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />)
+          : (<Waiting />)}
       </div>
     );
   }
