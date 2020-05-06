@@ -104,7 +104,7 @@ class RecipeCard extends React.Component {
       
       <div className="RecipeCard" >
         
-       { this.state.recipe ?
+        {this.state.recipe ?
         (<DisplayRecipe getOtherRecipe={this.getOtherRecipe} ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} /> )
         :(<Waiting  /> )}        
       </div>
