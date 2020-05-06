@@ -1,6 +1,6 @@
 .specialDiets {
   display: flex;
-  flex-direction: rows;
+  flex-direction: row;
   justify-content: space-around;
   margin: auto;
 }

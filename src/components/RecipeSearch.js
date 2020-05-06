@@ -83,7 +83,6 @@ const RecipeSearch = () => {
     const value = e.target.value.toLowerCase()
     switch (e.target.id) {
       case "ingredient1":
-        console.log(value, 'ingredient1')
         setUserIngredient1(value)
         break
       case "ingredient2":
@@ -114,7 +113,6 @@ const RecipeSearch = () => {
         const selectedValues = [...e.target.options]
           .filter((x) => x.selected && x.value !== "If intolerable")
           .map((x) => x.value);
-        console.log(selectedValues, "intolerables")
         setUserIntolerables(selectedValues)
         break
       default:

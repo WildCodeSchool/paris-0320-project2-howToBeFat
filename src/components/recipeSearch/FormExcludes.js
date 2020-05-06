@@ -18,15 +18,12 @@ const FormExcludes = (props) => {
     if (ingredientShow.ingredient2) {
       setIngredientShow({ ...ingredientShow, ingredient3: true })
       setAddButton(false)
-      console.log(ingredientShow, "cas 1")
     }
     else if (ingredientShow.ingredient1) {
       setIngredientShow({ ...ingredientShow, ingredient2: true })
-      console.log(ingredientShow, "cas 2")
     }
     else {
       setIngredientShow({ ...ingredientShow, ingredient1: true })
-      console.log(ingredientShow, "cas 3")
     }
   }
 
