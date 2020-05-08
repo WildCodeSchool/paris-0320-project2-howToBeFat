@@ -43,17 +43,6 @@
   font-family: 'Sniglet', cursive;
 }
 
-.ingredientFilter .button-recipe {
-  background-color: #1c72a3;
-  color: #ffcb05;
-  margin-top: 1em;
-}
-
-.ingredientFilter .button-recipe:hover {
-  background-color: #ffcb05;
-  color: #1c72a3;
-}
-
 .ingredientFilter label {
   font-family: 'Gaegu', cursive;
   font-size: 1.2em;

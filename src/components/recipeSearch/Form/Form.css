@@ -1,3 +1,8 @@
+.flexFormContainer, .flexFormingredients, .flexFormDiets, .flexFormRange {
+  display: flex;
+  flex-direction: column;
+}
+
 .FormContainer fieldset {
   width: 85%;
   margin: 1em auto;
@@ -10,4 +15,43 @@
   color: #1c72a3;
   font-family: 'Gloria Hallelujah', 'Knewave', sans-serif;
   font-weight: bold;
+}
+
+.FormContainer .button-recipe {
+  background-color: #1c72a3;
+  color: #ffcb05;
+  margin-top: 1em;
+}
+
+.FormContainer .button-recipe:hover {
+  background-color: #ffcb05;
+  color: #1c72a3;
+}
+
+.FormContainer .validForm .button-recipe {
+  padding: .5em 1em;
+  font-weight: 500;
+  font-size: 1.3em;
+}
+
+@media screen and (min-width: 950px) {
+  .FormContainer {
+    max-width: 90em;
+    margin: auto;
+  }
+  .flexFormingredients, .flexFormDiets, .flexFormRange {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 90%;
+    margin: auto;
+  }
+  .flexIngredients, .flexSpecialDiets, .flexRange {
+    margin: 1em;
+    width: 50%;
+  }
+  .FormContainer legend {
+    background-color: #ffcb05;
+    border-radius: 40%;
+    padding: .5em;
+  }
 }

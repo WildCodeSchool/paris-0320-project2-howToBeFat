@@ -46,7 +46,7 @@ const FormIngredients = (props) => {
   }
 
   return (
-    <>
+    <article className="flexIngredients">
       <fieldset className="ingredientFilter">
         <legend>Search by ingredients</legend>
         {
@@ -81,7 +81,7 @@ const FormIngredients = (props) => {
           <input type="button" onClick={handleShowInput} value="Add an ingredient..." className="button-recipe" />
         }
       </fieldset>
-    </>
+    </article>
   )
 }
 

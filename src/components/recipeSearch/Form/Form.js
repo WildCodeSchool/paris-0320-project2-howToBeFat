@@ -13,19 +13,31 @@ import './Form.css'
 const Form = (props) => (
 
   <form onSubmit={props.submitForm} className="FormContainer">
-    <FormIngredients handleChange={props.handleChange} />
-    <FormExcludes handleChange={props.handleChange} />
-    <SpecialDiets handleChange={props.handleChange} />
-    <Intolerables handleChange={props.handleChange} />
-    <RangeCalories handleChange={props.handleChange} userCalories={props.userCalories} />
-    <RangePrepTime handleChange={props.handleChange} userPrepTime={props.userPrepTime} />
+    <div className="flexFormContainer">
+      <div className="flexFormingredients">
+        <FormIngredients handleChange={props.handleChange} />
+        <FormExcludes handleChange={props.handleChange} />
+      </div>
+      <div className="flexFormDiets">
+        <SpecialDiets handleChange={props.handleChange} />
+        <Intolerables handleChange={props.handleChange} />
+      </div>
+      <div>
+        <div className="flexFormRange">
+          <RangeCalories handleChange={props.handleChange} userCalories={props.userCalories} />
+          <RangePrepTime handleChange={props.handleChange} userPrepTime={props.userPrepTime} />
+        </div>
+      </div>
+    </div>
     {
       props.errorRequest &&
       <div style={{ padding: "1em", color: "red", "fontWeight": "bold" }}>
         {props.errorRequest}
       </div>
     }
-    <div><input type="submit" value="Get recipe" className="button-recipe"></input></div>
+    <div className="validForm">
+      <input type="submit" value="Get recipe" className="button-recipe"></input>
+    </div>
   </form>
 
 )

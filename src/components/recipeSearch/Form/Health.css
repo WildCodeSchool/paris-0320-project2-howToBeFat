@@ -42,3 +42,9 @@
 .specialDiets input:hover, .specialDiets input:focus {
   color: #1c72a3;
 }
+
+@media screen and (min-width:950px) {
+  .specialDiets {
+    height: 3em;
+  }
+}

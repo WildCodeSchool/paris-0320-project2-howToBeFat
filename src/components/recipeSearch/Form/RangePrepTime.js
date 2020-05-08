@@ -11,14 +11,16 @@ const RangePrepTime = (props) => {
   }
 
   return (
-    <fieldset>
-      <legend>Maximum preparation time</legend>
-      <p>{getPreparationTime(props.userPrepTime)}</p>
-      <div className="rangeCalories">
-        <label htmlFor="time"></label>
-        <input onChange={(e) => props.handleChange(e)} type="range" id="time" name="time" min="10" max="240" step="5" className="caloriesSlider" value={props.userPrepTime} />
-      </div>
-    </fieldset>
+    <article className="flexRange">
+      <fieldset className="resultFormRange">
+        <legend>Maximum preparation time</legend>
+        <p>{getPreparationTime(props.userPrepTime)}</p>
+        <div className="rangeForm">
+          <label htmlFor="time"></label>
+          <input onChange={(e) => props.handleChange(e)} type="range" id="time" name="time" min="10" max="240" step="5" className="formSlider" value={props.userPrepTime} />
+        </div>
+      </fieldset>
+    </article>
   )
 }
 
