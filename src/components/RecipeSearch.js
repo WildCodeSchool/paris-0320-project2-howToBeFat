@@ -14,7 +14,7 @@ const RecipeSearch = () => {
   const [userExcludeIngredient2, setUserExcludeIngredient2] = useState('')
   const [userExcludeIngredient3, setUserExcludeIngredient3] = useState('')
   const [userCalories, setUserCalories] = useState(0)
-  const [userPreparationTime, setUserPreparationTime] = useState(0)
+  const [userPreparationTime, setUserPreparationTime] = useState(10)
   const [userDiets, setUserDiets] = useState('')
   const [userIntolerables, setUserIntolerables] =
     useState({
@@ -118,12 +118,7 @@ const RecipeSearch = () => {
     }
   }
 
-  const getPreparationTime = (time) => {
-    const hours = time > 60 ? Math.floor(time / 60) : 0
-    const unity = hours > 1 ? "hours" : "hour"
-    const minutes = time > 60 ? time % 60 : time
-    return time > 60 ? `${hours} ${unity} and ${minutes} minutes` : `${minutes} minutes`
-  }
+
 
   return (
     <div className='recipeSearch'>
@@ -131,14 +126,18 @@ const RecipeSearch = () => {
       <h3>What do you have in your fridge?</h3>
       <div className='ingredientSearch'>
         <form onSubmit={submitForm} className="ingredientsSearch">
-          <Form handleChange={handleChange} submitForm={submitForm} userCalories={userCalories} />
-          <div style={{ padding: "1em", color: "red", "fontWeight": "bold" }}>
-            {errorRequest}
-          </div>
-          <label htmlFor="time">Maximum of preparation time :</label>
-          <input onChange={handleChange} value={userPreparationTime} type="range" id="time" name="time" start="0" min="0" max="240" step="1" />{getPreparationTime(userPreparationTime)}
+          <Form handleChange={handleChange} submitForm={submitForm} userCalories={userCalories} userPrepTime={userPreparationTime} />
 
-          <p>{numOfResult} recettes trouvées !</p>
+          {
+            errorRequest &&
+            <div style={{ padding: "1em", color: "red", "fontWeight": "bold" }}>
+              {errorRequest}
+            </div>
+          }
+          {
+            numOfResult !== 0 &&
+            <p>{numOfResult} recettes trouvées !</p>
+          }
           <div><input type="submit" value="Get recipe" className="button-recipe"></input></div>
         </form>
 

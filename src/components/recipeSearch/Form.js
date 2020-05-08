@@ -6,16 +6,19 @@ import FormExcludes from './FormExcludes'
 import SpecialDiets from './SpecialDiets'
 import Intolerables from './Intolerables'
 import RangeCalories from './RangeCalories'
+import RangePrepTime from './RangePrepTime'
 
 import './Form.css'
 
 const Form = (props) => (
+
   <div>
     <FormIngredients handleChange={props.handleChange} />
     <FormExcludes handleChange={props.handleChange} />
     <SpecialDiets handleChange={props.handleChange} />
     <Intolerables handleChange={props.handleChange} />
     <RangeCalories handleChange={props.handleChange} userCalories={props.userCalories} />
+    <RangePrepTime handleChange={props.handleChange} userPrepTime={props.userPrepTime} />
   </div>
 
 )
@@ -23,6 +26,10 @@ const Form = (props) => (
 Form.propTypes = {
   handleChange: PropTypes.func.isRequired,
   userCalories: PropTypes.oneOfType([
+    PropTypes.number.isRequired,
+    PropTypes.string.isRequired
+  ]),
+  userPrepTime: PropTypes.oneOfType([
     PropTypes.number.isRequired,
     PropTypes.string.isRequired
   ])
