@@ -2,10 +2,5 @@
   display: flex;
   justify-content: space-around;
   margin: auto;
-}
-
-.specialDiets {
-  display: flex;
-  justify-content: space-around;
-  margin: auto;
+  font-family: 'Sniglet', cursive;
 }

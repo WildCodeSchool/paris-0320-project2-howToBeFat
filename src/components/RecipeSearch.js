@@ -122,11 +122,10 @@ const RecipeSearch = () => {
 
   return (
     <div className='recipeSearch'>
-      <h2>Recipe by ingredient</h2>
-      <h3>What do you have in your fridge?</h3>
+      <h2>Customize your recipe</h2>
       <div className='ingredientSearch'>
         <form onSubmit={submitForm} className="ingredientsSearch">
-          <Form handleChange={handleChange} submitForm={submitForm} userCalories={userCalories} userPrepTime={userPreparationTime} />
+          <Form handleChange={handleChange} submitForm={submitForm} userCalories={userCalories} userPrepTime={userPreparationTime} errorRequest={errorRequest} />
 
           {
             errorRequest &&

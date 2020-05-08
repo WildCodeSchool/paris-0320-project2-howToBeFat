@@ -13,7 +13,7 @@ const SpecialDiets = (props) => {
   }
 
   return (
-    <fieldset>
+    <fieldset className="healthForm">
       <legend>Select a special diet</legend>
       <div className="specialDiets">
         <div>

@@ -25,6 +25,8 @@ const Form = (props) => (
 
 Form.propTypes = {
   handleChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  errorRequest: PropTypes.bool.isRequired,
   userCalories: PropTypes.oneOfType([
     PropTypes.number.isRequired,
     PropTypes.string.isRequired

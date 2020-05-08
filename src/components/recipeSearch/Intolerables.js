@@ -6,7 +6,7 @@ import './Health.css'
 const Intolerables = (props) => {
 
   return (
-    <fieldset>
+    <fieldset className="healthForm">
       <legend>Specials intolerable</legend>
       <div className="specialDiets">
         <div>
