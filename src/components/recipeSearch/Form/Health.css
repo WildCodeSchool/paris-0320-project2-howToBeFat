@@ -3,4 +3,42 @@
   justify-content: space-around;
   margin: auto;
   font-family: 'Sniglet', cursive;
+  position: relative;
+}
+
+.specialDiets label {
+  margin-left: .2em;
+}
+
+.specialDiets input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #ffcb05;
+  color: #1c72a3;
+  border: 2px solid #1c72a3;
+  padding: .5em;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  transition: 0.3s all linear;
+  position: relative;
+  top: 3px;
+}
+
+.intolerablesContainer .specialDiets input {
+  border-radius: 25%;
+  top: 5px;
+}
+
+.specialDiets input:active {
+  border-width: 5px;
+}
+
+.specialDiets input:checked {
+  background-color: #00c2cb;
+}
+
+.specialDiets input:hover, .specialDiets input:focus {
+  color: #1c72a3;
 }

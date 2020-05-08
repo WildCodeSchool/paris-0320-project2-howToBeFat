@@ -1,20 +1,10 @@
-/* .ingredientSearch {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 15px;
-    justify-content: center;
-    margin: auto;
-}
-
-input {
-    margin-right: 20px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-    padding: 4px;
-}
-
-.submit {
-    width: 100px;
+.recipeSearch h2 {
+    box-shadow: 0 8px 16px 0 rgba(248, 248, 248, 0.2);
     background-color: #00c2cb;
-    margin-top: 15px;
-} */
+    color: #ffcb05;
+    padding: .2em;
+    font-size: 1.4rem;
+    font-family: 'Gloria Hallelujah', sans-serif;
+    border-bottom: 1px inset #1c72a3;
+    text-shadow: 2px 1px #1c72a3;
+}
