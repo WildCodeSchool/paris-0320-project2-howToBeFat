@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-import Form from './recipeSearch/Form'
+import Form from './recipeSearch/Form/Form'
+import './RecipeSearch.css'
 
 const RecipeSearch = () => {
 
@@ -124,21 +125,13 @@ const RecipeSearch = () => {
     <div className='recipeSearch'>
       <h2>Customize your recipe</h2>
       <div className='ingredientSearch'>
-        <form onSubmit={submitForm} className="ingredientsSearch">
-          <Form handleChange={handleChange} submitForm={submitForm} userCalories={userCalories} userPrepTime={userPreparationTime} errorRequest={errorRequest} />
+        {/* Display of the form */}
+        <Form handleChange={handleChange} submitForm={submitForm} userCalories={userCalories} userPrepTime={userPreparationTime} errorRequest={errorRequest} />
+        {
+          numOfResult !== 0 &&
+          <p>{numOfResult} recettes trouvées !</p>
+        }
 
-          {
-            errorRequest &&
-            <div style={{ padding: "1em", color: "red", "fontWeight": "bold" }}>
-              {errorRequest}
-            </div>
-          }
-          {
-            numOfResult !== 0 &&
-            <p>{numOfResult} recettes trouvées !</p>
-          }
-          <div><input type="submit" value="Get recipe" className="button-recipe"></input></div>
-        </form>
 
         {recipe[0] &&
           <>

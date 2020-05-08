@@ -1,0 +1,13 @@
+.FormContainer fieldset {
+  width: 85%;
+  margin: 1em auto;
+  padding: 1em;
+  text-align: center;
+  border: 1pt #1c72a3 solid;
+}
+
+.FormContainer legend {
+  color: #1c72a3;
+  font-family: 'Gloria Hallelujah', 'Knewave', sans-serif;
+  font-weight: bold;
+}
