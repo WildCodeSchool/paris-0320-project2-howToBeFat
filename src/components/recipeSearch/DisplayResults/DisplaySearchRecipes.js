@@ -2,6 +2,7 @@ import React from 'react'
 import Proptypes from 'prop-types'
 
 import './DisplaySearchRecipes.css'
+import NumberOfResult from './NumberOfResult'
 
 const DisplaySearchRecipes = (props) => {
 
@@ -11,7 +12,7 @@ const DisplaySearchRecipes = (props) => {
       {
         recipes[0] &&
         <>
-          <div className="nbResult">Number of Results: {numOfResult}</div>
+          <NumberOfResult numOfResult={numOfResult} />
           <fieldset>
             <legend>Other recipess</legend>
             <ul>{recipes && recipes.map((e, id) => <li key={id}>{e.recipe.label}</li>)}</ul>
