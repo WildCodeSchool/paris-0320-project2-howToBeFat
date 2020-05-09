@@ -155,6 +155,8 @@ const RecipeSearch = () => {
     }
   }
 
+  const handleClick = () => setDisplayContent("form")
+
 
 
   return (
@@ -165,7 +167,8 @@ const RecipeSearch = () => {
           <Form handleChange={handleChange} submitForm={submitForm} userCalories={userCalories} userPrepTime={userPreparationTime} errorRequest={errorRequest} />
           :
           <>
-            <div className="newSearch"></div>
+            <div className="newSearch" onClick={(e) => handleClick(e)}>New search</div>
+            <div className="triangle" onClick={(e) => handleClick(e)}></div>
             <DisplaySearchRecipes recipes={recipes} numOfResult={numOfResult} />
           </>
       }

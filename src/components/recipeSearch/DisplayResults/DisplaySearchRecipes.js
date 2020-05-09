@@ -7,11 +7,11 @@ const DisplaySearchRecipes = (props) => {
 
   const { numOfResult, recipes } = { ...props }
   return (
-    <div>
+    <div className="mainContainer">
       {
         recipes[0] &&
         <>
-          <h2>Number of Results: {numOfResult}</h2>
+          <div className="nbResult">Number of Results: {numOfResult}</div>
           <fieldset>
             <legend>Other recipess</legend>
             <ul>{recipes && recipes.map((e, id) => <li key={id}>{e.recipe.label}</li>)}</ul>

@@ -3,6 +3,11 @@
   flex-direction: column;
 }
 
+.FormContainer {
+  height: 100%;
+  transition: 5s all;
+}
+
 .FormContainer fieldset {
   width: 85%;
   margin: 1.2em auto;
