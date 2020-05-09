@@ -5,8 +5,7 @@ import './NumberOfResult.css'
 
 const NumberOfResult = (props) => (
   <article className="numberResult">
-    <h5>Number of recipes found</h5>
-    <p>{props.numOfResult}</p>
+    <h5>{props.numOfResult} <span>recipes found !</span></h5>
   </article>
 )
 
