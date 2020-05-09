@@ -9,7 +9,7 @@ const FormIngredients = (props) => {
 
   const [ingredientShow, setIngredientShow] =
     useState({
-      ingredient1: false,
+      ingredient1: true,
       ingredient2: false,
       ingredient3: false
     })
@@ -19,29 +19,17 @@ const FormIngredients = (props) => {
     if (ingredientShow.ingredient2) {
       setIngredientShow({ ...ingredientShow, ingredient3: true })
       setAddButton(false)
-    }
-    else if (ingredientShow.ingredient1) {
+    } else {
       setIngredientShow({ ...ingredientShow, ingredient2: true })
-    }
-    else {
-      setIngredientShow({ ...ingredientShow, ingredient1: true })
     }
   }
 
   const handleHideInput = (e) => {
-    switch (e.target.id) {
-      case "IngredientHideInput1":
-        setIngredientShow({ ...ingredientShow, ingredient1: false })
-        setAddButton(true)
-        break
-      case "IngredientHideInput2":
-        setIngredientShow({ ...ingredientShow, ingredient2: false })
-        break
-      case "IngredientHideInput3":
-        setIngredientShow({ ...ingredientShow, ingredient3: false })
-        setAddButton(true)
-        break
-      default:
+    if (e.target.id === "IngredientHideInput2") {
+      setIngredientShow({ ...ingredientShow, ingredient2: false })
+    } else {
+      setIngredientShow({ ...ingredientShow, ingredient3: false })
+      setAddButton(true)
     }
   }
 
@@ -53,9 +41,6 @@ const FormIngredients = (props) => {
           ingredientShow.ingredient1 &&
           <>
             <label htmlFor='ingredient1' id="labelIngredient1">Ingredient 1 <br />
-              {!ingredientShow.ingredient2 &&
-                <input type="button" className="hideButton" onClick={handleHideInput} id="IngredientHideInput1" value="-" required />
-              }
               <input onChange={(e) => handleChange(e)} id='ingredient1' name='ingredient1' type='text' pattern="[*A-Za-z-]+" className="inputTexte" />
             </label>
           </>

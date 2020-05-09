@@ -32,18 +32,20 @@ const Form = (props) => {
           </div>
         </div>
       </div>
-      {
-        errorRequest ?
-          <>
-            <div className="errorDisplay">
-              {errorRequest}
+      <div className="ErrorValid">
+        {
+          errorRequest ?
+            <>
+              <div className="errorDisplay">
+                {errorRequest}
+              </div>
+            </>
+            :
+            <div className="validForm">
+              <input type="submit" value="Get recipe" className="button-recipe"></input>
             </div>
-          </>
-          :
-          <div className="validForm">
-            <input type="submit" value="Get recipe" className="button-recipe"></input>
-          </div>
-      }
+        }
+      </div>
     </form>
   )
 }
