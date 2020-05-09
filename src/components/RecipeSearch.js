@@ -46,6 +46,7 @@ const RecipeSearch = () => {
   // Add the optionnal searches to the url request in depend of the users selected options
   const defineRequestUrl = (nbResults) => {
     setNumOfResult(nbResults)
+    console.log(numOfResult, "freuit")
     nbResults = nbResults > 100 ? 100 : nbResults
     const calories = userCalories > 0 ? `&calories=${userCalories}-10000` : ''
     const preparationTime = userPreparationTime ? `&time=1-${userPreparationTime}` : ''
@@ -155,9 +156,10 @@ const RecipeSearch = () => {
     }
   }
 
-  const handleClick = () => setDisplayContent("form")
-
-
+  const handleClick = () => {
+    setDisplayContent("form")
+    setNumOfResult(0)
+  }
 
   return (
     <div className='recipeSearch'>
@@ -169,12 +171,9 @@ const RecipeSearch = () => {
           <>
             <div className="newSearch" onClick={(e) => handleClick(e)}>New search</div>
             <div className="triangle" onClick={(e) => handleClick(e)}></div>
-            <DisplaySearchRecipes recipes={recipes} numOfResult={numOfResult} />
+            <DisplaySearchRecipes recipes={recipes} numOfResult={numOfResult} url />
           </>
       }
-
-
-
     </div>
   )
 }
