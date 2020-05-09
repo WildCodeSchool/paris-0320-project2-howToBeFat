@@ -17,4 +17,8 @@
         max-width: 90em;
         margin: auto;
     }
+    .recipeSearch:hover {
+        transition: 0.5s;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
 }

@@ -53,5 +53,15 @@
     background-color: #ecdb96;
     padding: .1em;
     min-width: 50%;
+    font-size: 1.2rem;
+  }
+  .ingredientFilter .hideButton {
+    font-size: 1.2rem;
+  }
+  .ingredientFilter {
+    min-height: 9.975em;
+  }
+  .ingredientFilter label {
+    font-size: 1.4rem;
   }
 }

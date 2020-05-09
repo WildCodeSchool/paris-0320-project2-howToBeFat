@@ -5,7 +5,7 @@
 
 .FormContainer fieldset {
   width: 85%;
-  margin: 1em auto;
+  margin: 1.2em auto;
   padding: 1em;
   text-align: center;
   border: 1pt #1c72a3 solid;
@@ -45,7 +45,7 @@
 .errorDisplay {
   border: 1px solid red;
   color: red;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 @media screen and (min-width: 950px) {
@@ -53,16 +53,12 @@
     max-width: 90em;
     margin: auto;
   }
-  .FormContainer:hover {
-    transition: 2.5s;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  }
   .flexFormingredients, .flexFormDiets, .flexFormRange {
     flex-direction: row;
     justify-content: space-around;
     width: 90%;
     margin: auto;
-    margin-bottom: -5em;
+    margin-bottom: -4em;
   }
   .flexIngredients, .flexSpecialDiets, .flexRange {
     margin: 1em;
@@ -74,6 +70,19 @@
     padding: .5em;
   }
   .FormContainer .validForm .button-recipe {
+    position: relative;
     padding: 2em;
+    top: -.8em;
+  }
+  .errorDisplay {
+    position: relative;
+    margin: 3em auto 8em;
+    background-color: #ffcb05;
+    border-radius: .5em;
+    padding: .5em;
+    max-width: 50%;
+  }
+  .ErrorValid {
+    height: 8em;
   }
 }
