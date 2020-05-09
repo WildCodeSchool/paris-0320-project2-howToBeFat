@@ -43,15 +43,16 @@ const RecipeSearch = () => {
     nbResults = nbResults > 100 ? 100 : nbResults
     const calories = userCalories > 0 ? `&calories=${userCalories}-10000` : ''
     const preparationTime = userPreparationTime ? `&time=1-${userPreparationTime}` : ''
-    const ingredients = userIngredient1 && `${userIngredient1},${userIngredient2},${userIngredient3}`
+    const ingredients = `${userIngredient1},${userIngredient2},${userIngredient3}`
     const excludes = `&excluded=${userExcludeIngredient1}&excluded=${userExcludeIngredient2}&excluded=${userExcludeIngredient3}`
-
+    // add only the intolerables if its values are true
     const intolerables = Object.entries(userIntolerables)
       .filter(intolerable => intolerable[1])
       .reduce((a, b) => a + `&health=${b[0]}`, '')
     console.log(numOfResult, "numOfresult")
     console.log(nbResults, "nbResults")
-    const rangeRequest = numOfResult > 0 ? defineRangeNumber(numOfResult) : ''
+    const rangeRequest = nbResults > 0 ? defineRangeNumber(nbResults) : ''
+
     // url which will be send to the API request
     return `https://api.edamam.com/search?q=${ingredients}${calories}${rangeRequest}${userDiets}${intolerables}${excludes}${preparationTime}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
   }
@@ -77,13 +78,13 @@ const RecipeSearch = () => {
       })
       .catch(e => manageErrors("errorRequest2"))
   }
-
+  // When the form is validate by the users
   const submitForm = (e) => {
     e.preventDefault()
     !userIngredient1 ? manageErrors("no ingredient")
       : callApi(defineRequestUrl(0))
   }
-
+  // Error display selector
   const manageErrors = (error) => {
 
     switch (error) {
@@ -104,13 +105,13 @@ const RecipeSearch = () => {
         break
     }
   }
-
+  // When an error occured, the errorRequest state re-initialized after 5 secondes
   useEffect(() => {
     console.log(errorRequest)
     setTimeout(() => setErrorRequest(false), 5000)
   }, [errorRequest])
 
-
+  // Define the state depending of the form element
   const handleChange = (e) => {
     const value = e.target.value.toLowerCase()
     switch (e.target.name) {
