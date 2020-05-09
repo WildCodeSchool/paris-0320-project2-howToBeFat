@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
+import DisplaySearchRecipes from './recipeSearch/DisplayResults/DisplaySearchRecipes'
 import Form from './recipeSearch/Form/Form'
+
 import './RecipeSearch.css'
 
 const RecipeSearch = () => {
 
   // Define the states variables with useState hooks
+  // API request and Result
   const [numOfResult, setNumOfResult] = useState(0)
+  const [errorRequest, setErrorRequest] = useState(false)
+  const [recipes, setRecipes] = useState([])
+  // Datas from form
   const [userIngredient1, setUserIngredient1] = useState('')
   const [userIngredient2, setUserIngredient2] = useState('')
   const [userIngredient3, setUserIngredient3] = useState('')
@@ -23,14 +29,14 @@ const RecipeSearch = () => {
       "tree-nut-free": false,
       "alcohol-free": false
     })
-  const [errorRequest, setErrorRequest] = useState(false)
-  const [recipe, SetRecipes] = useState([])
+  // Display
+  const [displayContent, setDisplayContent] = useState('form')
 
   // Generate a random number
   const getRandomNumber = (max) => Math.floor(Math.random() * Math.floor(max))
   //Define the range of search for the api request
   const defineRangeNumber = (nbResults) => {
-    const rangewidth = 10
+    const rangewidth = 11
     const numberToRandom = getRandomNumber(Math.ceil(nbResults / rangewidth))
     const max = (numberToRandom * rangewidth) + rangewidth > nbResults ? nbResults - 1 : (numberToRandom * rangewidth) + rangewidth
     const min = max - rangewidth < 0 ? 0 : max - rangewidth
@@ -74,7 +80,8 @@ const RecipeSearch = () => {
   const getApiDatas = (url) => {
     axios.get(url)
       .then(res => {
-        SetRecipes(res.data.hits)
+        setRecipes(res.data.hits)
+        setDisplayContent('recipes')
       })
       .catch(e => manageErrors("errorRequest2"))
   }
@@ -107,7 +114,6 @@ const RecipeSearch = () => {
   }
   // When an error occured, the errorRequest state re-initialized after 5 secondes
   useEffect(() => {
-    console.log(errorRequest)
     setTimeout(() => setErrorRequest(false), 5000)
   }, [errorRequest])
 
@@ -154,27 +160,18 @@ const RecipeSearch = () => {
   return (
     <div className='recipeSearch'>
       <h2>CUSTOMIZE YOUR RECIPE</h2>
-      <p>{errorRequest}</p>
-      {/* Display of the form */}
-      <Form handleChange={handleChange} submitForm={submitForm} userCalories={userCalories} userPrepTime={userPreparationTime} errorRequest={errorRequest} />
-      {
-        numOfResult !== 0 &&
-        <p>{numOfResult} recettes trouvées !</p>
+      {/* Display of the form */
+        displayContent === "form" ?
+          <Form handleChange={handleChange} submitForm={submitForm} userCalories={userCalories} userPrepTime={userPreparationTime} errorRequest={errorRequest} />
+          :
+          <>
+            <div className="newSearch"></div>
+            <DisplaySearchRecipes recipes={recipes} numOfResult={numOfResult} />
+          </>
       }
 
 
-      {recipe[0] &&
-        <>
-          <fieldset>
-            <legend>Other recipes</legend>
-            <ul>{recipe && recipe.map((e, id) => <li key={id}>{e.recipe.label}</li>)}</ul>
-          </fieldset>
-          <h3>{recipe[0].recipe.label}</h3>
-          <p><img src={recipe[0].recipe.image} alt={recipe[0].recipe.label} /></p>
-          <p>{recipe[0].recipe.calories}</p>
-          <p>{recipe[0].recipe.totalTime}</p>
-        </>
-      }
+
     </div>
   )
 }
