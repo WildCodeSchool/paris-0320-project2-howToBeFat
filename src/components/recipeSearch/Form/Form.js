@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import FormIngredients from './FormIngredients'
@@ -10,37 +10,43 @@ import RangePrepTime from './RangePrepTime'
 
 import './Form.css'
 
-const Form = (props) => (
+const Form = (props) => {
 
-  <form onSubmit={props.submitForm} className="FormContainer">
-    <div className="flexFormContainer">
-      <div className="flexFormingredients">
-        <FormIngredients handleChange={props.handleChange} />
-        <FormExcludes handleChange={props.handleChange} />
-      </div>
-      <div className="flexFormDiets">
-        <SpecialDiets handleChange={props.handleChange} />
-        <Intolerables handleChange={props.handleChange} />
-      </div>
-      <div>
-        <div className="flexFormRange">
-          <RangeCalories handleChange={props.handleChange} userCalories={props.userCalories} />
-          <RangePrepTime handleChange={props.handleChange} userPrepTime={props.userPrepTime} />
+  const { submitForm, handleChange, userCalories, userPrepTime, errorRequest } = { ...props }
+
+  return (
+    <form onSubmit={submitForm} className="FormContainer">
+      <div className="flexFormContainer">
+        <div className="flexFormingredients">
+          <FormIngredients handleChange={handleChange} />
+          <FormExcludes handleChange={handleChange} />
+        </div>
+        <div className="flexFormDiets">
+          <SpecialDiets handleChange={handleChange} />
+          <Intolerables handleChange={handleChange} />
+        </div>
+        <div>
+          <div className="flexFormRange">
+            <RangeCalories handleChange={handleChange} userCalories={userCalories} />
+            <RangePrepTime handleChange={handleChange} userPrepTime={userPrepTime} />
+          </div>
         </div>
       </div>
-    </div>
-    {
-      props.errorRequest &&
-      <div style={{ padding: "1em", color: "red", "fontWeight": "bold" }}>
-        {props.errorRequest}
-      </div>
-    }
-    <div className="validForm">
-      <input type="submit" value="Get recipe" className="button-recipe"></input>
-    </div>
-  </form>
-
-)
+      {
+        errorRequest ?
+          <>
+            <div className="errorDisplay">
+              {errorRequest}
+            </div>
+          </>
+          :
+          <div className="validForm">
+            <input type="submit" value="Get recipe" className="button-recipe"></input>
+          </div>
+      }
+    </form>
+  )
+}
 
 Form.propTypes = {
   handleChange: PropTypes.func.isRequired,

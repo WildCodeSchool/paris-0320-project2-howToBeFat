@@ -17,7 +17,7 @@ const RangePrepTime = (props) => {
         <p>{getPreparationTime(props.userPrepTime)}</p>
         <div className="rangeForm">
           <label htmlFor="time"></label>
-          <input onChange={(e) => props.handleChange(e)} type="range" id="time" name="time" min="10" max="240" step="5" className="formSlider" value={props.userPrepTime} />
+          <input onChange={(e) => props.handleChange(e)} type="range" id="time" name="time" min="0" max="240" step="5" className="formSlider" value={props.userPrepTime} />
         </div>
       </fieldset>
     </article>

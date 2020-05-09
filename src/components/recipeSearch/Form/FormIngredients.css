@@ -35,7 +35,7 @@
   text-align: center;
   width: 60%;
   border-radius: 25%;
-  padding: .2em;
+  padding: .1em;
   border: 2px ridge #1c72a3;
   font-size: 1.2em;
   background-color: #ffcb05;
@@ -46,4 +46,12 @@
 .ingredientFilter label {
   font-family: 'Gaegu', cursive;
   font-size: 1.2em;
+}
+
+@media screen and (min-width:950px) {
+  .ingredientFilter .inputTexte {
+    background-color: #ecdb96;
+    padding: .1em;
+    min-width: 50%;
+  }
 }

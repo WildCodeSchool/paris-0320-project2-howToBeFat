@@ -56,7 +56,7 @@ const FormExcludes = (props) => {
               {!ingredientShow.ingredient2 &&
                 <input type="button" className="hideButton" onClick={handleHideInput} id="IngredientHideInput1" name="IngredientHideInput1" value="-" />
               }
-              <input onChange={handleChange} id='excludedIngredient1' name='excludedIngredient1' type='text' pattern="[A-Za-z]+" className="inputTexte" />
+              <input onChange={(e) => handleChange(e)} id='excludedIngredient1' name='excludedIngredient1' type='text' pattern="[A-Za-z]+" className="inputTexte" />
             </label>
           </>
         }
@@ -66,14 +66,14 @@ const FormExcludes = (props) => {
             {!ingredientShow.ingredient3 &&
               <input type="button" className="hideButton" onClick={handleHideInput} id="IngredientHideInput2" value="-" />
             }
-            <input onChange={handleChange} id='excludedIngredient2' name='excludedIngredient2' type='text' pattern="[A-Za-z]+" className="inputTexte" />
+            <input onChange={(e) => handleChange(e)} id='excludedIngredient2' name='excludedIngredient2' type='text' pattern="[A-Za-z]+" className="inputTexte" />
           </label>
         }
         {
           ingredientShow.ingredient3 &&
           <label htmlFor='excludedIngredient3' id="labelIngredient3">Ingredient 3 <br />
             <input type="button" className="hideButton" onClick={handleHideInput} id="IngredientHideInput3" value="-" />
-            <input onChange={handleChange} id='excludedIngredient3' name="excludedIngredient3" type='text' pattern="[A-Za-z]+" className="inputTexte" />
+            <input onChange={(e) => handleChange(e)} id='excludedIngredient3' name="excludedIngredient3" type='text' pattern="[A-Za-z]+" className="inputTexte" />
           </label>
         }
         {
