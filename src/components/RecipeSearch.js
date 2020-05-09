@@ -41,7 +41,7 @@ const RecipeSearch = () => {
   const defineRequestUrl = (nbResults) => {
     setNumOfResult(nbResults)
     nbResults = nbResults > 100 ? 100 : nbResults
-    const calories = userCalories > 0 ? `&calories=${userCalories}-100000` : ''
+    const calories = userCalories > 0 ? `&calories=${userCalories}-10000` : ''
     const preparationTime = userPreparationTime ? `&time=1-${userPreparationTime}` : ''
     const ingredients = userIngredient1 && `${userIngredient1},${userIngredient2},${userIngredient3}`
     const excludes = `&excluded=${userExcludeIngredient1}&excluded=${userExcludeIngredient2}&excluded=${userExcludeIngredient3}`
@@ -51,7 +51,7 @@ const RecipeSearch = () => {
       .reduce((a, b) => a + `&health=${b[0]}`, '')
     console.log(numOfResult, "numOfresult")
     console.log(nbResults, "nbResults")
-    const rangeRequest = numOfResult ? defineRangeNumber(numOfResult) : nbResults ? defineRangeNumber(nbResults) : ''
+    const rangeRequest = numOfResult > 0 ? defineRangeNumber(numOfResult) : ''
     // url which will be send to the API request
     return `https://api.edamam.com/search?q=${ingredients}${calories}${rangeRequest}${userDiets}${intolerables}${excludes}${preparationTime}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
   }
@@ -75,7 +75,7 @@ const RecipeSearch = () => {
       .then(res => {
         SetRecipes(res.data.hits)
       })
-      .catch(e => manageErrors("errorRequest1"))
+      .catch(e => manageErrors("errorRequest2"))
   }
 
   const submitForm = (e) => {
