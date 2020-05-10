@@ -8,7 +8,6 @@ import './MainRecipe.css'
 const MainRecipe = (props) => {
 
   const { display, recipe, handleClick, mapId } = { ...props }
-  console.log(recipe)
 
   // Defined if the current recipe is display
   const isDisplay = mapId === display

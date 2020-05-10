@@ -34,4 +34,6 @@
   height: 15em;
   margin-top: .5em;
   margin-bottom: -.5em;
+  border-radius: .5em;
+  border: 1px inset #072b3f;
 }
