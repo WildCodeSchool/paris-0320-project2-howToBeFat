@@ -27,7 +27,7 @@ const MainRecipe = (props) => {
           <div className="divImage">
             <img src={recipe.image} alt={recipe.label} />
           </div>
-          <RecipeIngredients ingredients={recipe.ingredients} />
+          <RecipeIngredients ingredients={recipe.ingredientLines} />
         </>
       }
     </main>

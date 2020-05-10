@@ -46,7 +46,6 @@ const RecipeSearch = () => {
   // Add the optionnal searches to the url request in depend of the users selected options
   const defineRequestUrl = (nbResults) => {
     setNumOfResult(nbResults)
-    console.log(numOfResult, "freuit")
     nbResults = nbResults > 100 ? 100 : nbResults
     const calories = userCalories > 0 ? `&calories=${userCalories}-10000` : ''
     const preparationTime = userPreparationTime ? `&time=1-${userPreparationTime}` : ''
@@ -56,8 +55,6 @@ const RecipeSearch = () => {
     const intolerables = Object.entries(userIntolerables)
       .filter(intolerable => intolerable[1])
       .reduce((a, b) => a + `&health=${b[0]}`, '')
-    console.log(numOfResult, "numOfresult")
-    console.log(nbResults, "nbResults")
     const rangeRequest = nbResults > 0 ? defineRangeNumber(nbResults) : ''
 
     // url which will be send to the API request
