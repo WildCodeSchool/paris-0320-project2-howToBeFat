@@ -3,6 +3,13 @@ import PropTypes from 'prop-types'
 
 import './RecipeInfos.css'
 
+const getPreparationTime = (time) => {
+  const hours = time > 60 ? Math.floor(time / 60) : 0
+  const unity = hours > 1 ? "hours" : "hour"
+  const minutes = time > 60 ? time % 60 : time
+  return time > 60 ? `${hours} ${unity} and ${minutes} minutes` : `${minutes} minutes`
+}
+
 const RecipeInfos = (props) => (
   <article className="recipeInfos">
     <aside className="infos">
@@ -11,7 +18,7 @@ const RecipeInfos = (props) => (
     </aside>
     <aside className="infos">
       <h4>Preparation time</h4>
-      <p>{props.time ? `${props.time} minutes` : "Not available"} </p>
+      <p title={getPreparationTime(props.time)}>{props.time ? `${props.time} minutes` : "Not available"} </p>
     </aside>
   </article>
 )
