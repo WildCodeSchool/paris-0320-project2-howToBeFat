@@ -7,7 +7,7 @@ const RecipeIngredients = (props) => {
 
   return (
     <>
-      <ul>
+      <ul className="recipeIngredients">
         {
           props.ingredients.map((ingredient, id) =>
             <li key={id}>{ingredient}</li>

@@ -1,0 +1,7 @@
+.recipeIngredients {
+  text-align: left;
+}
+
+.recipeIngredients li {
+  list-style-type: square;
+}

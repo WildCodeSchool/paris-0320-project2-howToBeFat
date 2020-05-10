@@ -1,6 +1,5 @@
 .recipeInfos {
   display: flex;
-  width: 85%;
   margin: auto;
   justify-content: space-around;
   border-left: 1px solid #1c72a3;

@@ -1,6 +1,10 @@
+.searchMainDisplay {
+  width: 85%;
+  margin: auto;
+}
+
 .searchMainDisplay .divLabel {
   border: 1px solid #1c72a3;
-  width: 85%;
   margin: auto;
   background-color: #072b3f;
   opacity: .75;
@@ -21,12 +25,12 @@
 
 .searchMainDisplay .divImage {
   border: 1px solid #1c72a3;
-  width: 85%;
+  border-bottom: none;
   margin: auto;
 }
 
 .searchMainDisplay img {
-  width: 70%;
+  width: 90%;
   height: 15em;
   margin-top: .25em;
 }
