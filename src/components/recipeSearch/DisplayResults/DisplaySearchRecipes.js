@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Proptypes from 'prop-types'
 
-import './DisplaySearchRecipes.css'
 import NumberOfResult from './NumberOfResult'
+import MainRecipe from './MainRecipe'
+
+import './DisplaySearchRecipes.css'
 
 const DisplaySearchRecipes = (props) => {
+
+  const [isDisplay, setIsDisplay] = useState(0)
+
+  const handleClick = (id) => {
+    setIsDisplay(id)
+  }
 
   const { numOfResult, recipes } = { ...props }
   return (
@@ -13,6 +21,10 @@ const DisplaySearchRecipes = (props) => {
         recipes[0] &&
         <>
           <NumberOfResult numOfResult={numOfResult} />
+          {recipes.map((recipe, id) =>
+            <MainRecipe recipe={recipe} display={isDisplay} key={id} onClick={(id) => handleClick(id)} />
+          )}
+
           <fieldset>
             <legend>Other recipess</legend>
             <ul>{recipes && recipes.map((e, id) => <li key={id}>{e.recipe.label}</li>)}</ul>
