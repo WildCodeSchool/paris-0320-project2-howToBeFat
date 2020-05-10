@@ -2,7 +2,7 @@
     position: relative;
 }
 
-.recipeSearch h2 {
+.recipeSearch .mainTitle {
     box-shadow: 0 8px 16px 0 rgba(248, 248, 248, 0.2);
     background-color: #00c2cb;
     color: #ffcb05;

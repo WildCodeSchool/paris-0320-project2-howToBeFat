@@ -163,7 +163,7 @@ const RecipeSearch = () => {
 
   return (
     <div className='recipeSearch'>
-      <h2>CUSTOMIZE YOUR RECIPE</h2>
+      <h2 className="mainTitle">CUSTOMIZE YOUR RECIPE</h2>
       {/* Display of the form */
         displayContent === "form" ?
           <Form handleChange={handleChange} submitForm={submitForm} userCalories={userCalories} userPrepTime={userPreparationTime} errorRequest={errorRequest} />
