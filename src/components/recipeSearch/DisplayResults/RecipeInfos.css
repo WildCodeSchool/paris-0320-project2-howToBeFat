@@ -1,0 +1,28 @@
+.recipeInfos {
+  display: flex;
+  width: 85%;
+  margin: auto;
+  justify-content: space-around;
+  border-left: 1px solid #1c72a3;
+  border-right: 1px solid #1c72a3;
+  font-family: 'Sniglet', cursive;
+}
+
+.recipeInfos .infos {
+  width: 50%;
+  text-align: center;
+  padding: .5em;
+}
+
+.recipeInfos .infos:first-of-type {
+  border-right: 1px solid #000;
+}
+
+.recipeInfos aside p, .recipeInfos aside h4 {
+  line-height: 0em;
+}
+
+.recipeInfos aside h4 {
+  font-weight: 600;
+  color: #1c72a3;
+}

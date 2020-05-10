@@ -1,3 +1,32 @@
-.mainDisplay {
-  position: static;
+.searchMainDisplay .divLabel {
+  border: 1px solid #1c72a3;
+  width: 85%;
+  margin: auto;
+  background-color: #072b3f;
+  opacity: .75;
+  font-family: 'Indie Flower', cursive;
+  font-size: .8rem;
+  color: #1c72a3;
+}
+
+.searchMainDisplay .divLabel:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.searchMainDisplay .selected {
+  border: 1px solid #1c72a3;
+  background-color: #ffcb05;
+}
+
+.searchMainDisplay .divImage {
+  border: 1px solid #1c72a3;
+  width: 85%;
+  margin: auto;
+}
+
+.searchMainDisplay img {
+  width: 70%;
+  height: 15em;
+  margin-top: .25em;
 }
