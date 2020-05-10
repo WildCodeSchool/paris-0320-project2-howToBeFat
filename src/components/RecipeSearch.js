@@ -106,7 +106,7 @@ const RecipeSearch = () => {
         setErrorRequest("Too many requests, please try again in few seconds")
         break
       case "no ingredient":
-        setErrorRequest("Vous devez sélectionner au moins un ingrédient à ajouter")
+        setErrorRequest("you have to insert at minimum one ingredient to validate the form")
         break
       default:
         setErrorRequest("Please contact the administrator")
