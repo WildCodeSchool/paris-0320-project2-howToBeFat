@@ -1,7 +1,35 @@
 .recipeIngredients {
+  margin-left: .5em;
+  margin-right: 0.5em;
+}
+
+.recipeIngredients ul {
   text-align: left;
+  border-left: 5px solid #1c72a3;
+  border-right: 5px solid #1c72a3;
+  border-bottom: 5px solid #1c72a3;
+  position: relative;
+  top: -1.3em;
 }
 
 .recipeIngredients li {
   list-style-type: square;
+  list-style-position: unset;
+  width: 80%;
+  padding-bottom: .15em;
+}
+
+.recipeIngredients .borderDeco {
+  border-top: 15px solid #1c72a3;
+  border-left: 5px solid #1c72a3;
+  border-right: 5px solid #1c72a3;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  background-color: #fff;
+  margin-top: 1em;
+  padding-top: .25em;
+  padding-bottom: 1em;
+  font-weight: 600;
+  color: #1c72a3;
+  font-family: 'Sniglet', cursive;
 }

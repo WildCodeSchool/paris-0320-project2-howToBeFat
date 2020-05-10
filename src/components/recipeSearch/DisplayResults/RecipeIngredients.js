@@ -2,20 +2,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import './RecipeIngredients.css'
+import IconeIngredient from '../images/ingredients.png'
 
 const RecipeIngredients = (props) => {
 
   return (
-    <>
-      <ul className="recipeIngredients">
+    <article className="recipeIngredients">
+      <h4 className="borderDeco">Ingredients:</h4>
+      <div className=""></div>
+      <ul>
         {
           props.ingredients.map((ingredient, id) =>
             <li key={id}>{ingredient}</li>
-            // console.log(ingredient)
           )
         }
       </ul>
-    </>
+    </article >
   )
 }
 

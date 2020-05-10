@@ -1,6 +1,7 @@
 .searchMainDisplay {
   width: 85%;
   margin: auto;
+  border: 1px inset #1c72a3;
 }
 
 .searchMainDisplay .divLabel {
@@ -24,13 +25,13 @@
 }
 
 .searchMainDisplay .divImage {
-  border: 1px solid #1c72a3;
-  border-bottom: none;
+  border-top: 1px solid #1c72a3;
   margin: auto;
 }
 
 .searchMainDisplay img {
   width: 90%;
   height: 15em;
-  margin-top: .25em;
+  margin-top: .5em;
+  margin-bottom: -.5em;
 }
