@@ -71,13 +71,37 @@
 
 .goal {
     margin-top: 1em;
-    font-size: 1.5em;
+    font-size: 1.2em;
     width: 10em;
     height: 1.5em;
     border-radius: 20px 100px / 120px;
     color: #ffcb05;
     background-color: #fffefe;
     text-shadow: 3px 3px 3px rgb(20, 49, 92);
+}
+
+
+
+.result {
+    margin-top: 1em;
+    font-size: 0.75em;
+    width: 10em;
+    height: 1.5em;
+    border-radius: 20px 100px / 120px;
+    color:rgb(20, 49, 92);
+    background-color: #fffefe;
+    text-shadow: 3px 3px 3px #ffcb05;
+    line-height: 1.5em;
+
+}
+
+.test {
+    margin-bottom: 20px;
+}
+
+.balance-image-mobile{
+    width: 8em;
+    margin-top: 1em;
 }
 
 @media screen and (max-width: 338px) {
@@ -100,6 +124,9 @@
     .footer {
         margin-bottom: 3em;
     }
+    .balance-image{
+        display : none
+    }
 }
 
 @media screen and (min-width: 1050px) {
@@ -108,11 +135,14 @@
         height: 100%;
         align-items: center;
     }
+    .balance-image-mobile {
+        display: none;
+    }
 
     .calculator-form {
         margin: 20px;
         padding: 15px 30px;
-        border-radius: 10px;
+        /* border-radius: 10px; */
         border-top: 5px solid #45D3D3;
         box-shadow: 0 8px 17px -8px #A3A5AE;
         background-color: #FFF;
