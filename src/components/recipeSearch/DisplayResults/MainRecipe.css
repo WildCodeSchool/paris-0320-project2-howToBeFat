@@ -1,6 +1,4 @@
 .searchMainDisplay {
-  width: 85%;
-  margin: auto;
   border: 1px inset #1c72a3;
 }
 
@@ -23,6 +21,11 @@
 .searchMainDisplay .selected {
   border: 1px solid #1c72a3;
   background-color: #ffcb05;
+  color: #1c72a3;
+}
+
+.searchMainDisplay .selected:hover {
+  color: #1c72a3;
 }
 
 .searchMainDisplay .divImage {
