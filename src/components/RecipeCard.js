@@ -38,7 +38,7 @@ class RecipeCard extends React.Component {
             ingredients: objectUri.recipe.ingredientLines
           })
       })
-      .catch((e) => console.log(e))
+      .catch((e) => console.log(e))  // Display an error message in the console if occured for help to fixed it
   }
 
   randomNumber = (max) => Math.floor(Math.random() * Math.floor(max))
