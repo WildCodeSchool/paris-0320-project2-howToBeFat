@@ -1,32 +1,54 @@
-.container .data-list {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr;  */
-    /* grid-template-rows: 100px 100px; 
-    grid-gap: 70px; */
-    /* display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-	justify-content: space-around;
-    align-items: center; */
-    
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    
+.data-list {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 50px;
 }
+
+input[type=search] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+  }
+  
+  input[type=search]:focus {
+    width: 100%;
+  }
 
 .container img {
-    width: 30%;
-    /* height: 50%; */
+    width: 20%;
+    border: 1px solid rgb(194, 195, 196);
+    background-color:yellowgreen;
+    height: 60%;
 }
 
-
-.block {
-    /* width: 50%;
-    height: 50%; */
-    width: 40%;
-    height: 40%;
+.container .data-list .h3 {
+    box-shadow: 0 8px 16px 0 rgba(248, 248, 248, 0.2);
+	background-color: #00c2cb;
+	color: #ffcb05;
+	padding: .2em;
+	font-size: 1.4rem;
+	font-family: 'Gloria Hallelujah', sans-serif;
+	border-bottom: 1px inset #1c72a3;
+    text-shadow: 2px 1px #1c72a3;
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 0;
 }
+.container .data-list h3 {
+    margin: auto;
+
+}
+
+form {
+    margin-top: 20px;
+}
+
 
 .data-list h3{
     font-size: 1em;

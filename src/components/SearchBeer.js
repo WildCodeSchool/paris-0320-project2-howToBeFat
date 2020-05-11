@@ -6,7 +6,8 @@ import './SearchBeer.css'
 class SearchBeer extends React.Component {
 	state = {
 		post: [],
-		allPosts: []
+		allPosts: [],
+		rangePost: []
 	};
 
 	componentDidMount () {
@@ -15,10 +16,10 @@ class SearchBeer extends React.Component {
 
     getBeers = () => {
         axios.get('https://api.punkapi.com/v2/beers')
-        .then(res => this.setState({post: res.data, allPosts: res.data}))
+        .then(res => this.setState({post: res.data, allPosts: res.data, rangePost: res.data}))
     }
 
-	_onKeyUp = e => {
+	onKeyUp = e => {
 		// filter post list by title using onKeyUp function
 		const post = this.state.allPosts.filter(item =>
 			item.name.toLowerCase().includes(e.target.value.toLowerCase())
@@ -26,8 +27,8 @@ class SearchBeer extends React.Component {
 		this.setState({ post });
 	};
 
-	filterRange = () => {
-		const post = this.state.allPosts.filter(item => item.abv >= 0 && item.abv <= 20)
+	filterRange = (e) => {
+		const post = this.state.rangePost.filter(item => item.abv >= 0 && e.target.value <= 80)
 		this.setState({post})
 	}
 
@@ -36,16 +37,18 @@ class SearchBeer extends React.Component {
 			<div className="container">
                 <div className="search-outer">
 		    		<form role="search" method="get" id="searchform" className="searchform" action="">
-		    			<input type="search" onChange={this._onKeyUp} name="s" id="s" placeholder="Search" />
-						<input type="range" min="0" max="20"  onChange={this.filterRange} />
+		    			<input type="search" onChange={this.onKeyUp} name="s" id="s" placeholder="Search" />
+						<input type="range" min="0" max="80" onChange={this.filterRange} />
 		    		</form>
 		    	</div>
 				<div className="data-list">
 					{this.state.post.map((item, index) => (
                     <div className="block-" key= {index}>
 							<img src={item.image_url} alt={item.name} />
-							<h3>{item.name}</h3>
-                            <h3>{item.abv} %</h3>
+							<div className="h3">
+								<h3>{item.name}</h3>
+								<h3>{item.abv} %</h3>
+							</div>
 						</div>
 					))}
 				</div>
