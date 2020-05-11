@@ -34,7 +34,7 @@ const RecipeIngredients = (props) => {
       </ul>
       {isTooBig &&
         <>
-          <div className="viewMore" onClick={handleClick}>{!isDisplay ? "View more ingredients..." : "View less ingredients..."}</div>
+          <div className="viewMore" onClick={handleClick}>{!isDisplay ? "Display more..." : "Display less..."}</div>
         </>
       }
     </article >

@@ -27,6 +27,7 @@ const MainRecipe = (props) => {
             <img src={recipe.image} alt={recipe.label} />
           </div>
           <RecipeIngredients ingredients={recipe.ingredientLines} />
+          <p className="recipeLink"><a href={recipe.url} title={`Go to the extern Web page to see ${recipe.label} recipe`} target="blank">Go to the recipe</a></p>
         </>
       }
     </main>
