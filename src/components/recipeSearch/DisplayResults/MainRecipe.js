@@ -18,7 +18,7 @@ const MainRecipe = (props) => {
   return (
     <main className="searchMainDisplay">
       <div id={mapId} className={labelClassNames.join(' ')} onClick={(e) => handleClick(e)}>
-        <h2 id={mapId}>{recipe.label}</h2>
+        <h2 id={mapId} title={`Display the ${recipe.label} recipe`}>{recipe.label}</h2>
       </div>
       {isDisplay &&
         <>

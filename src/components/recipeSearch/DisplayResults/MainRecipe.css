@@ -17,6 +17,7 @@
 .searchMainDisplay .divLabel:hover {
   opacity: 1;
   cursor: pointer;
+  color: #ffcb05;
 }
 
 .searchMainDisplay .selected {
