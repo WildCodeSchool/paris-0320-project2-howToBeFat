@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Proptypes from 'prop-types'
 
 import NumberOfResult from './NumberOfResult'
@@ -10,9 +10,13 @@ const DisplaySearchRecipes = (props) => {
 
   const [isDisplay, setIsDisplay] = useState(0)
 
-  const handleClick = (id) => {
-    setIsDisplay(id)
+  const handleClick = (e) => {
+    setIsDisplay(e.target.id)
   }
+
+  useEffect(() => {
+    console.log(isDisplay)
+  }, [isDisplay])
 
   const { numOfResult, recipes } = { ...props }
   return (
@@ -22,7 +26,7 @@ const DisplaySearchRecipes = (props) => {
         <>
           <NumberOfResult numOfResult={numOfResult} />
           {recipes.map((recipe, id) =>
-            <MainRecipe recipe={recipe.recipe} display={isDisplay} key={id} mapId={id} onClick={(id) => handleClick(id)} />
+            <MainRecipe recipe={recipe.recipe} display={isDisplay} key={id} mapId={id} handleClick={handleClick} />
           )}
         </>
       }

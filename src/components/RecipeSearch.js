@@ -173,7 +173,7 @@ const RecipeSearch = () => {
           <>
             <div className="newSearch" onClick={(e) => handleClick(e)}>New search</div>
             <div className="triangle" onClick={(e) => handleClick(e)}></div>
-            <DisplaySearchRecipes recipes={recipes} numOfResult={numOfResult} url />
+            <DisplaySearchRecipes recipes={recipes} numOfResult={numOfResult} />
           </>
       }
     </div>
