@@ -1,4 +1,7 @@
 .mainContainer {
   width: 85%;
   margin: auto;
+  min-width: ;
 }
+
+@media screen and (min-width:)
