@@ -1,23 +1,24 @@
 import React from 'react'
 import axios from 'axios'
-
 import DisplayRecipe from './DisplayRecipe'
+import Waiting from './Waiting'
+
+const ingredientsArray = ['beef', 'pork', 'salmon', 'shrimp', 'lamb', 'sheep', 'chicken', 'ham', 'pasta', 'tomato', 'spinach', 'zucchini', 'carrot', 'pea', 'bean', 'chocolate', 'vanilla', 'turkey', 'rabbit', 'truffle', 'eggplant', ' endive', 'cheese', 'bacon', 'cherry', 'banana', 'apple', 'pear', 'orange', 'kiwi', 'flour', 'sugar', 'pepper', 'cucumber', 'milk', 'bread', 'butter', 'rum', 'peanut', 'pistachio', 'salad', 'wine', 'onion', 'garlic', 'coriander', 'parsley', 'thyme', 'potato', 'turnip', 'asparagus', 'cauliflower', 'broccoli', 'mushroom', 'rice', 'egg', 'fish', 'sausage', 'celery', 'thom']
 
 class RecipeCard extends React.Component {
 
   state = {
     recipe: '',
-    ingredients: [],
-    UserChoice: false,
-    page: ''
+    ingredients: []
   }
 
   getRecipe() {
-    let selectedIngredients = "cheese"
+
+    let selectedIngredients = `${ingredientsArray[Math.floor(Math.random() * ingredientsArray.length)]}`
     const min = 0
-    const max = min + 50
+    const max = min + 100
     const minCalories = 5000
-    const maxCalories = 10000
+    const maxCalories = minCalories + 5000
     let url = `https://api.edamam.com/search?q=${selectedIngredients}&from=${min}&to=${max}&calories=${minCalories}-${maxCalories}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
 
     axios.get(url)
@@ -46,10 +47,6 @@ class RecipeCard extends React.Component {
     return time > 60 ? `${hours} ${unity} and ${minutes} minutes` : `${minutes} minutes`
   }
 
-  handleClickPage = () => {
-    this.setState({ page: "FullRecipe" })
-  }
-
   getOtherRecipe = () => {
     this.getRecipe()
   }
@@ -64,7 +61,9 @@ class RecipeCard extends React.Component {
 
     return (
       <div className="RecipeCard" >
-        <DisplayRecipe getOtherRecipe={this.getOtherRecipe} ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />
+        {this.state.recipe ?
+          (<DisplayRecipe getOtherRecipe={this.getOtherRecipe} ingredientsList={this.state.ingredients} recipe={this.state.recipe} preparationTime={this.getPreparationTime(totalTime)} calories={calories} />)
+          : (<Waiting />)}
       </div>
     );
   }

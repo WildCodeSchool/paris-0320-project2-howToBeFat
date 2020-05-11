@@ -7,6 +7,10 @@
 
 body {
   margin-bottom: 2.75em;
+  margin: 0;
+  position: relative;
+  padding-bottom: 10em;
+  min-height: 100%;
 }
 
 .button-recipe {
@@ -28,11 +32,19 @@ body {
 .button-recipe a, .button-recipe a:visited {
   text-decoration: none;
   color: #1c72a3;
-  ;
 }
 
 .button-recipe a:hover {
   color: #ffcb05;
+}
+
+.footer{
+  position: absolute;
+  bottom: 0;
+}
+
+html{
+  height: 100%;
 }
 
 @media screen and (min-width: 1049px) {
@@ -47,6 +59,7 @@ body {
   }
   body {
     margin-bottom: 0;
+    
   }
   .button-recipe button {
     padding: 10px;
@@ -59,4 +72,5 @@ body {
   .button-recipe button {
     font-size: 1em;
   }
+
 }

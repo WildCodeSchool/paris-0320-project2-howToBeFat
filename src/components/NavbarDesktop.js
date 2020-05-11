@@ -7,10 +7,10 @@ function NavbarDesktop (){
         <div className ="topnav">
           <div>
             <Link className ="active" to="/">Home</Link>
-            <Link to="./components/RecipeSearch">Recipes</Link>
+            <Link to="/RecipeSearch">Recipes</Link>
           </div>
           <div>
-            <Link to="#beers">Beers</Link>
+            <Link to="/BeerCard">Beers</Link>
             <Link to="/Calculator">Calculator</Link>
           </div>
       </div>

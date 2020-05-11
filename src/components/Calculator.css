@@ -3,7 +3,7 @@
 .slider {
     -webkit-appearance: none;
     width: 18em;
-    height: 10px;
+    height: 1em;
     border-radius: 5px;
     background-image: linear-gradient(135deg, #8dff47 0%,#fffa6c 50%, #ff4343 100%);
     border: 1px solid rgb(0, 0, 0);
@@ -27,7 +27,6 @@
 }
 
 .buttonCalculator {
-    /* display: none; */
     font-family: 'Righteous', arial, sans-serif;
     font-size: large;
     background-color: #ffcb05;
@@ -44,11 +43,6 @@
     justify-content: center;
     margin-left: 2em;
     margin-right: 2em;
-
-    /* background-image: url("../images/balance.png");
-    background-size: contain;
-    background-repeat: no-repeat; */
-    /* margin-top: 60%; */
 }
 
 .calculator-form {
@@ -60,8 +54,9 @@
     width: 14em;
     font-family: 'Righteous', arial, sans-serif;
     font-size: 1.4em;
-    line-height: 30px;
+    line-height: 1em;
     margin-top: 1.5em;
+    margin-bottom: 6em;
 }
 
 .userWeight {
@@ -77,8 +72,8 @@
 .goal {
     margin-top: 1em;
     font-size: 1.5em;
-    width: 350px;
-    height: 50px;
+    width: 10em;
+    height: 1.5em;
     border-radius: 20px 100px / 120px;
     color: #ffcb05;
     background-color: #fffefe;
@@ -89,10 +84,6 @@
     .balance-image {
         display: none;
     }
-}
-
-@media screen and (min-width: 750px) {
-
 }
 
 @media screen and (min-width: 1050px) {
@@ -109,8 +100,8 @@
         border-top: 5px solid #45D3D3;
         box-shadow: 0 8px 17px -8px #A3A5AE;
         background-color: #FFF;
-        width: 400px;
-        height: 600px;
+        width: 20em;
+        height: 30em;
     }
 
     .calculator-form:hover {
@@ -120,7 +111,6 @@
 
     .balance-image {
         width: 8em;
-        height: 8em
     }
 
     p.balance-image {
