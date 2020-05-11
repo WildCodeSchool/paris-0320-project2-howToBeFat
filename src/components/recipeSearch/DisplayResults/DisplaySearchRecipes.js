@@ -28,13 +28,11 @@ const DisplaySearchRecipes = (props) => {
           <NumberOfResult numOfResult={numOfResult} />
           {recipes.map((recipe, id) =>
             <>
-              <div className="flexContaineur">
+              <div className="flexContainer">
                 <div className="leftContainer">
                   <RecipesDesktop side="left" recipe={recipes} display={isDisplay} handleClick={handleClick} key={id} mapId={id} />
                 </div>
-                <div className="centralContainer">
-                  <MainRecipe recipe={recipe.recipe} display={isDisplay} key={id} mapId={id} handleClick={handleClick} />
-                </div>
+                <MainRecipe recipe={recipe.recipe} display={isDisplay} key={id} mapId={id} handleClick={handleClick} />
                 <div className="rightContainer">
                   <RecipesDesktop side="right" recipe={recipes} display={isDisplay} handleClick={handleClick} key={id} mapId={id} />
                 </div>

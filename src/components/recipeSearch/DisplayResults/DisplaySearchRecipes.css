@@ -1,13 +1,14 @@
-.centralContainer {
+/* .centralContainer {
   width: 85%;
   margin: auto;
   max-width: 28em;
-}
+} */
 
 .mainContainer .flexContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
+  width: 100%;
 }
 
 .leftContainer, .rightContainer {
@@ -17,6 +18,12 @@
 
 @media screen and (min-width:780px) {
   .leftContainer {
+    display: flex;
+  }
+}
+
+@media screen and (min-width:1080px) {
+  .rightContainer {
     display: flex;
   }
 }
