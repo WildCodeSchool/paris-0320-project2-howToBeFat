@@ -10,7 +10,6 @@ class Calculator extends React.Component {
         motivation: "0"
     }
 
-
     handleChange = (event) => {
         this.setState({
             userWeight: (event.target.value)
