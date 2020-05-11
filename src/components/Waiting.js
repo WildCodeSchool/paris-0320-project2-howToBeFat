@@ -5,8 +5,8 @@ import logo from './images/onlyCat.png'
 class Waiting extends React.Component {
 
     componentWillUnmount(){
-            clearInterval(this.right)
-            clearInterval(this.left)    
+        clearInterval(this.right)
+        clearInterval(this.left)    
     }
 
     componentDidMount(){
