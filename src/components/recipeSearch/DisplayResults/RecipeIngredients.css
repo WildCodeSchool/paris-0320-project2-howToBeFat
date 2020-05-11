@@ -63,7 +63,8 @@
   color: #ffcb05;
   top: -2.8em;
   z-index: 1;
-  letter-spacing: .8em;
+  letter-spacing: .6em;
+  text-align: right;
 }
 
 .recipeIngredients .viewMore:hover {
