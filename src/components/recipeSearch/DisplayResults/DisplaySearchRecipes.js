@@ -3,6 +3,7 @@ import Proptypes from 'prop-types'
 
 import NumberOfResult from './NumberOfResult'
 import MainRecipe from './MainRecipe'
+import RecipesDesktop from './RecipesDesktop'
 
 import './DisplaySearchRecipes.css'
 
@@ -26,7 +27,17 @@ const DisplaySearchRecipes = (props) => {
         <>
           <NumberOfResult numOfResult={numOfResult} />
           {recipes.map((recipe, id) =>
-            <MainRecipe recipe={recipe.recipe} display={isDisplay} key={id} mapId={id} handleClick={handleClick} />
+            <>
+              <div className="leftContainer">
+                <RecipesDesktop side="left" recipe={recipes} display={isDisplay} handleClick={handleClick} key={id} mapId={id} />
+              </div>
+              <div className="centralContainer">
+                <MainRecipe recipe={recipe.recipe} display={isDisplay} key={id} mapId={id} handleClick={handleClick} />
+              </div>
+              <div className="rightContainer">
+                <RecipesDesktop side="right" recipe={recipes} display={isDisplay} handleClick={handleClick} key={id} mapId={id} />
+              </div>
+            </>
           )}
         </>
       }
