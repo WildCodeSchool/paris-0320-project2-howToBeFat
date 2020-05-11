@@ -7,3 +7,11 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.leftFlex {
+  margin-right: 3em;
+}
+
+.rightFlex {
+  margin-left: 3em;
+}

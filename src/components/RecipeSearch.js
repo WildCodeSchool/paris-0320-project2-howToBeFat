@@ -116,6 +116,8 @@ const RecipeSearch = () => {
     setTimeout(() => setErrorRequest(false), 5000)
   }, [errorRequest])
 
+
+
   // Define the state depending of the form element
   const handleChange = (e) => {
     const value = e.target.value.toLowerCase()
@@ -167,7 +169,6 @@ const RecipeSearch = () => {
           <>
             <Form handleChange={handleChange} submitForm={submitForm} userCalories={userCalories} userPrepTime={userPreparationTime} errorRequest={errorRequest}
               numOfResult={numOfResult} />
-
           </>
           :
           <>

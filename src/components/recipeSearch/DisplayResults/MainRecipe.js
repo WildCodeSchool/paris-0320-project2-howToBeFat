@@ -7,13 +7,14 @@ import './MainRecipe.css'
 
 const MainRecipe = (props) => {
 
-  const { display, recipe, handleClick, mapId } = { ...props }
+  const { display, recipe, handleClick, mapId, width } = { ...props }
 
   // Defined if the current recipe is display
   const isDisplay = mapId === parseFloat(display)
   let labelClassNames = isDisplay ? 'selected' : 'divLabel'
 
   return (
+
     <main className="searchMainDisplay">
       <div id={mapId} className={labelClassNames} onClick={(e) => handleClick(e)}>
         <h2 id={mapId} title={`Display the ${recipe.label} recipe`}>{recipe.label}</h2>
@@ -29,6 +30,7 @@ const MainRecipe = (props) => {
         </>
       }
     </main>
+
   )
 }
 
@@ -36,6 +38,7 @@ MainRecipe.prototype = {
   recipe: PropTypes.arrayOf(Object).isRequired,
   display: PropTypes.number.isRequired,
   handleClick: PropTypes.func.isRequired,
-  mapId: PropTypes.number.isRequired
+  mapId: PropTypes.number.isRequired,
+  width: PropTypes.number.isRequired
 }
 export default MainRecipe
