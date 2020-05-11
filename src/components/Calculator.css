@@ -80,9 +80,25 @@
     text-shadow: 3px 3px 3px rgb(20, 49, 92);
 }
 
+@media screen and (max-width: 338px) {
+    header{
+        width: 105%;
+    }
+
+    .footer {
+        width: 105%;
+        margin-bottom: 2.5em;
+    }
+}
+
+
+
 @media screen and (max-width: 1050px) {
     .balance-image {
         display: none;
+    }
+    .footer {
+        margin-bottom: 3em;
     }
 }
 

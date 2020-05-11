@@ -57,7 +57,7 @@ class Calculator extends React.Component {
     }
 
     render() {
-        const {userWeight, weightToReach } =this.state
+        const { userWeight, weightToReach } = this.state
         return (
             <div className="calculator">
                 <form className='calculator-form'>
@@ -83,6 +83,7 @@ class Calculator extends React.Component {
                             max="100"
                         />
                         <p className="goal" value={weightToReach} onChange={this.weightChange} className="goal">Your goal : {userWeight === '' ? (` `) : (weightToReach)}</p>
+                        <img className="balance-image" src={balance2} alt='balance' />
                     </div>
                 </form>
             </div>
