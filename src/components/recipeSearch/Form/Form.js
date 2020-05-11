@@ -7,12 +7,14 @@ import SpecialDiets from './SpecialDiets'
 import Intolerables from './Intolerables'
 import RangeCalories from './RangeCalories'
 import RangePrepTime from './RangePrepTime'
+import Waiting from '../../Waiting'
+
 
 import './Form.css'
 
 const Form = (props) => {
 
-  const { submitForm, handleChange, userCalories, userPrepTime, errorRequest } = { ...props }
+  const { submitForm, handleChange, userCalories, userPrepTime, errorRequest, numOfResult } = { ...props }
 
   return (
     <form onSubmit={submitForm} className="FormContainer">
@@ -41,9 +43,11 @@ const Form = (props) => {
               </div>
             </>
             :
-            <div className="validForm">
-              <input type="submit" value="Get recipe" className="button-recipe"></input>
-            </div>
+            !numOfResult ?
+              <div className="validForm">
+                <input type="submit" value="Get recipe" className="button-recipe"></input>
+              </div>
+              : <Waiting />
         }
       </div>
     </form>
@@ -51,6 +55,7 @@ const Form = (props) => {
 }
 
 Form.propTypes = {
+  numOfResult: PropTypes.number.isRequired,
   handleChange: PropTypes.func.isRequired,
   submitForm: PropTypes.func.isRequired,
   errorRequest: PropTypes.bool.isRequired,

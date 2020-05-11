@@ -4,6 +4,7 @@ import axios from 'axios'
 import DisplaySearchRecipes from './recipeSearch/DisplayResults/DisplaySearchRecipes'
 import Form from './recipeSearch/Form/Form'
 
+
 import './RecipeSearch.css'
 
 const RecipeSearch = () => {
@@ -163,7 +164,11 @@ const RecipeSearch = () => {
       <h2 className="mainTitle">CUSTOMIZE YOUR RECIPE</h2>
       {/* Display of the form */
         displayContent === "form" ?
-          <Form handleChange={handleChange} submitForm={submitForm} userCalories={userCalories} userPrepTime={userPreparationTime} errorRequest={errorRequest} />
+          <>
+            <Form handleChange={handleChange} submitForm={submitForm} userCalories={userCalories} userPrepTime={userPreparationTime} errorRequest={errorRequest}
+              numOfResult={numOfResult} />
+
+          </>
           :
           <>
             <div className="newSearch" onClick={(e) => handleClick(e)}>New search</div>
