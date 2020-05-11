@@ -22,10 +22,9 @@
   border: 1px solid #1c72a3;
   background-color: #ffcb05;
   color: #1c72a3;
-}
-
-.searchMainDisplay .selected:hover {
-  color: #1c72a3;
+  margin: auto;
+  font-family: 'Indie Flower', cursive;
+  font-size: .8rem;
 }
 
 .searchMainDisplay .divImage {

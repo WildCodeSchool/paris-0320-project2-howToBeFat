@@ -1,14 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import './RecipeDesktop.css'
+import './RecipesDesktop.css'
 
 const RecipesDesktop = (props) => {
 
+  const { recipe, display, handleClick, mapId, side } = { ...props }
+
 
   return (
-    <>
-    </>
+    <div className={`${side}Flex`}>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+    </div>
   )
 }
 

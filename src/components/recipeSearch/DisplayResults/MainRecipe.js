@@ -11,13 +11,11 @@ const MainRecipe = (props) => {
 
   // Defined if the current recipe is display
   const isDisplay = mapId === parseFloat(display)
-  const labelClassNames = ['divLabel']
-  // If display add selected to the name of the class
-  isDisplay && labelClassNames.push('selected')
+  let labelClassNames = isDisplay ? 'selected' : 'divLabel'
 
   return (
     <main className="searchMainDisplay">
-      <div id={mapId} className={labelClassNames.join(' ')} onClick={(e) => handleClick(e)}>
+      <div id={mapId} className={labelClassNames} onClick={(e) => handleClick(e)}>
         <h2 id={mapId} title={`Display the ${recipe.label} recipe`}>{recipe.label}</h2>
       </div>
       {isDisplay &&

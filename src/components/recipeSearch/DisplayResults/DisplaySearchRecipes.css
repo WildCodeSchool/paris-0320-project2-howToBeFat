@@ -4,4 +4,19 @@
   max-width: 28em;
 }
 
-/* @media screen and (min-width:) */
+.mainContainer .flexContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.leftContainer, .rightContainer {
+  display: none;
+  max-width: 15em;
+}
+
+@media screen and (min-width:780px) {
+  .leftContainer {
+    display: flex;
+  }
+}

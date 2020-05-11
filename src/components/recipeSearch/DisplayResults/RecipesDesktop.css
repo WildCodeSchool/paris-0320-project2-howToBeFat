@@ -1,0 +1,9 @@
+.leftFlex, .rightFlex {
+  display: flex;
+  flex-direction: column;
+  width: 10em;
+  height: 10em;
+  background-color: red;
+  align-items: center;
+  justify-content: space-around;
+}
