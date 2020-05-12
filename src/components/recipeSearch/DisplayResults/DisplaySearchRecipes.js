@@ -29,14 +29,6 @@ const DisplaySearchRecipes = (props) => {
     // setIsDisplay({ ...isDisplay, old: parseFloat(isDisplay) })
   }, [isDisplay])
 
-  // useEffect(() => {
-  //   setSelectedRecipes({ ...selectedRecipes, oldDisplay: parseFloat(isDisplay) })
-  //   const tmp = []
-  //   tmp.push(recipes.map((recipe, id) => recipe.recipe))
-  //   console.log(selectedRecipes)
-  // }, [recipes, isDisplay])
-  console.log(isDisplay.actual, isDisplay.old)
-
   return (
     <div className="mainContainer">
       {
@@ -45,16 +37,16 @@ const DisplaySearchRecipes = (props) => {
           <NumberOfResult numOfResult={numOfResult} />
           <div className="flexContainer">
             <div className="leftContainer">
-              <RecipesDesktop side="left" recipe={recipes} display={isDisplay} handleClick={handleClick} />
+              <RecipesDesktop side="left" recipes={recipes} display={isDisplay} handleClick={handleClick} />
             </div>
             <div className="centralContainer">
               {
                 recipes.map((recipe, id) =>
-                  <MainRecipe recipe={recipe.recipe} display={isDisplay.actual} key={id} mapId={id} handleClick={handleClick} width={windowWidth} />
+                  <MainRecipe recipes={recipe.recipe} display={isDisplay.actual} key={id} mapId={id} handleClick={handleClick} width={windowWidth} />
                 )}
             </div>
             <div className="rightContainer">
-              <RecipesDesktop side="right" recipe={recipes} display={isDisplay} handleClick={handleClick} />
+              <RecipesDesktop side="right" recipes={recipes} display={isDisplay} handleClick={handleClick} />
             </div>
           </div>
         </>
