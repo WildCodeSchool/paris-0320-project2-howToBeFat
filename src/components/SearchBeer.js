@@ -8,7 +8,7 @@ class SearchBeer extends React.Component {
 		post: [],
 		allPosts: [],
 		abv: [],
-		abvLevel : []
+		abvLevel : "4"
 	};
 
 	componentDidMount () {
