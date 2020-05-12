@@ -1,17 +1,21 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import './NavbarDesktop.css'
 import {Link} from 'react-router-dom'
 
-function NavbarDesktop (){
+function NavbarDesktop (props){
+
+  const [active,setActive] = useState("home")
+
     return (
-        <div className ="topnav">
+      <div className ="topnav">
+      
           <div>
-            <Link className ="active" to="/">Home</Link>
-            <Link to="/RecipeSearch">Recipes</Link>
+            <Link className ={active === "home" ? "active" : ""} onClick={()=>setActive("home")} to="/" >Home</Link>
+            <Link className ={active === "recipe" ? "active" : ""} onClick={()=>setActive("recipe")} to="/RecipeSearch">Recipes</Link>
           </div>
           <div>
-            <Link to="/BeerCard">Beers</Link>
-            <Link to="/Calculator">Calculator</Link>
+            <Link className ={active === "beer" ? "active" : ""} onClick={()=>setActive("beer")} to="/BeerCard" >Beers</Link>
+            <Link className ={active === "calculator" ? "active" : ""} onClick={()=>setActive("calculator")} to="/Calculator">Calculator</Link>
           </div>
       </div>
     )
