@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline');
+
 .beer-container{
     margin: 1em;
 }
@@ -7,12 +9,22 @@
 }
 
 .abv-range{
+    -webkit-appearance: none;
+    height: 1em;
+    border-radius: 5px;
+    background-image: linear-gradient(135deg,#fffa6c 40%, #ff9900 80%, #551313 100%);
+    border: 1px solid rgb(0, 0, 0);
+    opacity: 0.7;
+    margin-top: 2em;
     width: 60%;
 }
 
 .beer-range {
-    font-family: 'Gloria Hallelujah', sans-serif;
-    margin-top: 2em;
+    font-family: 'Bungee Inline', cursive, sans-serif;
+    color: rgb(13, 41, 99);
+    text-shadow: 3px 3px 3px rgb(175, 173, 173);
+    font-size: 1.5em;
+    margin-top: 1em;
 }
 
 
@@ -42,14 +54,14 @@
     box-shadow: 0 8px 16px 0 rgba(248, 248, 248, 0.2);
 	/* background-color: #00c2cb;
 	color: #ffcb05; */
-	padding: .2em;
+	/* padding: .2em; */
 	font-size: 1.4rem;
 	font-family: 'Gloria Hallelujah', sans-serif;
     /* border-bottom: 1px inset #1c72a3; */
     color: #013235;
     text-shadow: 1px 1px #ffcb05;
     /* width: 100%; */
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
     padding: 0;
 }
 .beer-container .beer-abv h3 {
@@ -74,12 +86,11 @@
 
 .block{
     margin: 1em;
-    height: ;
 }
 
 @media screen and (min-width: 1025px){
     .abv-range{
-        width: 12%;
+        width: 30%;
     }
 
     .beer-container .beer-abv img {
@@ -87,16 +98,29 @@
         height: 25em
     }
 
+    .beer-range {
+        font-size: 2.5em;
+        margin-top: 1em;
+    }
+
     .block{
     display: inline-block;
     width: 30%;
+    /* border-top: 5px solid #45D3D3; */
+    box-shadow: 0 8px 17px -8px #A3A5AE;
+    background-color: #FFF;
+    }
+
+    .block:hover {
+        transition: 1s;
+		box-shadow: 0 8px 16px 5px rgba(0, 0, 0, 0.3);
     }
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1025px) {
     .block{
         display: inline-block;
-    width: 40%;
+        width: 40%;
     }
 
     .abv-range{
