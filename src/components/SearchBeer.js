@@ -18,7 +18,7 @@ class SearchBeer extends React.Component {
     getBeers = () => {
         axios.get('https://api.punkapi.com/v2/beers')
 		.then(res => 
-			// console.log('res', res.data) || 
+			console.log('res', res.data) || 
 			this.setState(
 			{post: res.data}
 			)
@@ -48,7 +48,7 @@ class SearchBeer extends React.Component {
 	render() {
 		// console.log(this.state.abvLevel)
 		return (
-			<div className="container">
+			<div className="beer-container">
                 <div className="beer-range">
 		    		{/* <form role="search" method="get" id="searchform" className="searchform" action=""> */}
 		    			{/* <input type="search" onChange={this.onKeyUp} name="s" id="s" placeholder="Search" /> */}
@@ -70,9 +70,10 @@ class SearchBeer extends React.Component {
 					.map((item, index) => (
 						<div className="block" key= {index}>
 							<img src={item.image_url} alt={item.name} />
-							<div className="h3">
+							<div className="name-abv">
 								<h3>{item.name}</h3>
 								<h3>{item.abv} %</h3>
+								{/* <h4 className="beer-description">{item.description} %</h4> */}
 							</div>
 						</div>
 					))}
