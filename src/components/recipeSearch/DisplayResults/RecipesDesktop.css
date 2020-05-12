@@ -3,6 +3,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  background-color: #ffcb05;
+  padding: 0.25em;
+  border: 1px solid #1c72a3;
 }
 
 .leftFlex {
@@ -16,9 +19,17 @@
 }
 
 .miniRecipes {
-  max-width: 10em;
+  
 }
 
 .leftFlex img,.rightFlex img {
-  width: 100%;
+  box-sizing: border-box;
+  max-width: 9.5em;
+  border: 1px solid #1c72a3;
+}
+
+.leftFlex img:hover,.rightFlex img:hover {
+  border-width: .25em;
+  transition: .75s all;
+  cursor: pointer;
 }

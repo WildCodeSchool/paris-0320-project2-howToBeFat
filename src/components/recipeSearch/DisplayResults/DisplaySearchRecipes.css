@@ -19,7 +19,7 @@
 
 @media screen and (min-width:780px) {}
 
-@media screen and (min-width:1050px) {
+@media screen and (min-width:780px) {
   .rightContainer, .leftContainer {
     display: flex;
   }

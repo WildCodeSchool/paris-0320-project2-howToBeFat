@@ -29,3 +29,9 @@
   cursor: pointer;
   color:#ffcb05;
 }
+
+@media screen and (min-width:780px) {
+  .rangeRecipe {
+    display: none;
+  }
+}

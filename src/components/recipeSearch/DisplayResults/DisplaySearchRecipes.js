@@ -33,10 +33,10 @@ const DisplaySearchRecipes = (props) => {
   }
 
   //Detect the size of the window for css display
-  useEffect(() => {
-    window.addEventListener("resize", () => setWindowWidth(window.innerWidth))
-    return () => window.removeEventListener("resize", () => setWindowWidth(window.innerWidth))
-  });
+  // useEffect(() => {
+  //   window.addEventListener("resize", () => setWindowWidth(window.innerWidth))
+  //   return () => window.removeEventListener("resize", () => setWindowWidth(window.innerWidth))
+  // });
 
   return (
     <div className="mainContainer">

@@ -21,12 +21,14 @@ const MainRecipe = (props) => {
       {
         isDisplay &&
         <>
-          <RecipeInfos calories={recipes.calories} time={recipes.totalTime} />
-          <div className="divImage">
-            <img src={recipes.image} alt={recipes.label} />
+          <div className="recipeAround">
+            <RecipeInfos calories={recipes.calories} time={recipes.totalTime} />
+            <div className="divImage">
+              <img src={recipes.image} alt={recipes.label} />
+            </div>
+            <RecipeIngredients ingredients={recipes.ingredientLines} />
+            <p className="button-recipe"><a href={recipes.url} title={`Go to the extern Web page of ${recipes.label} recipe`} target="blank">See the whole recipe !</a></p>
           </div>
-          <RecipeIngredients ingredients={recipes.ingredientLines} />
-          <p className="button-recipe"><a href={recipes.url} title={`Go to the extern Web page of ${recipes.label} recipe`} target="blank">See the whole recipe !</a></p>
         </>
       }
     </main >
