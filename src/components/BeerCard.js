@@ -34,6 +34,7 @@ class BeerCard extends React.Component {
                 <p className="beerName">{abv} % vol</p>
                 <p className="titlePairing">Food pairing :</p>
                 <span className="pairingBeer ">{food_pairing}</span>
+                <button>Show another one!</button>
             </div>):
             (<Waiting />)
             }
