@@ -1,6 +1,7 @@
 .searchMainDisplay {
   border-left: 1px inset #1c72a3;
   border-right: 1px inset #1c72a3;
+  width: 100%;
 }
 
 .searchMainDisplay .divLabel {
