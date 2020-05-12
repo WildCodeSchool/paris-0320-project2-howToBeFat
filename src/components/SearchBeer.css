@@ -95,7 +95,8 @@
 
     .beer-container .beer-abv img {
         width: 8em;
-        height: 25em
+        height: 25em;
+        margin-top: 1em;
     }
 
     .beer-range {
@@ -106,14 +107,14 @@
     .block{
     display: inline-block;
     width: 30%;
-    /* border-top: 5px solid #45D3D3; */
+    border-top: 5px solid #45D3D3;
     box-shadow: 0 8px 17px -8px #A3A5AE;
     background-color: #FFF;
+    transition: 1.5s;
     }
 
     .block:hover {
-        transition: 1s;
-		box-shadow: 0 8px 16px 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 8px 16px 5px rgba(0, 0, 0, 0.3);
     }
 }
 
