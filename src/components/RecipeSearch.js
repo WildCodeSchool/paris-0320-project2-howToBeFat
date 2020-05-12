@@ -37,7 +37,7 @@ const RecipeSearch = () => {
   const getRandomNumber = (max) => Math.floor(Math.random() * Math.floor(max))
   //Define the range of search for the api request
   const defineRangeNumber = (nbResults) => {
-    const rangewidth = 11
+    const rangewidth = 100
     const numberToRandom = getRandomNumber(Math.ceil(nbResults / rangewidth))
     const max = (numberToRandom * rangewidth) + rangewidth > nbResults ? nbResults - 1 : (numberToRandom * rangewidth) + rangewidth
     const min = max - rangewidth < 0 ? 0 : max - rangewidth
@@ -174,7 +174,7 @@ const RecipeSearch = () => {
           <>
             <div className="newSearch" onClick={(e) => handleClick(e)}>New search</div>
             <div className="triangle" onClick={(e) => handleClick(e)}></div>
-            <DisplaySearchRecipes recipes={recipes} numOfResult={numOfResult} />
+            <DisplaySearchRecipes recipes={recipes} numOfResult={numOfResult - 1} />
           </>
       }
     </div>

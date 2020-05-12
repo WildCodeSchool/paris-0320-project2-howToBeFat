@@ -42,7 +42,7 @@ const RecipesDesktop = (props) => {
               {
                 defineClass(divId === display)
               }>
-              <img src={recipe.recipe.image} alt={recipe.recipe.label} />
+              <img id={divId} src={recipe.recipe.image} alt={recipe.recipe.label} onClick={(e) => handleClick(e)} />
             </div>
           )
         })

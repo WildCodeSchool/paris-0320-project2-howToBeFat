@@ -1,28 +1,24 @@
 .leftFlex, .rightFlex {
   display: flex;
   flex-direction: column;
-  background-color: red;
   align-items: center;
   justify-content: space-between;
 }
 
 .leftFlex {
-  margin-right: 3em;
-  width:5em;
 }
 
 .rightFlex {
-  margin-left: 3em;
-  width:5em;
 }
 
 .selected {
-  background-color: yellow;
+  
 }
 
 .miniRecipes {
-  /* width:5em; */
+  max-width: 10em;
 }
 
-.selected img {
+.leftFlex img,.rightFlex img {
+  width: 100%;
 }

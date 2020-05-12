@@ -1,0 +1,31 @@
+.rangeRecipe {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #ffcb05;
+  color: #1c72a3;
+  padding: .2em;
+  font-family: 'Sniglet', cursive;
+  border: 1px solid #1c72a3;
+  border-top: none;
+}
+
+.rangeRecipe .up, .rangeRecipe .down {
+  border: 1px solid #ffcb05;
+   width: 100%;
+  padding: 0.2em;
+}
+
+.rangeRecipe .up:hover, .rangeRecipe .down:hover {
+  cursor: pointer;
+  background-color: #ffcb05;
+  color: #1c72a3;
+  min-width: 50%;
+}
+
+.rangeRecipe:hover {
+  border: 1px solid #ffcb05;
+  background-color: #1c72a3;
+  cursor: pointer;
+  color:#ffcb05;
+}
