@@ -14,3 +14,7 @@
 .rightFlex {
   margin-left: 3em;
 }
+
+.selected {
+  background-color: yellow;
+}

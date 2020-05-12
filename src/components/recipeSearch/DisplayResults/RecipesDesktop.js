@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import './RecipesDesktop.css'
@@ -7,11 +7,10 @@ const RecipesDesktop = (props) => {
 
   const { recipes, display, handleClick, side } = { ...props }
 
-  // console.log(recipe.length, "nb_recette")
-  // console.log(display.actual, display.old, "ids")
-  const nbRecipeTotal = recipes.length - 1
   let nbRecipeForHere = 0
   let recipesForHere = []
+  const nbRecipeTotal = recipes.length
+
   if (side === "left") {
     nbRecipeForHere = Math.ceil(nbRecipeTotal / 2)
     recipesForHere = recipes.filter((recipe, id) => id < nbRecipeForHere)
@@ -21,20 +20,23 @@ const RecipesDesktop = (props) => {
     recipesForHere = recipes.filter((recipe, id) => id > nbRecipeForHere)
   }
 
-  console.log(nbRecipeForHere, `${side}`)
-  console.log(recipesForHere, `${side}`)
+  const className = ['miniRecipes']
 
   return (
     <div className={`${side}Flex`}>
       {
-        // recipes.map((recip, id) =>
-        //   side === "left" ?
-        //     nbRecipeForHere <= id - 1 &&
-        //     (console.log(recip.recipe.label))
-        //     :
-        //     nbRecipeForHere + (id - 1) <= nbRecipeTotal &&
-        //     (console.log(recip.recipe.label))
-        // )
+        recipesForHere.map((recipe, id) => {
+          let divId = side === 'left' ? id : nbRecipeForHere + id
+          return (
+            <div key={id} id={divId} onClick={(e) => handleClick(e)}
+              className=
+              {
+                divId !== display ? className : className.push('selected') && className.join(' ')
+              }>
+              {divId}
+            </div>
+          )
+        })
       }
     </div>
   )

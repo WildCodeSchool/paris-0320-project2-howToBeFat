@@ -9,25 +9,24 @@ import './DisplaySearchRecipes.css'
 
 const DisplaySearchRecipes = (props) => {
 
-  const [isDisplay, setIsDisplay] = useState({ actual: 0, old: null })
+  const [isDisplay, setIsDisplay] = useState(0)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-  // const [selectedRecipes, setSelectedRecipes] = useState({ recipes: [], oldDisplay: null })
-
   const { numOfResult, recipes } = { ...props }
 
   const handleClick = (e) => {
-    setIsDisplay({ ...isDisplay, actual: e.target.id, old: isDisplay.actual })
+    setIsDisplay(parseInt(e.target.id))
+    console.log(isDisplay, e.target.id, isDisplay.old, "parent handle")
   }
+
+  // useEffect(() => {
+
+  // }, [isDisplay])
+
   //Detect the size of the window for css display
   useEffect(() => {
     window.addEventListener("resize", () => setWindowWidth(window.innerWidth))
-    console.log(windowWidth)
     return () => window.removeEventListener("resize", () => setWindowWidth(window.innerWidth))
   });
-
-  useEffect(() => {
-    // setIsDisplay({ ...isDisplay, old: parseFloat(isDisplay) })
-  }, [isDisplay])
 
   return (
     <div className="mainContainer">
@@ -42,7 +41,7 @@ const DisplaySearchRecipes = (props) => {
             <div className="centralContainer">
               {
                 recipes.map((recipe, id) =>
-                  <MainRecipe recipes={recipe.recipe} display={isDisplay.actual} key={id} mapId={id} handleClick={handleClick} width={windowWidth} />
+                  <MainRecipe recipes={recipe.recipe} display={isDisplay} key={id} mapId={id} handleClick={handleClick} width={windowWidth} />
                 )}
             </div>
             <div className="rightContainer">
