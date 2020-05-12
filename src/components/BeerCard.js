@@ -12,14 +12,19 @@ class BeerCard extends React.Component {
         }
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         this.getBeer()
     }
 
     getBeer = () => {
         axios.get('https://api.punkapi.com/v2/beers/random')
-            .then(res => this.setState({ beers: res.data[0],isLoading:true })
-            )
+            .then(res => {
+                if (!res.data[0].image_url || res.data[0].image_url.includes('keg')) {
+                    this.getBeer()
+                } else {
+                    this.setState({ beers: (res.data[0]), isLoading: true })
+                }
+            })
     }
 
     render() {
@@ -34,7 +39,8 @@ class BeerCard extends React.Component {
                 <p className="beerName">{abv} % vol</p>
                 <p className="titlePairing">Food pairing :</p>
                 <span className="pairingBeer ">{food_pairing}</span>
-                <button>Show another one!</button>
+                <br />
+                <button className="beer-recipe" onClick={this.getBeer} >Show another one!</button>
             </div>):
             (<Waiting />)
             }
