@@ -18,10 +18,6 @@ const DisplaySearchRecipes = (props) => {
     console.log(isDisplay, e.target.id, isDisplay.old, "parent handle")
   }
 
-  // useEffect(() => {
-
-  // }, [isDisplay])
-
   //Detect the size of the window for css display
   useEffect(() => {
     window.addEventListener("resize", () => setWindowWidth(window.innerWidth))

@@ -9,7 +9,16 @@ const RecipesDesktop = (props) => {
 
   let nbRecipeForHere = 0
   let recipesForHere = []
-  const nbRecipeTotal = recipes.length
+  const nbRecipeTotal = recipes.length - 1
+
+  const defineClass = (bool) => {
+    console.log(bool)
+    const className = ['miniRecipes']
+    if (bool) {
+      className.push('selected')
+    }
+    return className.join(' ')
+  }
 
   if (side === "left") {
     nbRecipeForHere = Math.ceil(nbRecipeTotal / 2)
@@ -31,9 +40,9 @@ const RecipesDesktop = (props) => {
             <div key={id} id={divId} onClick={(e) => handleClick(e)}
               className=
               {
-                divId !== display ? className : className.push('selected') && className.join(' ')
+                defineClass(divId === display)
               }>
-              {divId}
+              <img src={recipe.recipe.image} alt={recipe.recipe.label} />
             </div>
           )
         })
