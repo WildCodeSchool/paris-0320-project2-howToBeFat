@@ -16,7 +16,11 @@ class SearchBeer extends React.Component {
 
     getBeers = () => {
         axios.get('https://api.punkapi.com/v2/beers')
-        .then(res => this.setState({post: res.data, allPosts: res.data, rangePost: res.data}))
+		.then(res => console.log('res', res.data) || 
+			this.setState(
+			{post: res.data, allPosts: res.data, rangePost: res.data}
+			)
+			)
     }
 
 	onKeyUp = e => {
@@ -27,10 +31,16 @@ class SearchBeer extends React.Component {
 		this.setState({ post });
 	};
 
-	filterRange = (e) => {
-		const post = this.state.rangePost.filter(item => item.abv >= 0 && e.target.value <= 80)
-		this.setState({post})
+	filterRange = () => {
+		// if(this.state.post.filter( beerAbv => beerAbv.abv) < 5 ) {
+
+		// }
+	
+
+		// const post = this.state.rangePost.filter(item => item.abv >= 0 && e.target.value <= 80)
+		// this.setState({post})
 	}
+	
 
 	render() {
 		return (
@@ -38,7 +48,11 @@ class SearchBeer extends React.Component {
                 <div className="search-outer">
 		    		<form role="search" method="get" id="searchform" className="searchform" action="">
 		    			<input type="search" onChange={this.onKeyUp} name="s" id="s" placeholder="Search" />
-						<input type="range" min="0" max="80" onChange={this.filterRange} />
+						<input type="range" 
+								min="0" 
+								max="60" 
+								step = "5"
+								onChange={()=> this.filterRange()} />
 		    		</form>
 		    	</div>
 				<div className="data-list">
