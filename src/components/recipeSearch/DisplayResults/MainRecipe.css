@@ -1,0 +1,83 @@
+.searchMainDisplay {
+  border-left: 1px inset #1c72a3;
+  border-right: 1px inset #1c72a3;
+  width: 100%;
+}
+
+.searchMainDisplay .divLabel {
+  border: 1px solid #1c72a3;
+  margin: auto;
+  background-color: #072b3f;
+  opacity: .75;
+  font-family: 'Indie Flower', cursive;
+  font-size: .8rem;
+  color: #1c72a3;
+}
+
+.searchMainDisplay .divLabel:hover {
+  opacity: 1;
+  cursor: pointer;
+  color: #ffcb05;
+}
+
+.searchMainDisplay .selected {
+  border: 1px solid #1c72a3;
+  background-color: #ffcb05;
+  color: #1c72a3;
+  margin: auto;
+  font-family: 'Indie Flower', cursive;
+  font-size: .8rem;
+}
+
+.searchMainDisplay .divImage {
+  border-top: 1px solid #1c72a3;
+  margin: auto;
+}
+
+.searchMainDisplay img {
+  width: 90%;
+  height: 15em;
+  margin-top: .5em;
+  margin-bottom: -.5em;
+  border-radius: .5em;
+  border: 1px inset #072b3f;
+}
+
+.searchMainDisplay .button-recipe {
+  position: relative;
+  top: -2.2em;
+  margin: auto;
+  margin-bottom: -1em;
+  font-family: 'Sniglet', cursive;
+  font-weight: 500;
+  width: 90%;
+  border-left: 5px solid #1c72a3;
+  border-right: 5px solid #1c72a3;
+  border-bottom: 15px solid #1c72a3;
+  border-top: 3px double #1c72a3;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  padding: 0 .375em;
+}
+
+.searchMainDisplay .button-recipe:hover {
+  border-color: #ffcb05;
+}
+
+.searchMainDisplay a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width:780px) {
+  .divLabel {
+    display: none;
+  }
+  .searchMainDisplay .button-recipe {
+    padding: .3em .5em;
+  }
+  .recipeAround {
+    border-bottom: 1px solid #1c72a3;
+  }
+}
