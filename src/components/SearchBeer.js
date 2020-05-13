@@ -41,7 +41,7 @@ class SearchBeer extends React.Component {
 		)
 	}
 
-	getBeerAbv = (abvLevel) => {
+	getBeerAbv = () => {
 		const temp = this.state.post.filter(item => item.abv > this.state.abvLevel)
 	}
 
@@ -53,7 +53,7 @@ class SearchBeer extends React.Component {
 		    		{/* <form role="search" method="get" id="searchform" className="searchform" action=""> */}
 		    			{/* <input type="search" onChange={this.onKeyUp} name="s" id="s" placeholder="Search" /> */}
 						<label>How strong do you like your beer ?</label>
-						<p>more than {this.state.abvLevel} %</p>
+						<p>more than {this.state.abvLevel} % vol</p>
 						<input type="range"
 								className="abv-range" 
 								min="4" 
@@ -72,7 +72,7 @@ class SearchBeer extends React.Component {
 							<img src={item.image_url} alt={item.name} />
 							<div className="name-abv">
 								<h3>{item.name}</h3>
-								<h3>{item.abv} %</h3>
+								<h3>{item.abv} % vol</h3>
 								{/* <h4 className="beer-description">{item.description} %</h4> */}
 							</div>
 						</div>
