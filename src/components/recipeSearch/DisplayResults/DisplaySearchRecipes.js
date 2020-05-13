@@ -10,10 +10,10 @@ import './DisplaySearchRecipes.css'
 
 const DisplaySearchRecipes = (props) => {
 
-  const [isDisplay, setIsDisplay] = useState(0)
-  const [displayMax, setdisplayMax] = useState(5)
+  const [isDisplay, setIsDisplay] = useState('')
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-  const [rangeLevel, setRangeLevel] = useState(0)
+  const [rangeLevel, setRangeLevel] = useState({ min: 0, max: 5 })
+  const [saveRange, setSaveRange] = useState({ min: 0, max: 5 })
   const [thumbnails, setThumbnails] = useState({
     extremLeft: [],
     left: [],
@@ -23,64 +23,62 @@ const DisplaySearchRecipes = (props) => {
 
   const { numOfResult, recipes } = { ...props }
 
-  // const defineThumbnails = () => {
-  //   const totalResult = recipes.length
-  //   switch (totalResult) {
-  //     case 
-  //     default:
-  //   }
-  // }
-
   useEffect(() => {
+    setIsDisplay(recipes[0].recipe.uri)
     let totalResult = recipes.length
-    console.log("totalResult", recipes.length)
     if (totalResult <= 10) {
+      console.log(totalResult)
       const leftDisplay = Math.floor(totalResult / 2)
-      const tmpLeftRecipe = recipes.recipe.filter((recipe, id) => id < leftDisplay)
+      const tmpLeftRecipe = recipes.filter((recipe, id) => id < leftDisplay)
       const tmpRightRecipe = recipes.filter((recipe, id) => id >= leftDisplay && id <= totalResult)
       setThumbnails({ ...thumbnails, left: tmpLeftRecipe, right: tmpRightRecipe })
-      console.log(`left: ${tmpLeftRecipe}, right: ${tmpRightRecipe}`)
     }
     else {
       totalResult = totalResult > 20 ? 20 : totalResult
 
       const tmpLeftRecipe = { "left": recipes.filter((recipe, id) => id < 5) }
-      console.log(tmpLeftRecipe, "tmpLeftRecipe")
       const tmpRightRecipe = { "right": recipes.filter((recipe, id) => id >= 5 && id < 10) }
       const extremLeftDisplay = Math.floor(11 + ((totalResult - 10) / 2))
       const tmpExtremLeftRecipe = { "extremLeft": recipes.filter((recipe, id) => id > 10 && id < extremLeftDisplay) }
       const tmpExtremRightRecipe = { "extremRight": recipes.filter((recipe, id) => id >= extremLeftDisplay && id <= totalResult) }
 
       setThumbnails({ ...tmpRightRecipe, ...tmpLeftRecipe, ...tmpExtremLeftRecipe, ...tmpExtremRightRecipe })
+
     }
 
   }, [])
 
   const handleClick = (e) => {
-    setIsDisplay(parseInt(e.target.id))
+    setIsDisplay(e.target.id)
   }
 
   const rangeClick = (direction) => {
-    console.log(rangeLevel)
+
     if (direction === "up") {
-      setdisplayMax(displayMax + 5)
-      setRangeLevel(rangeLevel + 1)
+      const tmp = rangeLevel.max
+      setRangeLevel({ min: tmp, max: tmp + 5 })
+      setRangeLevel({ min: tmp, max: tmp + 5 })
     } else if (direction === "down") {
-      setdisplayMax(displayMax - 5)
-      setRangeLevel(rangeLevel - 1)
+      const tmp = rangeLevel.min
+      setRangeLevel({ min: tmp - 5, max: tmp })
+      setRangeLevel({ min: tmp - 5, max: tmp })
     }
   }
 
+  useEffect(() => {
+    windowWidth <= 780 && setSaveRange({ ...rangeLevel })
+  }, [rangeLevel])
+
   //Detect the size of the window for css display
-  // useEffect(() => {
-  //   window.addEventListener("resize", () => setWindowWidth(window.innerWidth))
-  //   return () => window.removeEventListener("resize", () => setWindowWidth(window.innerWidth))
-  // });
-
-
-  console.log(`left: ${thumbnails.left}, right: ${thumbnails.right}`)
-  console.log(`extremLeft: ${thumbnails.extremLeft}, extremRight: ${thumbnails.extremRight}`)
-  console.log(thumbnails, "thumbnails")
+  useEffect(() => {
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth))
+    if (windowWidth > 780) {
+      setRangeLevel({ min: 0, max: 100 })
+    } else {
+      setRangeLevel(saveRange)
+    }
+    return () => window.removeEventListener("resize", () => setWindowWidth(window.innerWidth))
+  }, [windowWidth]);
 
   return (
     <div className="mainContainer">
@@ -89,7 +87,7 @@ const DisplaySearchRecipes = (props) => {
         <>
           <NumberOfResult numOfResult={numOfResult} />
           <div className="flexContainer">
-            <div className="ExtremContainer">
+            <div className="extremContainer">
               <RecipesDesktop side="extremLeft" recipes={thumbnails.extremLeft} display={isDisplay} handleClick={handleClick} />
             </div>
             <div className="leftContainer">
@@ -98,19 +96,19 @@ const DisplaySearchRecipes = (props) => {
             <div className="centralContainer">
               {
                 recipes.map((recipe, id) =>
-                  id < displayMax &&
-                  <MainRecipe recipes={recipe.recipe} display={isDisplay} key={id} mapId={id} handleClick={handleClick} numOfResult={numOfResult} />
+                  id < rangeLevel.max &&
+                  <MainRecipe recipes={recipe.recipe} display={isDisplay} key={id} handleClick={handleClick} numOfResult={numOfResult} />
                 )
               }
               {
-                <SetRangeDisplay handleClick={rangeClick} numOfResult={numOfResult} displayMax={displayMax} rangeLevel={rangeLevel} />
+                <SetRangeDisplay handleClick={rangeClick} numOfResult={numOfResult} displayMax={rangeLevel.max} />
               }
             </div>
             <div className="rightContainer">
-              <RecipesDesktop side="right" recipes={thumbnails.right} display={isDisplay} handleClick={handleClick} rangeLevel={rangeLevel} />
+              <RecipesDesktop side="right" recipes={thumbnails.right} display={isDisplay} handleClick={handleClick} />
             </div>
-            <div className="ExtremContainer">
-              <RecipesDesktop side="extremRight" recipes={thumbnails.extremRight} display={isDisplay} handleClick={handleClick} rangeLevel={rangeLevel} />
+            <div className="extremContainer">
+              <RecipesDesktop side="extremRight" recipes={thumbnails.extremRight} display={isDisplay} handleClick={handleClick} />
             </div>
           </div>
         </>

@@ -7,16 +7,16 @@ import './MainRecipe.css'
 
 const MainRecipe = (props) => {
 
-  const { display, recipes, handleClick, mapId } = { ...props }
+  const { display, recipes, handleClick } = { ...props }
 
   // Defined if the current recipe is display
-  const isDisplay = mapId === parseFloat(display)
+  const isDisplay = recipes.uri === display
   let labelClassNames = isDisplay ? 'selected' : 'divLabel'
 
   return (
     <main className="searchMainDisplay">
-      < div id={mapId} className={labelClassNames} onClick={(e) => handleClick(e)}>
-        <h2 id={mapId} title={`Display the ${recipes.label} recipe`}>{recipes.label}</h2>
+      < div id={recipes.uri} className={labelClassNames} onClick={(e) => handleClick(e)}>
+        <h2 id={recipes.uri} title={`Display the ${recipes.label} recipe`}>{recipes.label}</h2>
       </div>
       {
         isDisplay &&
@@ -24,7 +24,7 @@ const MainRecipe = (props) => {
           <div className="recipeAround">
             <RecipeInfos calories={recipes.calories} time={recipes.totalTime} />
             <div className="divImage">
-              <img src={recipes.image} alt={recipes.label} />
+              <img src={recipes.image} alt={recipes.label} title={recipes.uri} />
             </div>
             <RecipeIngredients ingredients={recipes.ingredientLines} />
             <p className="button-recipe"><a href={recipes.url} title={`Go to the extern Web page of ${recipes.label} recipe`} target="blank">See the whole recipe !</a></p>
@@ -37,9 +37,8 @@ const MainRecipe = (props) => {
 
 MainRecipe.prototype = {
   recipe: PropTypes.arrayOf(Object).isRequired,
-  display: PropTypes.number.isRequired,
+  display: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
-  mapId: PropTypes.number.isRequired,
   width: PropTypes.number.isRequired,
   displayMax: PropTypes.number.isRequired
 }

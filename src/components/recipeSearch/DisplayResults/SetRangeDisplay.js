@@ -1,19 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import './SetRangeDisplay.css'
 
 const SetRangeDisplay = (props) => {
 
-
-  const { handleClick, displayMax, numOfResult, rangeLevel } = props
-
-  const defineLevel = (value) => {
-
-
-  }
-
-
+  const { handleClick, displayMax, numOfResult } = props
   const resultMax = numOfResult <= 100 ? numOfResult : 100
 
   return (
@@ -22,7 +14,7 @@ const SetRangeDisplay = (props) => {
         <div onClick={() => handleClick("up")} className="up">View more recipes</div>
       }
       {
-        rangeLevel > 0 &&
+        displayMax > 5 &&
         <div onClick={() => handleClick("down")} className="down">View less recipes</div>
       }
     </div >
@@ -34,7 +26,6 @@ SetRangeDisplay.prototype = {
   handleClick: PropTypes.func.isRequired,
   numOfResult: PropTypes.number.isRequired,
   displayMax: PropTypes.number.isRequired,
-  rangeLevel: PropTypes.number.isRequired
 }
 
 export default SetRangeDisplay

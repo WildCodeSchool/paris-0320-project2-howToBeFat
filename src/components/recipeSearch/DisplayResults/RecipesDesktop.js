@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import './RecipesDesktop.css'
@@ -6,10 +6,9 @@ import './RecipesDesktop.css'
 const RecipesDesktop = (props) => {
 
   const { recipes, display, handleClick, side } = { ...props }
-  console.log(side, recipes, "desktop")
+  // console.log(side, recipes, "desktop")
 
   const defineClass = (bool) => {
-    console.log(bool)
     const className = ['miniRecipes']
     if (bool) {
       className.push('selected')
@@ -20,14 +19,15 @@ const RecipesDesktop = (props) => {
   return (
     <div className={`${side}Flex`}>
       {
-        recipes.map((recipe, id) => {
+        recipes.map(recipe => {
+          const id = recipe.recipe.uri
           return (
-            <div key={id} id={id} onClick={(e) => handleClick(e)}
+            <div key={id} id={id}
               className=
               {
                 defineClass(id === display)
               }>
-              <img id={id} src={recipe.recipe.image} alt={recipe.recipe.label} onClick={(e) => handleClick(e)} />
+              <img id={id} src={recipe.recipe.image} alt={recipe.recipe.label} onClick={(e) => handleClick(e)} title={id} />
             </div>
           )
         })
@@ -38,9 +38,8 @@ const RecipesDesktop = (props) => {
 
 RecipesDesktop.prototype = {
   recipe: PropTypes.arrayOf(Object).isRequired,
-  display: PropTypes.number.isRequired,
+  display: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
-  mapId: PropTypes.number.isRequired,
   side: PropTypes.string.isRequired
 }
 export default RecipesDesktop
