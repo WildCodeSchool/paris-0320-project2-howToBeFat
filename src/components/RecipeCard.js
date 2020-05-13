@@ -21,10 +21,10 @@ class RecipeCard extends React.Component {
     let url = `https://api.edamam.com/search?q=${selectedIngredients}&from=${min}&to=${max}&calories=${minCalories}-${maxCalories}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
 
     axios.get(url)
-      .then((res) => {
+      .then((res) => {        
         // base of the calls
         const res1 = res.data.hits
-        const randomNum = this.randomNumber(res1.length)
+        const randomNum = this.randomNumber(res1.length) 
         //sort by calories desc
         const thisCalories = res1.map(x => x.recipe.calories)
         const sort = thisCalories.sort((a, b) => b - a)[randomNum]

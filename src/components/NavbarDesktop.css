@@ -1,6 +1,9 @@
 /* Police */
 @import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Indie+Flower&display=swap");
 
+.active{
+  color: #ffcb05 !important;
+}
 /* For desktop NavBar */
 @media screen and (min-width: 1049px) {
 
