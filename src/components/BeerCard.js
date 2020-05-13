@@ -12,7 +12,7 @@ class BeerCard extends React.Component {
         }
     }
 
-    componentDidMount = () => {
+    componentDidMount() {
         this.getBeer()
     }
 
