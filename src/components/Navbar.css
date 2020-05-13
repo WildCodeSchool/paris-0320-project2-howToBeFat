@@ -1,4 +1,6 @@
-
+.active{
+    color: #ffcb05 !important;
+}
 /* Navbar for Mobile-first */
 @media screen and (max-width: 1049px) {
 

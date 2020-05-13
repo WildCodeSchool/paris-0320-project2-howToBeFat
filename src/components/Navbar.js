@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faHome,
@@ -6,18 +6,17 @@ import {
   faHamburger,
   faBalanceScaleRight,
 } from '@fortawesome/free-solid-svg-icons'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import './Navbar.css'
 
 function Navbar(props){
 
-  const [active,setActive] = useState("home")
   return (
     <div className ="navbar-mobile">
-      <Link className ={active === "home" ? "active" : ""} onClick={()=>setActive("home")}><FontAwesomeIcon icon={faHome} /></Link>
-      <Link to="/RecipeSearch" className ={active === "recipe" ? "active" : ""} onClick={()=>setActive("recipe")}><FontAwesomeIcon icon={faHamburger} /></Link>
-      <Link to="/beer" className ={active === "beer" ? "active" : ""} onClick={()=>setActive("beer")}><FontAwesomeIcon icon={faBeer} /></Link>
-      <Link to="/Calculator" className ={active === "calculator" ? "active" : ""} onClick={()=>setActive("calculator")}><FontAwesomeIcon icon={faBalanceScaleRight} /></Link>
+      <NavLink exact to="/" activeClassName = " active"><FontAwesomeIcon icon={faHome} /></NavLink>
+      <NavLink to="/RecipeSearch" activeClassName = " active"><FontAwesomeIcon icon={faHamburger} /></NavLink>
+      <NavLink to="/beer" activeClassName = " active"><FontAwesomeIcon icon={faBeer} /></NavLink>
+      <NavLink to="/Calculator" activeClassName = " active"><FontAwesomeIcon icon={faBalanceScaleRight} /></NavLink>
     </div>
       )
 }
