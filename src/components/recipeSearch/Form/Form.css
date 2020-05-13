@@ -1,0 +1,96 @@
+.flexFormContainer, 
+.flexFormingredients, 
+.flexFormDiets, 
+.flexFormRange {
+  display: flex;
+  flex-direction: column;
+}
+
+.FormContainer {
+  height: 100%;
+  transition: 5s all;
+}
+
+.FormContainer fieldset {
+  width: 85%;
+  margin: 1.2em auto;
+  padding: 1em;
+  text-align: center;
+  border: 1pt #1c72a3 solid;
+}
+
+.FormContainer legend {
+  color: #1c72a3;
+  font-family: 'Gloria Hallelujah', 'Knewave', sans-serif;
+  font-weight: bold;
+  text-align: left;
+}
+
+.FormContainer .button-recipe {
+  background-color: #1c72a3;
+  color: #ffcb05;
+  margin-top: 1em;
+}
+
+.FormContainer .button-recipe:hover {
+  background-color: #ffcb05;
+  color: #1c72a3;
+}
+
+.FormContainer .validForm .button-recipe {
+  padding: .5em 1em;
+  font-weight: 500;
+  font-size: 1.3em;
+}
+
+.errorDisplay {
+  padding: 1em;
+  font-family: 'Sniglet', cursive;
+  width: 85%;
+  margin: auto;
+}
+
+.errorDisplay {
+  border: 1px solid red;
+  color: red;
+  transition: all 0.5s ease;
+}
+
+@media screen and (min-width: 950px) {
+  .FormContainer {
+    max-width: 90em;
+    margin: auto;
+  }
+  .flexFormingredients, .flexFormDiets, .flexFormRange {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 90%;
+    margin: auto;
+    margin-bottom: -4em;
+  }
+  .flexIngredients, .flexSpecialDiets, .flexRange {
+    margin: 1em;
+    width: 50%;
+  }
+  .FormContainer legend {
+    background-color: #ffcb05;
+    border-radius: 40%;
+    padding: .5em;
+  }
+  .FormContainer .validForm .button-recipe {
+    position: relative;
+    padding: 2em;
+    top: -.8em;
+  }
+  .errorDisplay {
+    position: relative;
+    margin: 3em auto 8em;
+    background-color: #ffcb05;
+    border-radius: .5em;
+    padding: .5em;
+    max-width: 50%;
+  }
+  .ErrorValid {
+    height: 8em;
+  }
+}

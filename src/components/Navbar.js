@@ -6,18 +6,19 @@ import {
   faHamburger,
   faBalanceScaleRight,
 } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import './Navbar.css'
 
-function Navbar(){
-    return (
-        <div className ="navbar-mobile">
-          <Link className="active" to="/"><FontAwesomeIcon icon={faHome} /></Link>
-          <Link to="/RecipeSearch"><FontAwesomeIcon icon={faHamburger} /></Link>
-          <Link to="/SearchBeer"><FontAwesomeIcon icon={faBeer} /></Link>
-          <Link to="/Calculator"><FontAwesomeIcon icon={faBalanceScaleRight} /></Link>
-        </div>
-          )
+function Navbar(props){
+
+  return (
+    <div className ="navbar-mobile">
+      <NavLink exact to="/" activeClassName = " active"><FontAwesomeIcon icon={faHome} /></NavLink>
+      <NavLink to="/RecipeSearch" activeClassName = " active"><FontAwesomeIcon icon={faHamburger} /></NavLink>
+      <NavLink to="/beer" activeClassName = " active"><FontAwesomeIcon icon={faBeer} /></NavLink>
+      <NavLink to="/Calculator" activeClassName = " active"><FontAwesomeIcon icon={faBalanceScaleRight} /></NavLink>
+    </div>
+      )
 }
 
 export default Navbar

@@ -1,6 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Knewave&display=swap&subset=latin-ext%22");
+@import url("https://fonts.googleapis.com/css?family=Knewave&display=swap&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
 @import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap%22");
-@import url("https://fonts.google.com/specimen/Gloria+Hallelujah?selection.family=Gloria+Hallelujah&sidebar.open&preview.text=Salut+je+sais+pas+quoi+%C3%A9crire+howToBeFat.com+keep+calm+and+pet+your+cat&preview.text_type=custom");
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Indie+Flower&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Sniglet:regular,800);
+@import url(https://fonts.googleapis.com/css?family=Gaegu:300,regular,700);
+
 .App {
   text-align: center;
 }
@@ -27,6 +32,7 @@ body {
 .button-recipe:hover {
   background-color: #1c72a3;
   color: #ffcb05;
+  transition: 1s all cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .button-recipe a, .button-recipe a:visited {
@@ -38,12 +44,12 @@ body {
   color: #ffcb05;
 }
 
-.footer{
+.footer {
   position: absolute;
   bottom: 0;
 }
 
-html{
+html {
   height: 100%;
 }
 
@@ -59,7 +65,6 @@ html{
   }
   body {
     margin-bottom: 0;
-    
   }
   .button-recipe button {
     padding: 10px;
