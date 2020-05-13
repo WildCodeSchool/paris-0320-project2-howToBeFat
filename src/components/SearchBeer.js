@@ -6,8 +6,6 @@ import './SearchBeer.css'
 class SearchBeer extends React.Component {
 	state = {
 		post: [],
-		allPosts: [],
-		abv: [],
 		abvLevel: "4"
 	};
 
@@ -17,10 +15,7 @@ class SearchBeer extends React.Component {
 
 	getBeers = () => {
 		axios.get('https://api.punkapi.com/v2/beers')
-			.then(res =>
-				this.setState(
-					{ post: res.data }
-				)
+			.then(res => this.setState({ post: res.data })
 			)
 	}
 
