@@ -62,7 +62,6 @@ const RecipeSearch = () => {
         getApiDatas(defineRequestUrl(res.data.count))
       })
       .catch(e => setErrorRequest("Error, please check your ingredients"))
-
   }
   // Else we fetch the datas
   const getApiDatas = (url) => {
