@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-import Form from './recipeSearch/Form'
+import DisplaySearchRecipes from './recipeSearch/DisplayResults/DisplaySearchRecipes'
+import Form from './recipeSearch/Form/Form'
 
-const intolerables = ["peanut-free", "tree-nut-free", "alcohol-free", "sugar-conscious"]
-const specialDiet = ["vegetarian", "vegan"]
+import './RecipeSearch.css'
 
 const RecipeSearch = () => {
 
-  // Define the states variables with useState hooks
+  // API request and Result
   const [numOfResult, setNumOfResult] = useState(0)
+  const [errorRequest, setErrorRequest] = useState(false)
+  const [recipes, setRecipes] = useState([])
+  // Datas from form
   const [userIngredient1, setUserIngredient1] = useState('')
   const [userIngredient2, setUserIngredient2] = useState('')
   const [userIngredient3, setUserIngredient3] = useState('')
@@ -19,15 +22,21 @@ const RecipeSearch = () => {
   const [userCalories, setUserCalories] = useState(0)
   const [userPreparationTime, setUserPreparationTime] = useState(0)
   const [userDiets, setUserDiets] = useState('')
-  const [userIntolerables, setUserIntolerables] = useState([])
-  const [errorRequest, setErrorRequest] = useState(false)
-  const [recipe, SetRecipes] = useState([])
+  const [userIntolerables, setUserIntolerables] =
+    useState({
+      "peanut-free": false,
+      "tree-nut-free": false,
+      "alcohol-free": false
+    })
+
+  // Display
+  const [displayContent, setDisplayContent] = useState('form')
 
   // Generate a random number
   const getRandomNumber = (max) => Math.floor(Math.random() * Math.floor(max))
   //Define the range of search for the api request
   const defineRangeNumber = (nbResults) => {
-    const rangewidth = 10
+    const rangewidth = 100
     const numberToRandom = getRandomNumber(Math.ceil(nbResults / rangewidth))
     const max = (numberToRandom * rangewidth) + rangewidth > nbResults ? nbResults - 1 : (numberToRandom * rangewidth) + rangewidth
     const min = max - rangewidth < 0 ? 0 : max - rangewidth
@@ -36,19 +45,20 @@ const RecipeSearch = () => {
 
   // Add the optionnal searches to the url request in depend of the users selected options
   const defineRequestUrl = (nbResults) => {
+    setNumOfResult(nbResults)
     nbResults = nbResults > 100 ? 100 : nbResults
-    const calories = userCalories && `&calories=${userCalories}%2B`
-    const preparationTime = userPreparationTime && `&time=1-${userPreparationTime}`
-    const ingredients = userIngredient1 && `${userIngredient1},${userIngredient2},${userIngredient3}`
+    const calories = userCalories > 0 ? `&calories=${userCalories}-10000` : ''
+    const preparationTime = userPreparationTime ? `&time=1-${userPreparationTime}` : ''
+    const ingredients = `${userIngredient1},${userIngredient2},${userIngredient3}`
     const excludes = `&excluded=${userExcludeIngredient1}&excluded=${userExcludeIngredient2}&excluded=${userExcludeIngredient3}`
-    const diet = userDiets && `&health=${userDiets}`
-    let intolerables = ""
-    if (userIntolerables) {
-      userIntolerables.filter(x => x !== "").map(intolerable => intolerables += `&health=${intolerable}`)
-    }
-    const rangeRequest = numOfResult ? defineRangeNumber(numOfResult) : nbResults ? defineRangeNumber(nbResults) : ''
+    // add only the intolerables if its values are true
+    const intolerables = Object.entries(userIntolerables)
+      .filter(intolerable => intolerable[1])
+      .reduce((a, b) => a + `&health=${b[0]}`, '')
+    const rangeRequest = nbResults > 0 ? defineRangeNumber(nbResults) : ''
+
     // url which will be send to the API request
-    return `https://api.edamam.com/search?q=${ingredients}${calories}${rangeRequest}${diet}${intolerables}${excludes}${preparationTime}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
+    return `https://api.edamam.com/search?q=${ingredients}${calories}${rangeRequest}${userDiets}${intolerables}${excludes}${preparationTime}&app_id=812f083c&app_key=57cd06930f1a1d5818380b512897cc58`
   }
 
   // We verify if the number of results are define
@@ -57,30 +67,56 @@ const RecipeSearch = () => {
   const getNumRecipes = (url) => {
     axios.get(url)
       .then((res) => {
-        setNumOfResult(0)
-        setNumOfResult(res.data.count)
-        getApiDatas(defineRequestUrl(res.data.count))
+        res.data.count === 0 ?
+          manageErrors("no recipe") :
+          getApiDatas(defineRequestUrl(res.data.count))
       })
-      .catch(e => setErrorRequest("Error, please check your ingredients"))
+      .catch(e => manageErrors("errorRequest1"))
   }
   // Else we fetch the datas
   const getApiDatas = (url) => {
     axios.get(url)
       .then(res => {
-        SetRecipes(res.data.hits)
-        setErrorRequest(false)
+        setRecipes(res.data.hits)
+        setDisplayContent('recipes')
       })
-      .catch(e => setErrorRequest("Error, please contact administrator"))
+      .catch(e => manageErrors("errorRequest2"))
   }
-
+  // When the form is validate by the users
   const submitForm = (e) => {
     e.preventDefault()
-    callApi(defineRequestUrl())
+    !userIngredient1 ? manageErrors("no ingredient")
+      : callApi(defineRequestUrl(0))
   }
+  // Error display selector
+  const manageErrors = (error) => {
+    switch (error) {
+      case "no recipe":
+        setErrorRequest("No recipe found, please modify your choices")
+        break
+      case "errorRequest1":
+        setErrorRequest("Error, please check your ingredients")
+        break
+      case "errorRequest2":
+        setErrorRequest("Too many requests, please try again in few seconds")
+        break
+      case "no ingredient":
+        setErrorRequest("You have to insert at minimum one ingredient to validate the form")
+        break
+      default:
+        setErrorRequest("Please contact the administrator")
+        break
+    }
+  }
+  // When an error occured, the errorRequest state re-initialized after 5 secondes
+  useEffect(() => {
+    setTimeout(() => setErrorRequest(false), 5000)
+  }, [errorRequest])
 
+  // Define the state depending of the form element
   const handleChange = (e) => {
     const value = e.target.value.toLowerCase()
-    switch (e.target.id) {
+    switch (e.target.name) {
       case "ingredient1":
         setUserIngredient1(value)
         break
@@ -106,65 +142,36 @@ const RecipeSearch = () => {
         setUserPreparationTime(e.target.value)
         break
       case "specialDiets":
-        setUserDiets(e.target.value)
+        setUserDiets(`&health=${e.target.value}`)
         break
       case "intolerables":
-        const selectedValues = [...e.target.options]
-          .filter((x) => x.selected && x.value !== "If intolerable")
-          .map((x) => x.value);
-        setUserIntolerables(selectedValues)
+        setUserIntolerables({ ...userIntolerables, [value]: e.target.checked })
         break
       default:
     }
   }
 
-  const getPreparationTime = (time) => {
-    const hours = time > 60 ? Math.floor(time / 60) : 0
-    const unity = hours > 1 ? "hours" : "hour"
-    const minutes = time > 60 ? time % 60 : time
-    return time > 60 ? `${hours} ${unity} and ${minutes} minutes` : `${minutes} minutes`
+  const handleClick = () => {
+    setDisplayContent("form")
+    setNumOfResult(0)
   }
 
   return (
     <div className='recipeSearch'>
-      <h2>Recipe by ingredient</h2>
-      <h3>What do you have in your fridge?</h3>
-      <div className='ingredientSearch'>
-        <form onSubmit={submitForm} class="form-example">
-          <Form handleChange={handleChange} submitForm={submitForm} />
-          <div style={{ padding: "1em", color: "red", "font-weight": "bold" }}>
-            {errorRequest}
-          </div>
-          <div>
-            <label htmlFor="intolerables">Select intolerable</label>
-            <br />
-            <select id="intolerables" name="intolerables" multiple size="5" onChange={handleChange} style={{ margin: "1em" }}>
-              {intolerables.map(intolerable => <option key={intolerable} value={intolerable}>{intolerable}</option>)}
-            </select>
-          </div>
-          <label htmlFor="calories">Number of minimum calories:</label>
-          <input onChange={handleChange} type="range" id="calories" min="0" max="100000" step="1" />{userCalories}
-          <br />
-          <label htmlFor="time">Maximum of preparation time :</label>
-          <input onChange={handleChange} value={userPreparationTime} type="range" id="time" start="0" min="0" max="240" step="1" />{getPreparationTime(userPreparationTime)}
-
-          <p>{numOfResult} recettes trouvées !</p>
-          <div><input className="submit" type="submit" value="Get recipe"></input></div>
-        </form>
-
-        {recipe[0] &&
+      <h2 className="mainTitle">CUSTOMIZE YOUR RECIPE</h2>
+      {/* Display of the form */
+        displayContent === "form" ?
           <>
-            <fieldset>
-              <legend>Other recipes</legend>
-              <ul>{recipe && recipe.map((e, id) => <li key={id}>{e.recipe.label}</li>)}</ul>
-            </fieldset>
-            <h3>{recipe[0].recipe.label}</h3>
-            <p><img src={recipe[0].recipe.image} alt={recipe[0].recipe.label} /></p>
-            <p>{recipe[0].recipe.calories}</p>
-            <p>{recipe[0].recipe.totalTime}</p>
+            <Form handleChange={handleChange} submitForm={submitForm} userCalories={userCalories} userPrepTime={userPreparationTime} errorRequest={errorRequest}
+              numOfResult={numOfResult} />
           </>
-        }
-      </div>
+          :
+          <>
+            <div className="newSearch" onClick={(e) => handleClick(e)}>New search</div>
+            <div className="triangle" onClick={(e) => handleClick(e)}></div>
+            <DisplaySearchRecipes recipes={recipes} numOfResult={numOfResult - 1} />
+          </>
+      }
     </div>
   )
 }

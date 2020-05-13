@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Knewave&display=swap&subset=latin-ext");
-@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap");
 header {
     width: 100%;
     height: 10rem;
@@ -71,9 +69,9 @@ header {
         margin: auto;
     }
     .slogan {
-            font-size: 0.9em;
-        }
+        font-size: 0.9em;
+    }
     .logo {
-            height: 80%;
-        }
+        height: 80%;
+    }
 }

@@ -1,17 +1,19 @@
 import React from 'react'
 import './NavbarDesktop.css'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
-function NavbarDesktop (){
+function NavbarDesktop (props){
+
     return (
-        <div className ="topnav">
+      <div className ="topnav">
+      
           <div>
-            <Link className ="active" to="/">Home</Link>
-            <Link to="/RecipeSearch">Recipes</Link>
+            <NavLink activeClassName = " active" exact to="/" >Home</NavLink>
+            <NavLink activeClassName = " active " to="/RecipeSearch">Recipes</NavLink>
           </div>
           <div>
-            <Link to="/BeerCard">Beers</Link>
-            <Link to="/Calculator">Calculator</Link>
+            <NavLink activeClassName = " active " to="/BeerCard" >Beers</NavLink>
+            <NavLink activeClassName = " active " to="/Calculator">Calculator</NavLink>
           </div>
       </div>
     )

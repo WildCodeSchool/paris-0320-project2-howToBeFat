@@ -1,0 +1,67 @@
+.leftFlex, 
+.rightFlex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.25em;
+  margin: 1em;
+}
+
+.extremLeftFlex, 
+.extremRightFlex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.25em;
+  width: auto;
+}
+
+.extremLeftFlex .selected,
+.extremRightFlex .selected,
+.leftFlex .selected,
+.rightFlex .selected
+{
+  box-sizing: border-box;
+  border: 3px double #ffcb05;
+  filter:drop-shadow(2px 2px 2px yellow) blur(.5px) grayscale(60%);
+  
+}
+
+.miniRecipes {
+  box-sizing: border-box;
+  background-color: #1c72a3;
+  padding: 0.15em;
+  border-radius: 15%;
+}
+
+.extremLeftFlex .miniRecipes, 
+.extremRightFlex .miniRecipes {
+  background-color: #ffcb05;
+}
+
+.leftFlex img,
+.rightFlex img, 
+.extremLeftFlex img, 
+.extremRightFlex img {
+  box-sizing: border-box;
+  max-width: 9.5em;
+  border: 1px solid #1c72a3;
+  border-radius: 25%;
+}
+
+.leftFlex img:hover,
+.rightFlex img:hover, 
+.extremLeftFlex img:hover, 
+.extremRightFlex img:hover {
+  border-width: .35em;
+  border-color: #1c72a3;
+  transition: .35s all;
+  cursor: url(http://www.rw-designer.com/cursor-extern.php?id=93244), grab
+}
+
+.extremLeftFlex img:hover, 
+.extremRightFlex img:hover { 
+  border-color: #ffcb05;
+}

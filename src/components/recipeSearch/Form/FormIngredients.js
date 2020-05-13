@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
 import './FormIngredients.css'
 
-const FormExcludes = (props) => {
+const FormIngredients = (props) => {
 
   const handleChange = props.handleChange
 
   const [ingredientShow, setIngredientShow] =
     useState({
-      ingredient1: false,
+      ingredient1: true,
       ingredient2: false,
       ingredient3: false
     })
@@ -18,44 +19,29 @@ const FormExcludes = (props) => {
     if (ingredientShow.ingredient2) {
       setIngredientShow({ ...ingredientShow, ingredient3: true })
       setAddButton(false)
-    }
-    else if (ingredientShow.ingredient1) {
+    } else {
       setIngredientShow({ ...ingredientShow, ingredient2: true })
-    }
-    else {
-      setIngredientShow({ ...ingredientShow, ingredient1: true })
     }
   }
 
   const handleHideInput = (e) => {
-    switch (e.target.id) {
-      case "IngredientHideInput1":
-        setIngredientShow({ ...ingredientShow, ingredient1: false })
-        setAddButton(true)
-        break
-      case "IngredientHideInput2":
-        setIngredientShow({ ...ingredientShow, ingredient2: false })
-        break
-      case "IngredientHideInput3":
-        setIngredientShow({ ...ingredientShow, ingredient3: false })
-        setAddButton(true)
-        break
-      default:
+    if (e.target.id === "IngredientHideInput2") {
+      setIngredientShow({ ...ingredientShow, ingredient2: false })
+    } else {
+      setIngredientShow({ ...ingredientShow, ingredient3: false })
+      setAddButton(true)
     }
   }
 
   return (
-    <>
-      <fieldset className="ingredientSearch">
-        <legend> Exclude some ingredients </legend>
+    <article className="flexIngredients">
+      <fieldset className="ingredientFilter">
+        <legend>Search by ingredients</legend>
         {
           ingredientShow.ingredient1 &&
           <>
-            <label htmlFor='ingredient1' id="labelIngredient1">Ingredient 1 <br />
-              {!ingredientShow.ingredient2 &&
-                <input type="button" className="hideButton" onClick={handleHideInput} id="IngredientHideInput1" value="-" />
-              }
-              <input onChange={handleChange} id='excludedIngredient1' type='text' pattern="[A-Za-z]+" />
+            <label htmlFor='ingredient1' id="labelIngredient1">* Ingredient 1 <br />
+              <input onChange={(e) => handleChange(e)} id='ingredient1' name='ingredient1' type='text' pattern="[A-Za-z]+" className="inputTexte" aria-required="true" title="This element is required" />
             </label>
           </>
         }
@@ -65,14 +51,14 @@ const FormExcludes = (props) => {
             {!ingredientShow.ingredient3 &&
               <input type="button" className="hideButton" onClick={handleHideInput} id="IngredientHideInput2" value="-" />
             }
-            <input onChange={handleChange} id='excludedIngredient2' type='text' pattern="[A-Za-z]+" />
+            <input onChange={(e) => handleChange(e)} id='ingredient2' name="ingredient2" type='text' pattern="[A-Za-z]+" className="inputTexte" />
           </label>
         }
         {
           ingredientShow.ingredient3 &&
           <label htmlFor='ingredient3' id="labelIngredient3">Ingredient 3 <br />
             <input type="button" className="hideButton" onClick={handleHideInput} id="IngredientHideInput3" value="-" />
-            <input onChange={handleChange} id='excludedIngredient3' type='text' pattern="[A-Za-z]+" />
+            <input onChange={(e) => handleChange(e)} id='ingredient3' name="ingredient3" type='text' pattern="[A-Za-z]+" className="inputTexte" />
           </label>
         }
         {
@@ -80,8 +66,12 @@ const FormExcludes = (props) => {
           <input type="button" onClick={handleShowInput} value="Add an ingredient..." className="button-recipe" />
         }
       </fieldset>
-    </>
+    </article>
   )
 }
 
-export default FormExcludes
+FormIngredients.propTypes = {
+  handleChange: PropTypes.func.isRequired
+}
+
+export default FormIngredients

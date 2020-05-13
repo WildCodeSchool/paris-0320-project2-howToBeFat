@@ -1,0 +1,67 @@
+.ingredientFilter label {
+  text-align: center;
+  display: block;
+}
+
+.ingredientFilter input {
+  margin: auto;
+  position: relative;
+}
+
+.ingredientFilter .hideButton {
+  border-radius: 25%;
+  position: relative;
+  left: -5px;
+  font-weight: bold;
+  font-size: 1.2em;
+  border: 2px ridge #1c72a3;
+  padding: 0 .2em;
+  background-color: #1c72a3;
+  color: #ffcb05;
+}
+
+.ingredientFilter .hideButton:hover {
+  background-color: #ffcb05;
+  color: #1c72a3;
+  transition: 0.5s all cubic-bezier(1, 0, 0, 1);
+}
+
+.ingredientFilter .hideButton:visited {
+  text-decoration: none;
+  color: #ffcb05;
+}
+
+.ingredientFilter .inputTexte {
+  text-align: center;
+  width: 60%;
+  border-radius: 25%;
+  padding: .1em;
+  border: 2px ridge #1c72a3;
+  font-size: 1.2em;
+  background-color: #ffcb05;
+  color: #1c72a3;
+  font-family: 'Sniglet', cursive;
+}
+
+.ingredientFilter label {
+  font-family: 'Gaegu', cursive;
+  font-size: 1.2em;
+}
+
+@media screen and (min-width:950px) {
+  .ingredientFilter .inputTexte {
+    background-color: #ecdb96;
+    padding: .1em;
+    min-width: 50%;
+    font-size: 1.2rem;
+  }
+  .ingredientFilter .hideButton {
+    font-size: 1.2rem;
+  }
+  .ingredientFilter {
+    min-height: 9.975em;
+  }
+  .ingredientFilter label {
+    font-size: 1.4rem;
+  }
+}
