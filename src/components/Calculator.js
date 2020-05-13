@@ -5,14 +5,22 @@ import './Calculator.css'
 
 class Calculator extends React.Component {
     state = {
-        userWeight: null,
-        weightToReach: null,
+        userWeight: "",
+        weightToReach: "",
         motivation: "0"
     }
 
-
     handleChange = (event) => {
-        this.setState({ userWeight: event.target.value })
+        this.setState({
+            userWeight: (event.target.value)
+        },
+            () => {
+                if (this.state.userWeight <= 35) {
+                    return this.getWeightToReach(this.state.userWeight)
+                } else {
+                    this.weightChange(this.state.userWeight)
+                }
+            })
     }
 
     weightChange = () => {
@@ -20,7 +28,6 @@ class Calculator extends React.Component {
     }
 
     getWeightToReach = (userWeight) => {
-
         if (userWeight < 0) {
             return this.setState({ weightToReach: 'Enter a positive number' })
         } else if (userWeight < 35 && userWeight > 0) {
@@ -49,21 +56,20 @@ class Calculator extends React.Component {
     }
 
     render() {
+        const { userWeight, weightToReach } = this.state
         return (
             <div className="calculator">
                 <form className='calculator-form'>
                     <label>Please enter your weight:</label>
                     <input
-                            type='number'
-                            className="userWeight"
-                            value={this.state.userWeight}
-                            onChange={this.handleChange}
-                            placeholder="   In Kg">
+                        type='number'
+                        className="userWeight"
+                        value={userWeight}
+                        onChange={this.handleChange}
+                        placeholder="   In Kg">
                     </input>
-                    <input type="button" value="Calculate" className="buttonCalculator" onClick={this.weightChange} />
-                        <p className="balance-image">Press the cat to calculate your goal</p>
-                        <img className="balance-image" src={balance2} alt='balance' onClick={this.weightChange}/>
-                    <p>Current weight: {this.state.userWeight} kg</p>
+                    <img className="balance-image" src={balance2} alt='balance' />
+                    <p>Current weight: {userWeight} kg</p>
                     <div className="motiv">
                         <label>Motivation level</label>
                         <input
@@ -75,7 +81,9 @@ class Calculator extends React.Component {
                             step="50"
                             max="100"
                         />
-                    <p className="goal" value={this.state.weightToReach} onChange={this.weightChange} className="goal">Your goal : {this.state.weightToReach}</p>
+                        <p className="goal" value={weightToReach} onChange={this.weightChange} className="goal">Your goal : <span className="result">{userWeight === '' ? (` `) : (weightToReach)}</span></p>
+                        <div className="test">
+                            <img className="balance-image-mobile" src={balance2} alt='balance' /></div>
                     </div>
                 </form>
             </div>
