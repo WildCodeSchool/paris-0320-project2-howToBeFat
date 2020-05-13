@@ -6,10 +6,7 @@ import './RecipesDesktop.css'
 const RecipesDesktop = (props) => {
 
   const { recipes, display, handleClick, side } = { ...props }
-
-  let nbRecipeForHere = 0
-  let recipesForHere = []
-  const nbRecipeTotal = recipes.length - 1
+  console.log(side, recipes, "desktop")
 
   const defineClass = (bool) => {
     console.log(bool)
@@ -20,29 +17,17 @@ const RecipesDesktop = (props) => {
     return className.join(' ')
   }
 
-  if (side === "left") {
-    nbRecipeForHere = Math.ceil(nbRecipeTotal / 2)
-    recipesForHere = recipes.filter((recipe, id) => id < nbRecipeForHere)
-  }
-  else {
-    nbRecipeForHere = Math.floor(nbRecipeTotal / 2)
-    recipesForHere = recipes.filter((recipe, id) => id > nbRecipeForHere)
-  }
-
-  const className = ['miniRecipes']
-
   return (
     <div className={`${side}Flex`}>
       {
-        recipesForHere.map((recipe, id) => {
-          let divId = side === 'left' ? id : nbRecipeForHere + id
+        recipes.map((recipe, id) => {
           return (
-            <div key={id} id={divId} onClick={(e) => handleClick(e)}
+            <div key={id} id={id} onClick={(e) => handleClick(e)}
               className=
               {
-                defineClass(divId === display)
+                defineClass(id === display)
               }>
-              <img id={divId} src={recipe.recipe.image} alt={recipe.recipe.label} onClick={(e) => handleClick(e)} />
+              <img id={id} src={recipe.recipe.image} alt={recipe.recipe.label} onClick={(e) => handleClick(e)} />
             </div>
           )
         })

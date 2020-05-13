@@ -12,7 +12,7 @@
   width: 100%;
 }
 
-.leftContainer, .rightContainer {
+.leftContainer, .rightContainer, .extremContainer {
   display: none;
   max-width: 28em;
 }
