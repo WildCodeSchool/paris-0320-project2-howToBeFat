@@ -6,7 +6,6 @@ import './RecipesDesktop.css'
 const RecipesDesktop = (props) => {
 
   const { recipes, display, handleClick, side } = { ...props }
-  // console.log(side, recipes, "desktop")
 
   const defineClass = (bool) => {
     const className = ['miniRecipes']

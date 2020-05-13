@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 const RangePrepTime = (props) => {
 
+  const { userPrepTime, handleChange } = props
+
   const getPreparationTime = (time) => {
     const hours = time > 60 ? Math.floor(time / 60) : 0
     const unity = hours > 1 ? "hours" : "hour"
@@ -14,10 +16,10 @@ const RangePrepTime = (props) => {
     <article className="flexRange">
       <fieldset className="resultFormRange">
         <legend>Maximum preparation time</legend>
-        <p>{getPreparationTime(props.userPrepTime)}</p>
+        <p>{getPreparationTime(userPrepTime)}</p>
         <div className="rangeForm">
           <label htmlFor="time"></label>
-          <input onChange={(e) => props.handleChange(e)} type="range" id="time" name="time" min="0" max="240" step="5" className="formSlider" value={props.userPrepTime} />
+          <input onChange={(e) => handleChange(e)} type="range" id="time" name="time" min="0" max="240" step="5" className="formSlider" value={userPrepTime} />
         </div>
       </fieldset>
     </article>

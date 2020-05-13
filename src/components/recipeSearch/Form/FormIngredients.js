@@ -41,7 +41,7 @@ const FormIngredients = (props) => {
           ingredientShow.ingredient1 &&
           <>
             <label htmlFor='ingredient1' id="labelIngredient1">* Ingredient 1 <br />
-              <input onChange={(e) => handleChange(e)} id='ingredient1' name='ingredient1' type='text' pattern="[*A-Za-z-]+" className="inputTexte" aria-required="true" title="This element is required" />
+              <input onChange={(e) => handleChange(e)} id='ingredient1' name='ingredient1' type='text' pattern="[A-Za-z]+" className="inputTexte" aria-required="true" title="This element is required" />
             </label>
           </>
         }

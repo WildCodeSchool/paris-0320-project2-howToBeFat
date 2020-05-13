@@ -1,20 +1,20 @@
-.leftFlex, .rightFlex {
+.leftFlex, 
+.rightFlex {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 0.25em;
   margin: 1em;
-  /* border: 1px solid #1c72a3; */
 }
 
-.extremLeftFlex, .extremRightFlex {
+.extremLeftFlex, 
+.extremRightFlex {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 0.25em;
-  /* border: 1px solid #1c72a3; */
   width: auto;
 }
 
@@ -36,24 +36,32 @@
   border-radius: 15%;
 }
 
-.extremLeftFlex .miniRecipes, .extremRightFlex .miniRecipes {
+.extremLeftFlex .miniRecipes, 
+.extremRightFlex .miniRecipes {
   background-color: #ffcb05;
 }
 
-.leftFlex img,.rightFlex img, .extremLeftFlex img, .extremRightFlex img {
+.leftFlex img,
+.rightFlex img, 
+.extremLeftFlex img, 
+.extremRightFlex img {
   box-sizing: border-box;
   max-width: 9.5em;
   border: 1px solid #1c72a3;
   border-radius: 25%;
 }
 
-.leftFlex img:hover,.rightFlex img:hover, .extremLeftFlex img:hover, .extremRightFlex img:hover {
+.leftFlex img:hover,
+.rightFlex img:hover, 
+.extremLeftFlex img:hover, 
+.extremRightFlex img:hover {
   border-width: .35em;
   border-color: #1c72a3;
   transition: .35s all;
-  cursor: pointer;
+  cursor: url(http://www.rw-designer.com/cursor-extern.php?id=93244), grab
 }
 
-.extremLeftFlex img:hover, .extremRightFlex img:hover { 
+.extremLeftFlex img:hover, 
+.extremRightFlex img:hover { 
   border-color: #ffcb05;
 }

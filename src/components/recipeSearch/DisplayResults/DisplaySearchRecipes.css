@@ -17,8 +17,6 @@
   max-width: 28em;
 }
 
-
-
 @media screen and (min-width:780px) {
   .rightContainer, .leftContainer {
     display: flex;
@@ -29,7 +27,7 @@
   }
 }
 
-@media screen and (min-width:1050px) {
+@media screen and (min-width:1200px) {
   .extremContainer {
     display: flex;
   }

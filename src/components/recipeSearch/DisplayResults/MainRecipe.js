@@ -39,7 +39,5 @@ MainRecipe.prototype = {
   recipe: PropTypes.arrayOf(Object).isRequired,
   display: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
-  width: PropTypes.number.isRequired,
-  displayMax: PropTypes.number.isRequired
 }
 export default MainRecipe

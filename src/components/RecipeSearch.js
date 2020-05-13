@@ -4,12 +4,10 @@ import axios from 'axios'
 import DisplaySearchRecipes from './recipeSearch/DisplayResults/DisplaySearchRecipes'
 import Form from './recipeSearch/Form/Form'
 
-
 import './RecipeSearch.css'
 
 const RecipeSearch = () => {
 
-  // Define the states variables with useState hooks
   // API request and Result
   const [numOfResult, setNumOfResult] = useState(0)
   const [errorRequest, setErrorRequest] = useState(false)
@@ -30,6 +28,7 @@ const RecipeSearch = () => {
       "tree-nut-free": false,
       "alcohol-free": false
     })
+
   // Display
   const [displayContent, setDisplayContent] = useState('form')
 
@@ -73,7 +72,6 @@ const RecipeSearch = () => {
           getApiDatas(defineRequestUrl(res.data.count))
       })
       .catch(e => manageErrors("errorRequest1"))
-
   }
   // Else we fetch the datas
   const getApiDatas = (url) => {
@@ -92,7 +90,6 @@ const RecipeSearch = () => {
   }
   // Error display selector
   const manageErrors = (error) => {
-
     switch (error) {
       case "no recipe":
         setErrorRequest("No recipe found, please modify your choices")
@@ -115,8 +112,6 @@ const RecipeSearch = () => {
   useEffect(() => {
     setTimeout(() => setErrorRequest(false), 5000)
   }, [errorRequest])
-
-
 
   // Define the state depending of the form element
   const handleChange = (e) => {

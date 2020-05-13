@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import './RecipeInfos.css'
 
+// Define custom message depending of time of preparation
 const getPreparationTime = (time) => {
   const hours = time > 60 ? Math.floor(time / 60) : 0
   const unity = hours > 1 ? "hours" : "hour"

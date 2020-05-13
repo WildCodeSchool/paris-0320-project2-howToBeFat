@@ -1,4 +1,7 @@
-.flexFormContainer, .flexFormingredients, .flexFormDiets, .flexFormRange {
+.flexFormContainer, 
+.flexFormingredients, 
+.flexFormDiets, 
+.flexFormRange {
   display: flex;
   flex-direction: column;
 }

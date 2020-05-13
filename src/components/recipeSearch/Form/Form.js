@@ -1,14 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import FormIngredients from './FormIngredients'
 import FormExcludes from './FormExcludes'
-import SpecialDiets from './SpecialDiets'
+import FormIngredients from './FormIngredients'
 import Intolerables from './Intolerables'
 import RangeCalories from './RangeCalories'
 import RangePrepTime from './RangePrepTime'
+import SpecialDiets from './SpecialDiets'
 import Waiting from '../../Waiting'
-
 
 import './Form.css'
 
@@ -58,7 +57,7 @@ Form.propTypes = {
   numOfResult: PropTypes.number.isRequired,
   handleChange: PropTypes.func.isRequired,
   submitForm: PropTypes.func.isRequired,
-  errorRequest: PropTypes.bool.isRequired,
+  errorRequest: PropTypes.string.isRequired,
   userCalories: PropTypes.oneOfType([
     PropTypes.number.isRequired,
     PropTypes.string.isRequired

@@ -39,7 +39,8 @@
   background-color: #00c2cb;
 }
 
-.specialDiets input:hover, .specialDiets input:focus {
+.specialDiets input:hover, 
+.specialDiets input:focus {
   color: #1c72a3;
 }
 

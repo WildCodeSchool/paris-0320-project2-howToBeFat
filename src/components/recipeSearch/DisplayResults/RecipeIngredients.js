@@ -8,7 +8,7 @@ const RecipeIngredients = (props) => {
   const [isTooBig, setIsTooBig] = useState(false)
   const [isDisplay, setIsDisplay] = useState(false)
 
-
+  // Define if the height of the div is too small to display all ingredients list
   useEffect(() => {
     const ingredientsListHeight = document.getElementById("ingredientResultList")
     const height = parseFloat(getComputedStyle(ingredientsListHeight).height) / 16
@@ -18,8 +18,6 @@ const RecipeIngredients = (props) => {
   const handleClick = () => {
     setIsDisplay(!isDisplay)
   }
-
-
 
   return (
     <article className="recipeIngredients">
