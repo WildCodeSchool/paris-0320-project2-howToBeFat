@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import './BeerCard.css'
+import Waiting from './Waiting'
 
 // const [recipes, setRecipes] = useState([])
 class BeerCard extends React.Component {
@@ -9,7 +10,7 @@ class BeerCard extends React.Component {
         this.state = {
             beers: [],
             affiche :null,
-            
+            isLoading: false
         }
     }
     
@@ -24,16 +25,17 @@ class BeerCard extends React.Component {
     }
     
     getBeer = () => {
-            axios.get('https://api.punkapi.com/v2/beers/random')
-                .then(res => this.setState({ beers: res.data[0] })
-        
+        axios.get('https://api.punkapi.com/v2/beers/random')
+            .then(res => this.setState({ beers: res.data[0],isLoading:true })
             )
         }
         render() {
         const { name, image_url, abv, food_pairing} = this.state.beers
         const {affiche} = this.state
         return (
-            <div className="cardBeer">
+            <>
+            { this.state.isLoading ?
+            (<div className="cardBeer">
                 <h2> BEER OF THE DAY</h2>
 
                 {/* <button className="button-SearchBeer" value="More beers"><Link to={{pathname: "/SearchBeer", 
@@ -49,10 +51,11 @@ class BeerCard extends React.Component {
                     }
                     {/* <button onClick={() => this.setState({affiche: !affiche})}>Show more Food pairing</button> */}
                     <button onClick={this.handleClick}> {this.state.affiche ? <span className="span1">&#10514;</span> : <span className="span2">&#10515;</span>} </button>
-                
-                
-               
-            </div>
+                    </div>):
+            (<Waiting />)
+            }
+            </>    
+            // </div>
         )
     }
 }

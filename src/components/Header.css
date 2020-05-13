@@ -41,7 +41,7 @@ header {
     z-index: 1;
 }
 
-@media (min-width: 1050px) {
+@media (min-width: 1049px) {
     header {
         height: 10rem;
     }

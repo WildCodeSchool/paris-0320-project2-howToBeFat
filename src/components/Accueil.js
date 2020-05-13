@@ -3,7 +3,6 @@ import React from 'react'
 import RandomQuotes from './RandomQuotes'
 import RecipeCard from './RecipeCard'
 import BeerCard from './BeerCard'
-
 import './Accueil.css'
 
 const Accueil = () => {

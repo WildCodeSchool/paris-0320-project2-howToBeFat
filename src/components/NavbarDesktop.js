@@ -6,13 +6,12 @@ function NavbarDesktop (){
     return (
         <div className ="topnav">
           <div>
-            <a className ="active" href="#home">Home</a>
-            <a href="#recipes">Recipes</a>
+            <Link className ="active" to="/">Home</Link>
+            <Link to="/RecipeSearch">Recipes</Link>
           </div>
           <div>
             <Link to="/SearchBeer">Beers</Link>
-            {/* <a href="#beers">Beers</a> */}
-            <a href="#calculator">Tips</a>
+            <Link to="/Calculator">Calculator</Link>
           </div>
       </div>
     )
