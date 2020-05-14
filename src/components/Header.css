@@ -57,10 +57,10 @@ header {
     .logo {
         height: 150%;
         margin-bottom: -100px;
-        transition: 1s;
+        transition: 2s;
     }
-    .logo:hover {
-        transform: rotate(375deg);
+    .logo:hover{
+        transform: rotate(390deg);
     }
 }
 

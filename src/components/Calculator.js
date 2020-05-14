@@ -7,7 +7,7 @@ class Calculator extends React.Component {
     state = {
         userWeight: "",
         weightToReach: "",
-        motivation: "1"
+        motivation: "0"
     }
 
     handleChange = (event) => {
@@ -66,7 +66,7 @@ class Calculator extends React.Component {
                         className="userWeight"
                         value={userWeight}
                         onChange={this.handleChange}
-                        placeholder="   In Kg">
+                        placeholder="In Kg">
                     </input>
                     <img className="balance-image" src={balance2} alt='balance' />
                     <p>Current weight: {userWeight} kg</p>
@@ -81,7 +81,7 @@ class Calculator extends React.Component {
                             step="50"
                             max="100"
                         />
-                        <p className="goal" value={weightToReach} onChange={this.weightChange} className="goal">Your goal : <span className="result">{userWeight === '' ? (` `) : (weightToReach)}</span></p>
+                        <p className="goal" value={weightToReach} onChange={this.weightChange} >Your goal : <span className="result">{userWeight === '' ? (` `) : (weightToReach)}</span></p>
                         <div className="test">
                             <img className="balance-image-mobile" src={balance2} alt='balance' /></div>
                     </div>

@@ -25,7 +25,7 @@ class SearchBeer extends React.Component {
 	}
 
 	getBeerAbv = () => {
-		const temp = this.state.post.filter(item => item.abv > this.state.abvLevel)
+		this.state.post.filter(item => item.abv > this.state.abvLevel)
 	}
 
 	handleClick = () => {

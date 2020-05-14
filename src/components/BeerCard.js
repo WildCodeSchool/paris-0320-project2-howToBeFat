@@ -3,7 +3,6 @@ import axios from 'axios'
 import './BeerCard.css'
 import Waiting from './Waiting'
 
-// const [recipes, setRecipes] = useState([])
 class BeerCard extends React.Component {
     constructor(props) {
         super(props)
@@ -39,18 +38,19 @@ class BeerCard extends React.Component {
         const { name, image_url, abv, food_pairing } = this.state.beers
         return (
             <>
-                {this.state.isLoading ?
-                    ((<div className="cardBeer">
-                        <h2> BEER OF THE DAY</h2>
-                        <img
-                            src={image_url} alt={name} />
-                        <p className="beerName"> {name} </p>
-                        <p className="beerName">{abv} % vol</p>
-                        <p className="titlePairing">Food pairing :</p>
-                        <span className="pairingBeer ">{food_pairing}</span>
-                    </div>)) :
-                    (<Waiting />)
-                }
+            { this.state.isLoading ?
+            (<div className="cardBeer">
+                <h2> BEER OF THE DAY</h2>
+                <img src={image_url} alt={name} />
+                <p className="beerName"> {name} </p>
+                <p className="beerName">{abv} % vol</p>
+                <p className="titlePairing">Food pairing :</p>
+                <span className="pairingBeer ">{food_pairing}</span>
+                <br />
+                <button className="beer-recipe" onClick={this.getBeer} >Show another one!</button>
+            </div>):
+            (<Waiting />)
+            }
             </>
         )
     }
