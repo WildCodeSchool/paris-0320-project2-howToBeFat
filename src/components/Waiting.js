@@ -18,7 +18,7 @@ class Waiting extends React.Component {
 
         const rotateEyeRight = () => {
             const eye = document.getElementById("right")
-            eye.style.transform = `rotateZ(${delay}deg)`
+            eye.style.transform = `rotateZ(-${delay}deg)`
             delay++
         }
 
