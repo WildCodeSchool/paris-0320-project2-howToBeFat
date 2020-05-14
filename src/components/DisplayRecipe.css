@@ -1,3 +1,5 @@
+
+
 .card img {
 	width: 250px;
 	padding: 0;
@@ -36,6 +38,12 @@
 	padding: 1px;
 	border-radius: 30%;
 	color: rgb(20, 49, 92);
+}
+
+@media (max-width: 381px) {
+	.button .button-recipe:nth-child(2){
+		margin-top: -2em ;
+	}
 }
 
 @media (min-width: 1050px) {
