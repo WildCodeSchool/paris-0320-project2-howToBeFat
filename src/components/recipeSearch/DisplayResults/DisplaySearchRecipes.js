@@ -93,7 +93,7 @@ const DisplaySearchRecipes = (props) => {
               {
                 recipes.map((recipe, id) =>
                   id < rangeLevel.max &&
-                  <MainRecipe recipes={recipe.recipe} display={isDisplay} handleClick={handleClick} />
+                  <MainRecipe key={id} recipes={recipe.recipe} display={isDisplay} handleClick={handleClick} />
                 )
               }
               {
