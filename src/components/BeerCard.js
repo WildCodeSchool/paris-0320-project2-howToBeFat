@@ -3,7 +3,6 @@ import axios from 'axios'
 import './BeerCard.css'
 import Waiting from './Waiting'
 
-// const [recipes, setRecipes] = useState([])
 class BeerCard extends React.Component {
     constructor(props) {
         super(props)

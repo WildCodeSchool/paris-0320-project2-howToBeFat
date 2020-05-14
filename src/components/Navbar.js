@@ -15,7 +15,7 @@ function Navbar(props){
     <div className ="navbar-mobile">
       <NavLink exact to="/" activeClassName = " active"><FontAwesomeIcon icon={faHome} /></NavLink>
       <NavLink to="/RecipeSearch" activeClassName = " active"><FontAwesomeIcon icon={faHamburger} /></NavLink>
-      <NavLink to="/beer" activeClassName = " active"><FontAwesomeIcon icon={faBeer} /></NavLink>
+      <NavLink to="/SearchBeer" activeClassName = " active"><FontAwesomeIcon icon={faBeer} /></NavLink>
       <NavLink to="/Calculator" activeClassName = " active"><FontAwesomeIcon icon={faBalanceScaleRight} /></NavLink>
     </div>
       )
