@@ -89,8 +89,6 @@ const RecipeSearch = () => {
       : callApi(defineRequestUrl(0))
   }
 
-
-
   // Error display selector
   const manageErrors = (error) => {
     switch (error) {
