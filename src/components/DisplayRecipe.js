@@ -8,7 +8,7 @@ class DisplayRecipe extends React.Component {
 
   render() {
     const { label, image } = { ...this.props.recipe }
-    const calories = this.props.calories
+    const calories = Math.round(this.props.calories /1000) 
     return (
       <div className="DisplayRecipe">
         <div className="card">
@@ -16,7 +16,7 @@ class DisplayRecipe extends React.Component {
           <img src={image} alt=""></img>
           <div className="container">
             <p className="recipeName">{label}</p>
-            <p>Number of calories:<br /> <span className="recipeName nbCal">{calories}</span> Cal</p>
+            <p>Number of calories:<br /> <span className="recipeName nbCal">{calories}</span> Kcal</p>
             <div className="button">
               <button onClick={this.props.getOtherRecipe} className="button-recipe">Show another one! </button>
               <button className="button-recipe" value="See more infos..." >

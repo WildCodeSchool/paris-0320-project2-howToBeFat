@@ -8,14 +8,21 @@ class BeerCard extends React.Component {
         super(props)
         this.state = {
             beers: [],
+            affiche :null,
             isLoading: false
         }
     }
-
-    componentDidMount = () => {
+    
+    handleClick = () => {
+        this.setState(prevState =>({
+            affiche: ! prevState.affiche
+        }))
+    }
+    
+    componentDidMount() {
         this.getBeer()
     }
-
+    
     getBeer = () => {
         axios.get('https://api.punkapi.com/v2/beers/random')
             .then(res => {

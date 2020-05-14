@@ -19,9 +19,9 @@ class FullRecipeCard extends React.Component {
                         </div>
                         <div className="ingredients"><IngredientList list={ingredients} /></div>
                     </div>
-                    <div>
-                        <button className="button-recipe"><a href={recipe.url} target="blank">Voir la recette</a></button>
-                        <button className="button-recipe retour"><Link to="/">Retour</Link></button>
+                    <div className="button">
+                        <button className="button-recipe"><a href={recipe.url} target="blank">Show the recipe link</a></button>
+                        <button className="button-recipe retour"><Link to="/">Back</Link></button>
                     </div>
                 </div>
             </div>

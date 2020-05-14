@@ -75,6 +75,12 @@ html {
     cursor: pointer;
   }
   .button-recipe button {
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
     font-size: 1em;
   }
 }

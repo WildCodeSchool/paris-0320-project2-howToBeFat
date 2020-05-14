@@ -12,7 +12,7 @@ function NavbarDesktop (props){
             <NavLink activeClassName = " active " to="/RecipeSearch">Recipes</NavLink>
           </div>
           <div>
-            <NavLink activeClassName = " active " to="/BeerCard" >Beers</NavLink>
+            <NavLink activeClassName = " active " to="/SearchBeer" >Beers</NavLink>
             <NavLink activeClassName = " active " to="/Calculator">Calculator</NavLink>
           </div>
       </div>

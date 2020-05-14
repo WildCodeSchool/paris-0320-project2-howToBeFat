@@ -2,7 +2,7 @@
     border-bottom: solid 1px #1c72a3;
     height: 2.3em;
     margin: 0;
-    width: 99%;
+    width: 100%;
     height: 100%;
 	background-color: #00c2cb;
     color: #ffcb05;
@@ -60,6 +60,12 @@ button.button-recipe{
 
 .retour{
     width: 110px;
+}
+
+@media (max-width: 398px) {
+	.button .button-recipe:nth-child(2){
+		margin-top: -2em ;
+	}
 }
 
 @media screen and (min-width: 1050px) {
