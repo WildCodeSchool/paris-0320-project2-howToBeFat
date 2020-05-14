@@ -57,7 +57,10 @@ Form.propTypes = {
   numOfResult: PropTypes.number.isRequired,
   handleChange: PropTypes.func.isRequired,
   submitForm: PropTypes.func.isRequired,
-  errorRequest: PropTypes.string.isRequired,
+  errorRequest: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.bool.isRequired
+  ]),
   userCalories: PropTypes.oneOfType([
     PropTypes.number.isRequired,
     PropTypes.string.isRequired

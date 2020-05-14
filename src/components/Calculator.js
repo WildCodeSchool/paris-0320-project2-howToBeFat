@@ -81,7 +81,7 @@ class Calculator extends React.Component {
                             step="50"
                             max="100"
                         />
-                        <p className="goal" value={weightToReach} onChange={this.weightChange} className="goal">Your goal : <span className="result">{userWeight === '' ? (` `) : (weightToReach)}</span></p>
+                        <p className="goal" value={weightToReach} onChange={this.weightChange} >Your goal : <span className="result">{userWeight === '' ? (` `) : (weightToReach)}</span></p>
                         <div className="test">
                             <img className="balance-image-mobile" src={balance2} alt='balance' /></div>
                     </div>
