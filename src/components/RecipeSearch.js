@@ -88,6 +88,9 @@ const RecipeSearch = () => {
     !userIngredient1 ? manageErrors("no ingredient")
       : callApi(defineRequestUrl(0))
   }
+
+
+
   // Error display selector
   const manageErrors = (error) => {
     switch (error) {
@@ -155,6 +158,27 @@ const RecipeSearch = () => {
     setDisplayContent("form")
     setNumOfResult(0)
   }
+
+  const ResData = () => {
+    setUserIngredient1('')
+    setUserIngredient2('')
+    setUserIngredient3('')
+    setUserExcludeIngredient1('')
+    setUserExcludeIngredient2('')
+    setUserExcludeIngredient3('')
+    setUserPreparationTime(0)
+    setUserCalories(0)
+    setUserDiets('')
+    setUserIntolerables({
+      "peanut-free": false,
+      "tree-nut-free": false,
+      "alcohol-free": false
+    })
+  }
+
+  useEffect(() => {
+    return () => { ResData() }
+  }, [numOfResult])
 
   return (
     <div className='recipeSearch'>
