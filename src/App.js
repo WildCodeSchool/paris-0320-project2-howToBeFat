@@ -6,7 +6,7 @@ import Footer from './components/Footer'
 import Accueil from './components/Accueil'
 import FullRecipeCard from './components/FullRecipeCard'
 import RecipeSearch from './components/RecipeSearch'
-import BeerCard from './components/BeerCard'
+import SearchBeer from './components/SearchBeer'
 import { Route, Switch } from 'react-router-dom'
 import Calculator from './components/Calculator';
 import './App.css';
@@ -24,7 +24,7 @@ const App = () => {
         <Route path="/FullRecipeCard" component={FullRecipeCard} />
         <Route path="/Calculator" component={Calculator} />
         <Route path="/RecipeSearch" component={RecipeSearch} />
-        <Route path="/BeerCard" component={BeerCard} />
+        <Route path="/SearchBeer" component={SearchBeer} />
       </Switch>
       <Footer />
     </div>

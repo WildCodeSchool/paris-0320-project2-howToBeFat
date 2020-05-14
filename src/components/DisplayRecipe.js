@@ -7,6 +7,7 @@ import './DisplayRecipe.css'
 class DisplayRecipe extends React.Component {
 
   render() {
+    console.log('THIS',this.props.recipe)
     const { label, image } = { ...this.props.recipe }
     const calories = this.props.calories
     return (

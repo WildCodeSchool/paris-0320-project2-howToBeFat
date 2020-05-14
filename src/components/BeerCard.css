@@ -42,6 +42,18 @@
 	font-weight: bold;
 	padding:.5em;
 }
+.span1, .span2 {
+	font-size: 2em;
+    box-shadow: 0 0 20px black;;
+} 
+.span1 {
+	content: "\2912";
+	color:rgb(128, 0, 32);
+}
+.span2 {
+	content: "\2912";
+	color:green;
+}
 
 @media (min-width: 1050px) {
 	.card {
@@ -64,6 +76,10 @@
     }
 	.cardBeer:hover {
 		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	}
+	.beerName, .titlePairing,
+	.pairingBeer {
+	  font-size: 1em;
 	}
 }
 

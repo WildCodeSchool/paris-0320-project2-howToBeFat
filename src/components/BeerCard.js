@@ -3,19 +3,27 @@ import axios from 'axios'
 import './BeerCard.css'
 import Waiting from './Waiting'
 
+// const [recipes, setRecipes] = useState([])
 class BeerCard extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             beers: [],
+            affiche :null,
             isLoading: false
         }
     }
-
-    componentDidMount = () => {
+    
+    handleClick = () => {
+        this.setState(prevState =>({
+            affiche: ! prevState.affiche
+        }))
+    }
+    
+    componentDidMount() {
         this.getBeer()
     }
-
+    
     getBeer = () => {
         axios.get('https://api.punkapi.com/v2/beers/random')
             .then(res => {
