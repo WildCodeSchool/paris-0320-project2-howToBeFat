@@ -88,7 +88,6 @@ const RecipeSearch = () => {
     !userIngredient1 ? manageErrors("no ingredient")
       : callApi(defineRequestUrl(0))
   }
-
   // Error display selector
   const manageErrors = (error) => {
     switch (error) {
