@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 
+import FoodPairing from './FoodPairing'
+
 import './SearchBeer.css'
 
 class SearchBeer extends React.Component {
@@ -16,7 +18,8 @@ class SearchBeer extends React.Component {
 
 	getBeers = () => {
 		axios.get('https://api.punkapi.com/v2/beers')
-			.then(res => this.setState({ post: res.data })
+			.then(res =>
+				this.setState({ post: res.data })
 			)
 	}
 
@@ -26,10 +29,6 @@ class SearchBeer extends React.Component {
 
 	getBeerAbv = () => {
 		this.state.post.filter(item => item.abv > this.state.abvLevel)
-	}
-
-	handleClick = () => {
-		this.setState({ verso: !this.state.verso })
 	}
 
 	render() {
@@ -48,32 +47,15 @@ class SearchBeer extends React.Component {
 							onChange={(e) => this.filterRange(e)} />
 					</div>
 				</div>
-				{this.getBeerAbv()}
-				{this.state.post
-					.filter(beer => beer.abv > this.state.abvLevel)
-					.map((item, index) => (
-						<div className={this.state.verso ? "recto" : 'verso'} key={index} onClick={this.handleClick}>
-							{this.state.verso ? (
-								<div className="beer-abv">
-									<img className="photo_beer" src={item.image_url} alt={item.name} />
-									<div className="name-abv">
-										<h3>{item.name}</h3>
-										<h3>{item.abv} % vol</h3>
-									</div>
-								</div>
-							) : (
-									<div className="center-food" onClick={this.handleClick}>
-										<h2 className="beer-title">{item.name} </h2>
-										{/* <img className="photo_beer" src={item.image_url} /> */}
-										<h3>{item.abv}% vol</h3>
-										<h3>Food pairing:</h3>
-										<p className="food_pairing">{item.food_pairing}</p>
-									</div>
-								)
-							}
-						</div>
-					))
-				}
+				<div className="containers-beersList">
+					{this.getBeerAbv()}
+					{this.state.post
+						.filter(beer => beer.abv > this.state.abvLevel)
+						.map((item, index) => (
+							<FoodPairing index={index} item={item} key={index} />
+						))
+					}
+				</div>
 			</>
 		);
 	}

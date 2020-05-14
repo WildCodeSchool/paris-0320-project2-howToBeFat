@@ -1,27 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline');
-
-.beer-container{
-    margin: 1em;
+.containers-beersList {
+    font-family: 'Gloria Hallelujah', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.beer-abv {
-    /* margin-top: 15%; */
+.beer-container {
+    margin: 1em;
 }
 
 .beer-title {
     width: 100%;
-    background-color: #39c2c9;
-    color: #ffcb05;
+    color: #39c2c9;
+    text-shadow: 2px 2px 2px #0d2963;
+    margin: 0;
+}
+
+.beer-title2 {
+    width: 100%;
+    color: #febc2f;
     text-shadow: 2px 2px 2px #ff9900;
     margin: 0;
 }
 
-.abv-range{
+.abv-range {
     -webkit-appearance: none;
     height: 1em;
     border-radius: 5px;
-    background-image: linear-gradient(135deg,#fffa6c 40%, #ff9900 80%, #551313 100%);
-    border: 1px solid rgb(0, 0, 0);
+    background-image: linear-gradient(135deg, #fffa6c 40%, #ff9900 80%, #551313 100%);
+    border: 1px solid #000000;
     opacity: 0.7;
     margin-top: 2em;
     width: 60%;
@@ -29,16 +37,14 @@
 
 .beer-range {
     font-family: 'Bungee Inline', cursive, sans-serif;
-    color: rgb(13, 41, 99);
-    /* text-shadow: 3px 3px 3px rgb(175, 173, 173); */
+    color: #0d2963;
     font-size: 1.5em;
     margin-top: 1em;
 }
 
 .beer-container .beer-abv h3 {
-    /* box-shadow: 0 8px 16px 0 rgba(248, 248, 248, 0.2); */
-	font-size: 1.4rem;
-	font-family: 'Gloria Hallelujah', sans-serif;
+    font-size: 1.4rem;
+    font-family: 'Gloria Hallelujah', sans-serif;
     color: #013235;
     text-shadow: 1px 1px #ffcb05;
     padding: 0;
@@ -48,26 +54,18 @@
     margin: auto;
 }
 
-.beer-abv h3{
+.beer-abv h3 {
     font-size: 1em;
 }
 
-.beer-description{
+.beer-description {
     font-family: 'Gloria Hallelujah', sans-serif;
     font-size: 1em;
-}
-
-.center-food {
-    font-family: 'Gloria Hallelujah', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom: 0.5em ridge #39c2c9;
 }
 
 .food_pairing {
     padding: 0.3em;
-    font-size: 25px;
+    font-size: 18px;
 }
 
 .recto {
@@ -75,91 +73,88 @@
     font-size: 1.3em;
     margin: 1em;
     color: black;
-    border-radius: 5%;
     border-bottom: 0.5em ridge #39c2c9;
-    border-right: 2px solid rgb(40, 106, 130);
 }
 
 .verso {
     margin: 1em;
-    font-size: 1.5em;
+    font-size: 1.3em;
+    border-bottom: 0.5em ridge #f4c03e;
 }
 
-
 .photo_beer {
+    margin-top: 0.2em;
     width: 25%;
 }
 
-@media screen and (min-width: 1025px){
-    .abv-range{
+@media screen and (min-width: 1025px) {
+    .abv-range {
         width: 30%;
     }
-
     .beer-container .beer-abv img {
         width: 8em;
         height: 25em;
-        /* margin-top: 1em; */
     }
-
+    .beer-title {
+        width: 100%;
+        height: 100%;
+        background-color: #39c2c9;
+        color: #ffcb05;
+        text-shadow: 2px 2px 2px #ff9900;
+        margin: 0;
+    }
     .beer-range {
         font-size: 2.5em;
         margin-top: 1em;
     }
-
     .recto {
         display: inline-block;
         width: 25%;
         border-top: 5px solid #45D3D3;
-        /* box-shadow: 0 8px 17px -8px #A3A5AE; */
         transition: 2s;
         border: none;
         border-radius: 0;
     }
-
     .recto:hover {
         box-shadow: 0 8px 16px 5px #000000a7;
     }
-
     .center-food {
         border: none;
         transition: 1s;
         font-size: 1em;
     }
-    
     .center-food:hover {
         width: 100%;
     }
-    
+    .containers-beersList {
+        display: inline-block;
+    }
     .verso {
         display: inline-block;
         width: 25%;
         border-top: 5px solid #45D3D3;
-        /* box-shadow: 0 8px 17px -8px #A3A5AE; */
         transition: 2s;
         border: none;
         border-radius: 0;
     }
-
     .verso:hover {
-        box-shadow: 0 8px 16px 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 8px 16px 5px #0000004d;
     }
-    
 }
 
-@media only screen and (min-device-width : 768px) and (max-device-width : 1025px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1025px) {
+    .containers-beersList {
+        display: inline-block;
+    }
     .recto {
         display: inline-block;
-        width: 40%;
-        border: none;
+        width: 30%;
     }
-
     .verso {
         display: inline-block;
-        width: 40%;
-        border: none;
+        width: 30%;
     }
-
-    .abv-range{
+    .abv-range {
         width: 20%;
     }
 }
