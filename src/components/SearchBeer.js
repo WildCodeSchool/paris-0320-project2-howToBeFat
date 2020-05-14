@@ -63,8 +63,8 @@ class SearchBeer extends React.Component {
 								</div>
 							) : (
 									<div className="center-food" onClick={this.handleClick}>
-										<h2>{item.name} </h2>
-										<img className="photo_beer" src={item.image_url} />
+										<h2 className="beer-title">{item.name} </h2>
+										{/* <img className="photo_beer" src={item.image_url} /> */}
 										<h3>{item.abv}% vol</h3>
 										<h3>Food pairing:</h3>
 										<p className="food_pairing">{item.food_pairing}</p>

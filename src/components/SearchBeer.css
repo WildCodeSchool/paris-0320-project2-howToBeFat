@@ -5,7 +5,15 @@
 }
 
 .beer-abv {
-    margin-top: 15%;
+    /* margin-top: 15%; */
+}
+
+.beer-title {
+    width: 100%;
+    background-color: #39c2c9;
+    color: #ffcb05;
+    text-shadow: 2px 2px 2px #ff9900;
+    margin: 0;
 }
 
 .abv-range{
@@ -90,7 +98,7 @@
     .beer-container .beer-abv img {
         width: 8em;
         height: 25em;
-        margin-top: 1em;
+        /* margin-top: 1em; */
     }
 
     .beer-range {
@@ -115,6 +123,7 @@
     .center-food {
         border: none;
         transition: 1s;
+        font-size: 1em;
     }
     
     .center-food:hover {
