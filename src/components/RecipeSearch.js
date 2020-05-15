@@ -156,6 +156,27 @@ const RecipeSearch = () => {
     setNumOfResult(0)
   }
 
+  const ResData = () => {
+    setUserIngredient1('')
+    setUserIngredient2('')
+    setUserIngredient3('')
+    setUserExcludeIngredient1('')
+    setUserExcludeIngredient2('')
+    setUserExcludeIngredient3('')
+    setUserPreparationTime(0)
+    setUserCalories(0)
+    setUserDiets('')
+    setUserIntolerables({
+      "peanut-free": false,
+      "tree-nut-free": false,
+      "alcohol-free": false
+    })
+  }
+
+  useEffect(() => {
+    return () => { ResData() }
+  }, [numOfResult])
+
   return (
     <div className='recipeSearch'>
       <h2 className="mainTitle">CUSTOMIZE YOUR RECIPE</h2>
