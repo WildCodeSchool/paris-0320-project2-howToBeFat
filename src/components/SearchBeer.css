@@ -108,7 +108,7 @@
     }
     .recto {
         display: inline-block;
-        width: 25%;
+        width: 20em;
         border-top: 5px solid #45D3D3;
         transition: 2s;
         border: none;
@@ -130,7 +130,7 @@
     }
     .verso {
         display: inline-block;
-        width: 25%;
+        width: 20em;
         border-top: 5px solid #45D3D3;
         transition: 2s;
         border: none;
@@ -141,13 +141,16 @@
     }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1025px) {
+@media only screen and (min-width: 768px) and (max-width: 1025px) {
     .containers-beersList {
         display: inline-block;
     }
+    .photo_beer {
+        width: 3.5em;
+    }
     .recto {
         display: inline-block;
-        width: 30%;
+        width: 15em;
     }
     .verso {
         display: inline-block;
