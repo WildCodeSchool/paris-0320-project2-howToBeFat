@@ -1,0 +1,44 @@
+.quoteOfTheDay{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Gloria Hallelujah', 'Knewave', sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;   
+    text-shadow: 3px 3px 0px #2972a3;
+    background-image: url('./images/donuts.png');
+    height: 18.9em;
+    background-position-x: 55%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.randomQuote {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.quote {
+    margin: 0;
+}
+
+@media screen and (min-width: 590px) and (max-width: 900px) {
+    .quote {
+        font-size: 2.2em;
+    }
+    .quoteOfTheDay {
+        background-position-y: 40%;
+    }
+    .randomQuote {
+        font-size: 1.8em;
+    }
+}
+/* max a 900 car on ne voit pas les donuts */
+@media (min-width: 900px) {
+    .quoteOfTheDay{
+        font-size: 1.5rem;
+        background-position-y: 44%;
+        height: 340px;
+        text-shadow: 3px 3px 0px #2972a3;
+    }
+}

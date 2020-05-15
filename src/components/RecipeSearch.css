@@ -1,0 +1,71 @@
+.recipeSearch {
+    position: relative;
+}
+
+.recipeSearch .mainTitle {
+    box-shadow: 0 8px 16px 0 rgba(248, 248, 248, 0.2);
+    background-color: #00c2cb;
+    color: #ffcb05;
+    padding: .2em;
+    font-size: 1.4rem;
+    font-family: 'Gloria Hallelujah', sans-serif;
+    border-bottom: 1px inset #1c72a3;
+    border-top: 5px double #ecdb96;
+    text-shadow: 2px 1px #1c72a3;
+    width: 100%;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.recipeSearch .newSearch {
+    background-color: #ffcb05;
+    height: 1em;
+    padding: 0 auto .75em;
+    border: 1px solid #1c72a3;
+    border-bottom: .25em solid #1c72a3;
+    width: 100%;
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    font-family: 'Sniglet', cursive;
+    letter-spacing: 5px;
+    padding-bottom: .35em;
+    color: #1c72a3;
+    opacity: .75;
+}
+
+.recipeSearch .newSearch:hover {
+    color: #1c72a3;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.recipeSearch .triangle {
+    position: relative;
+    width: 0px;
+    height: 0px;
+    border-top: 4em solid transparent;
+    border-bottom: 4em solid transparent;
+    border-left: 1em solid #1c72a3;
+    transform: rotate(90deg);
+    margin: auto;
+    margin-bottom: -7.5em;
+    top: -3.45em;
+    opacity: .75;
+}
+
+.recipeSearch .triangle:hover {
+    border-left-color: #0b486b;
+    opacity: 1;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 950px) {
+    .recipeSearch h2 {
+        max-width: 90em;
+        margin: auto;
+    }
+    .recipeSearch:hover {
+        transition: 0.5s;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+}

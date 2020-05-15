@@ -1,0 +1,75 @@
+
+
+.card img {
+	width: 250px;
+	padding: 0;
+}
+
+.container p:last-of-type {
+	margin-top: 1em;
+	font-family: 'Sniglet', cursive;
+}
+
+.DisplayRecipe .card img {
+	border: 1px solid rgb(194, 195, 196);
+}
+
+.DisplayRecipe .card h2 {
+	box-shadow: 0 8px 16px 0 rgba(248, 248, 248, 0.2);
+	background-color: #00c2cb;
+	color: #ffcb05;
+	padding: .2em;
+	font-size: 1.4rem;
+	font-family: 'Gloria Hallelujah', sans-serif;
+	border-bottom: 1px inset #1c72a3;
+	text-shadow: 2px 1px #1c72a3;
+}
+
+.recipeName {
+	font-weight: 1000;
+	font-family: 'Indie Flower', cursive;
+	font-size: 1.8rem;
+	width: 70%;
+	margin: auto;
+	line-height: 1.4em;
+}
+
+.recipeName.nbCal {
+	padding: 1px;
+	border-radius: 30%;
+	color: rgb(20, 49, 92);
+}
+
+@media (max-width: 381px) {
+	.button .button-recipe:nth-child(2){
+		margin-top: -2em ;
+	}
+}
+
+@media (min-width: 1050px) {
+	.DisplayRecipe {
+		margin: auto;
+		width: 400px;
+	}
+	.DisplayRecipe .card img {
+		width: 280px;
+	}
+	.DisplayRecipe .card {
+		transition: .9s;
+		margin: auto;
+		margin-bottom: 1em;
+	}
+	.card:hover {
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	}
+	.recipeName {
+		width: 85%;
+	}
+	.RecipeCard {
+		margin: auto;
+		margin-left: 0px;
+		margin-right: 150px;
+		margin-top: 40px;
+		margin-bottom: 0px;
+	}
+}

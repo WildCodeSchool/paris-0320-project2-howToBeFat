@@ -1,24 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom'
+
+import Accueil from './components/Accueil'
+import Calculator from './components/Calculator';
+import Footer from './components/Footer'
+import FullRecipeCard from './components/FullRecipeCard'
+import Header from './components/Header'
+import Navbar from './components/Navbar'
+import RecipeSearch from './components/RecipeSearch'
+import SearchBeer from './components/SearchBeer'
+
 import './App.css';
 
-function App() {
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="header">
+        <Header />
+        <Navbar />
+      </div>
+      <Switch>
+        <Route exact path="/" component={Accueil}></Route>
+        <Route path="/FullRecipeCard" component={FullRecipeCard} />
+        <Route path="/Calculator" component={Calculator} />
+        <Route path="/RecipeSearch" component={RecipeSearch} />
+        <Route path="/SearchBeer" component={SearchBeer} />
+      </Switch>
+      <Footer />
     </div>
   );
 }

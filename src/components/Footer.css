@@ -1,0 +1,45 @@
+.footer{
+    width: 100%;
+    background-color: #00c2cb21;
+    color: #231f20;
+    font-size: 0.8em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    margin-top: 1em;
+}
+
+.logosLink ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+}
+
+.logosLink img{
+    width: 3em;
+    height: 3em;
+    border-radius: 20%;
+}
+
+@media screen and (max-width: 1050px) and (min-width: 590px) {
+
+    .footer{
+        font-size: 1em;
+    }
+
+    .logosLink img{
+        width: 2.5em;
+        height: 2.5em;
+    }
+
+    .logosLink ul{
+        justify-content: space-evenly
+    }
+  }
+
+
+  @media (min-width: 1050px) {
+      .footer{
+       margin-bottom: 0;
+      }
+  }

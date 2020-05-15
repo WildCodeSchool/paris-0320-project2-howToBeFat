@@ -1,0 +1,97 @@
+.cardBeer img{
+	height: 15%;
+	padding: 0;
+}
+
+.cardBeer h2{
+	box-shadow: 0 8px 16px 0 rgba(248, 248, 248, 0.2);
+	background-color: #00c2cb;
+	color: #ffcb05;
+	padding: .2em;
+	font-size: 1.4rem;
+	font-family: 'Gloria Hallelujah', sans-serif;
+	border-bottom: 1px inset #1c72a3;
+	text-shadow: 2px 1px #1c72a3;
+}
+
+.cardBeer img{
+    box-shadow: 0 8px 16px 0 rgba(248, 248, 248, 0.2);
+    color: #ffcb05;
+    height: 350px;
+	padding: .5em;
+	margin-top:.5em;
+}
+
+.beerName {
+	font-weight: 1000;
+	font-family: 'Indie Flower', cursive, sans-serif;
+	font-size: 1.8rem;
+	width: 70%;
+	margin: auto;
+	line-height: 1.4em;
+}
+
+.beer-recipe {
+	font-family: 'Sniglet', cursive;
+	background-color: #ffcb05;
+	color: #1c72a3;
+	border: 1px solid #1c72a3;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 0 .5em .5em;
+	font-size: 1em;
+	margin-top: 1.5em;
+  }
+
+.titlePairing {
+	font-family: 'Sniglet', cursive, sans-serif;
+	font-weight: 500;
+}
+
+.pairingBeer {
+	font-family: 'Indie Flower', cursive, sans-serif;
+	font-size: 1.2rem;
+	font-weight: bold;
+	padding:.5em;
+}
+.span1, .span2 {
+	font-size: 2em;
+    box-shadow: 0 0 20px black;;
+} 
+.span1 {
+	content: "\2912";
+	color:rgb(128, 0, 32);
+}
+.span2 {
+	content: "\2912";
+	color:green;
+}
+
+@media (min-width: 1050px) {
+	.card {
+		margin: auto;
+	}
+
+	.cardBeer {
+		margin-bottom: 1em;
+        margin: auto;
+		transition: .9s;
+        width: 400px;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 59px;
+	}
+    .cardBeer h2 {
+    	margin-top: 0px;
+    	margin-bottom: 0px;
+
+    }
+	.cardBeer:hover {
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	}
+	.beerName, .titlePairing,
+	.pairingBeer {
+	  font-size: 1em;
+	}
+}
+

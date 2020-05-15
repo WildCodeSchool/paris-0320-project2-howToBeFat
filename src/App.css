@@ -1,38 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Knewave&display=swap&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap%22");
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Indie+Flower&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Sniglet:regular,800);
+@import url(https://fonts.googleapis.com/css?family=Gaegu:300,regular,700);
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin-bottom: 2.75em;
+  margin: 0;
+  position: relative;
+  padding-bottom: 10em;
+  min-height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.button-recipe {
+  font-family: 'Sniglet', cursive;
+  background-color: #ffcb05;
+  color: #1c72a3;
+  border: 1px solid #1c72a3;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0 .5em .5em;
+  font-size: 1em;
+}
+
+.button-recipe:hover {
+  background-color: #1c72a3;
+  color: #ffcb05;
+  transition: 1s all cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.button-recipe a, .button-recipe a:visited {
+  text-decoration: none;
+  color: #1c72a3;
+}
+
+.button-recipe a:hover {
+  color: #ffcb05;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+}
+
+html {
+  height: 100%;
+}
+
+@media screen and (min-width: 1049px) {
+  .container-body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: baseline;
+    align-content: center;
+    margin: 0;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  body {
+    margin-bottom: 0;
   }
-  to {
-    transform: rotate(360deg);
+  .button-recipe button {
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  .button-recipe button {
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-size: 1em;
   }
 }

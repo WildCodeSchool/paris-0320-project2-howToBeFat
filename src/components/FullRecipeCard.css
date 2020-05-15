@@ -1,0 +1,97 @@
+.recipe-name {
+    border-bottom: solid 1px #1c72a3;
+    height: 2.3em;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+	background-color: #00c2cb;
+    color: #ffcb05;
+    font-family: 'Gloria Hallelujah', sans-serif;
+    text-shadow: 2px 1px #1c72a3;
+    padding: .2em;
+}
+
+.calorie {
+    width: 8em;
+    margin: 1em auto;
+    white-space: nowrap;
+    font-family: 'Sniglet', cursive;
+
+}
+
+.colorie span {
+    color: #00c2cb;
+}
+
+.fullCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.2em;
+}
+
+.kcal {
+	font-family: 'Sniglet', cursive;
+}
+
+.ingredients {
+    text-align: left;
+}
+
+.photo{
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+}
+
+.photoFood {
+    border: solid 1px #00c2cb;
+    padding: 0.3em;
+    width: 210px;
+    margin-top: 15px;
+}
+.photoFood img{
+    width: 200px;
+}
+
+button.button-recipe{
+    margin: 1.5em;
+}
+
+.retour{
+    width: 110px;
+}
+
+@media (max-width: 398px) {
+	.button .button-recipe:nth-child(2){
+		margin-top: -2em ;
+	}
+}
+
+@media screen and (min-width: 1050px) {
+    .fullCard {
+        width: 78%;
+    }
+    .fullCard:hover {
+		transition: 2.5s;
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .photo{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .photoFood{
+        width: 450px;
+    }
+
+    .photoFood img{
+        width: 450px;
+    }
+    .containRecipe {
+        display: flex;
+        justify-content: center;
+    }
+
+}
