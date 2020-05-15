@@ -18,7 +18,7 @@ const RecipeInfos = (props) => (
       <p>{Math.round(props.calories)} Kcal</p>
     </aside>
     <aside className="infos">
-      <h4>Preparation time</h4>
+      <h4>Prep time</h4>
       <p title={getPreparationTime(props.time)}>{props.time ? `${props.time} minutes` : "Not available"} </p>
     </aside>
   </article>
