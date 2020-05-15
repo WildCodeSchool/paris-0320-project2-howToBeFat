@@ -98,9 +98,8 @@
     .beer-title {
         width: 100%;
         height: 100%;
-        background-color: #39c2c9;
-        color: #ffcb05;
-        text-shadow: 2px 2px 2px #ff9900;
+        color: #39c2c9;
+        text-shadow: 2px 2px 2px #0d2963;
         margin: 0;
     }
     .beer-range {
